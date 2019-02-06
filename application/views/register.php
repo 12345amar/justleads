@@ -40,7 +40,7 @@
 					
                     <div class="form-group ">
                         <div class="col-xs-12">
-                            <input class="form-control" type="password" name="password" placeholder="Password">
+                            <input class="form-control" type="password" name="password" placeholder="Password" value="">
 							<span class="text-danger" style="color:red;"><?php echo form_error('password'); ?></span>
                         </div>
                     </div>

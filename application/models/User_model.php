@@ -2,6 +2,9 @@
 
 class User_model extends CI_Model {
 
+    function __construct() {
+    parent::__construct();
+    }
     /**
      * Check User is exist in storage
      * 
@@ -9,6 +12,11 @@ class User_model extends CI_Model {
      * @param type $password
      * @return boolean
      */
+    
+     function form_insert($data) {
+       $this->db->insert('leads', $data);
+     }
+    
     public function login_valid($userData)
     {       
         $this->db->where('email', $userData['username']);
@@ -27,12 +35,19 @@ class User_model extends CI_Model {
             $this->session->set_userdata($session_data);  
       
             return true;	
-	} else {
+	} 
+        else {
             
             return false;	
-	}
-        die;
+	}        
     }
+    
+   // public function saverecords($tb, $values) {
+	   //$this->db->insert($tb, $values);
+   //}
+
+
+   
     
     public function checkUseLogin()
     {
@@ -40,6 +55,15 @@ class User_model extends CI_Model {
             
             redirect('logout');
         }
+    }
+    
+    function fetch_pass($session_id) {
+        $fetch_pass = $this->db->query("select * from users where id='$session_id'");
+        $res = $fetch_pass->result();
+    }
+    
+    function change_pass($session_id,$new_pass) {
+        $update_pass = $this->db->query("UPDATE users set password='$new_pass' where id='$session_id'");
     }
 }
 

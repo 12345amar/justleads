@@ -31,8 +31,8 @@
                 </div>
                 <?php } ?>
                     
-                    <?php echo form_open_multipart('login/index', ['id' => 'login_form', 'method' => 'post']); ?>
-                    <form method="post" action="<?php echo base_url('admin/login'); ?>" class="form-horizontal form-material" id="loginform" name="loginform">
+                    <?php //echo form_open_multipart('login/index', ['id' => 'login_form', 'method' => 'post', 'class' => "form-horizontal form-material"]); ?>
+                    <form method="post" class="form-horizontal form-material" id="loginform" action="<?php echo base_url('login/index'); ?>">
                         <h3 class="box-title m-b-20">Sign In</h3>
 
                         <div class="form-group ">
