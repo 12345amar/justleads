@@ -101,11 +101,11 @@ class TeleCaller extends CI_Controller {
         $this->load->view('addlead', $data);
         //redirect('telecaller/addlead');
 	}	
-        
         //}
-        
 	 }
-    
-    //$this->load->view('telecaller/leads');
+          
+         public function viewlead() {
+             echo "hello";
+         }
 
 }
