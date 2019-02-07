@@ -52,8 +52,10 @@
                     </div>
                     <div class="form-group ">
                         <div class="col-xs-12">
+
                             <input class="form-control" type="password" name="password"  placeholder="Password" value="<?php echo set_value('password'); ?>">
                             <span class="help-block" style="color:red;" <?php echo form_error('password'); ?></span> 
+
                         </div>
                     </div>
                     <div class="form-group">

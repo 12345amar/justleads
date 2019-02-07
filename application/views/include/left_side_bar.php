@@ -258,7 +258,7 @@
                         <!-- Profile -->
                         <!-- ============================================================== -->
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="../assets/images/users/1.jpg" alt="user" class="profile-pic" /></a>
+                            <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="<?php echo base_url(); ?>assets/images/users/1.jpg" alt="user" class="profile-pic" /></a>
                             <div class="dropdown-menu dropdown-menu-right scale-up">
                                 <ul class="dropdown-user">
                                     <li>
@@ -270,8 +270,9 @@
                                         </div>
                                     </li>
                                     <li role="separator" class="divider"></li>
-                                    <li><a href="<?php echo base_url('admin/profile'); ?>"><i class="ti-user"></i> My Profile</a></li>
+                                    <li><a href="<?php echo base_url('telecaller/profile'); ?>"><i class="ti-user"></i> My Profile</a></li>
                                     <li><a href="#"><i class="ti-wallet"></i> My Balance</a></li>
+									<li><a href="<?php echo base_url('telecaller/changepassword'); ?>"><i class="ti-lock"></i> Change Password</a></li>
                                     <li><a href="#"><i class="ti-email"></i> Inbox</a></li>
                                     <li role="separator" class="divider"></li>
                                     <li><a href="#"><i class="ti-settings"></i> Account Setting</a></li>
@@ -307,7 +308,7 @@
                     <!-- User profile text-->
                     <div class="profile-text"> <a href="#" class="dropdown-toggle u-dropdown" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true">Markarn Doe</a>
                         <div class="dropdown-menu animated flipInY">
-                            <a href="#" class="dropdown-item"><i class="ti-user"></i> My Profile</a>
+                            <a href="<?php echo base_url('telecaller/profile'); ?>" class="dropdown-item"><i class="ti-user"></i> My Profile</a>
                             <a href="#" class="dropdown-item"><i class="ti-wallet"></i> My Balance</a>
                             <a href="#" class="dropdown-item"><i class="ti-email"></i> Inbox</a>
                             <div class="dropdown-divider"></div> <a href="#" class="dropdown-item"><i class="ti-settings"></i> Account Setting</a>
@@ -321,25 +322,26 @@
                     <ul id="sidebarnav">
                         <li class="nav-small-cap">PERSONAL</li>
                         <li>
-                            <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu">Dashboard </span></a>
-                            <ul aria-expanded="false" class="collapse">
-                                <li><a href="index.html">Dashboard 1</a></li>
-                                <li><a href="index2.html">Dashboard 2</a></li>
-                                <li><a href="index3.html">Dashboard 3</a></li>
-                                <li><a href="index4.html">Dashboard 4</a></li>
-                                <li><a href="index5.html">Dashboard 5</a></li>
-                                <li><a href="index6.html">Dashboard 6</a></li>
-                            </ul>
+                            <a class="has-arrow waves-effect waves-dark" href="#"><span class="hide-menu">Dashboard </span></a>
+                            <!--<ul aria-expanded="false" class="collapse">
+                                <li><a href="https://wrappixel.com/demos/admin-templates/material-pro/horizontal/index2.html">Dashboard</a></li>
+      
+                            </ul>-->
                         </li>
-                        <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-laptop-windows"></i><span class="hide-menu">Template Demos</span></a>
-                            <ul aria-expanded="false" class="collapse">
-                                <li><a href="https://wrappixel.com/demos/admin-templates/material-pro/minisidebar/index.html">Minisidebar</a></li>
-                                <li><a href="https://wrappixel.com/demos/admin-templates/material-pro/horizontal/index2.html">Horizontal</a></li>
-                                <li><a href="https://wrappixel.com/demos/admin-templates/material-pro/dark/index3.html">Dark Version</a></li>
-                                <li><a href="https://wrappixel.com/demos/admin-templates/material-pro/material-rtl/index4.html">RTL Version</a></li>
-                            </ul>
+                         <li>
+                            <a class="has-arrow waves-effect waves-dark" href="<?php echo base_url('telecaller/leads'); ?>" aria-expanded="false">
+                                <i class="mdi mdi-laptop-windows"></i>
+                                <span class="hide-menu">Leads</span>
+                            </a>
+                            <!--<ul aria-expanded="false" class="collapse">
+                                <li>
+                                    <a href="<?php //echo base_url('telecaller/leads'); ?>">Leads</a>
+                                </li>
+                            </ul>-->
                         </li>
-                        <li>
+						
+						
+                        <!--<li>
                             <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-bullseye"></i><span class="hide-menu">Apps</span></a>
                             <ul aria-expanded="false" class="collapse">
                                 <li><a href="app-calendar.html">Calendar</a></li>
@@ -388,10 +390,10 @@
                                 <li><a href="ui-date-paginator.html">Date-paginator</a></li>
                                 <li><a href="ui-dragable-portlet.html">Dragable Portlet</a></li>
                             </ul>
-                        </li>
-                        <li class="nav-devider"></li>
-                        <li class="nav-small-cap">FORMS, TABLE &amp; WIDGETS</li>
-                        <li>
+                        </li>-->
+                        <!--<li class="nav-devider"></li>-->
+                        <!--<li class="nav-small-cap">FORMS, TABLE &amp; WIDGETS</li>-->
+                        <!--<li>
                             <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-file"></i><span class="hide-menu">Forms</span></a>
                             <ul aria-expanded="false" class="collapse">
                                 <li><a href="form-basic.html">Basic Forms</a></li>
@@ -434,10 +436,10 @@
                                 <li><a href="widget-data.html">Widget Data</a></li>
                                 <li><a href="widget-charts.html">Widget Charts</a></li>
                             </ul>
-                        </li>
-                        <li class="nav-devider"></li>
-                        <li class="nav-small-cap">EXTRA COMPONENTS</li>
-                        <li>
+                        </li>-->
+                        <!--<li class="nav-devider"></li>-->
+                        <!--<li class="nav-small-cap">EXTRA COMPONENTS</li>-->
+                        <!--<li>
                             <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-book-multiple"></i><span class="hide-menu">Page Layout</span></a>
                             <ul aria-expanded="false" class="collapse">
                                 <li><a href="layout-single-column.html">1 Column</a></li>
@@ -536,7 +538,7 @@
                                 </li>
                                 <li><a href="#">item 1.4</a></li>
                             </ul>
-                        </li>
+                        </li>-->
                     </ul>
                 </nav>
                 <!-- End Sidebar navigation -->
