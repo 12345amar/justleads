@@ -14,6 +14,7 @@ class TeleCaller extends CI_Controller {
      * 
      */
     public function index() {
+        ///example for giyt
         $this->User_model->checkUseLogin();
         
         $data['page']   = 'index';

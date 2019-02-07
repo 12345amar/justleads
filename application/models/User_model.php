@@ -30,8 +30,7 @@ class User_model extends CI_Model {
 	} else {
             
             return false;	
-	}
-        die;
+	}        
     }
     
     public function checkUseLogin()
@@ -41,6 +40,9 @@ class User_model extends CI_Model {
             redirect('logout');
         }
     }
-}
+       
 
+     
+}
+       	
 ?>
