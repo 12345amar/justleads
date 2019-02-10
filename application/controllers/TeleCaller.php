@@ -46,24 +46,44 @@ class TeleCaller extends CI_Controller {
         $this->load->view('changepassword', $data);
     }
     
-    public function change_pass() {
-        if($this->input->post('change_pass')) {
-            $old_pass = md5($this->input->post('old_password'));
-            $new_pass = md5($this->input->post('newpassword'));
-            $confirm_pass = md5($this->input->post('re_password'));
-            $session_id = $this->session->userdata('id');
-            $que = $this->db->query("select * from users where id='$session_id'");
-            $row = $que->row();
-            if((!strcmp($old_pass, $pass))&&(!strcmp($new_pass, $confirm_pass))) {
-                $this->User_model->change_pass($session_id,$new_pass);
-                echo "Password change successfully";
-            }
-           else {
-                echo "Invalid";
-           }
+    public function change_Password() {
+        $this->User_model->checkUseLogin();
+        $this->form_validation->set_rules('old_password', 'Old Password', 'callback_password_check');
+        $this->form_validation->set_rules('new_password', 'Old Password', 'required');
+        $this->form_validation->set_rules('pass_conf', 'Confirm Password', 'required|matches[new_password]');
+        $this->form_validation->set_error_delimiters('<div class="error">', '</div>');
+        if ($this->form_validation->run() == false) {
+            $this->load->view('telecaller/changepassword');
         }
-        $this->load->view('changepassword');
-    }
+        else {
+            $id = $this->session->userdata('id');
+            $newpass = $this->input->post('new_password');
+            $this->User_model->update($id, array('password' => md5($newpass)));
+            redirect('login');
+        }
+      }
+		
+		
+		public function password_check($old_password) {
+        $id = $this->session->userdata('id');
+        $user = $this->User_model->get_user($id);
+        if($user->password !== md5($old_password)) {
+            $this->form_validation->set_message('password_check', 'The (field) does not match');
+            return false;
+        }
+            return true;
+      }
+
+        public function saveNewPass($new_pass)
+        {
+            $data = array(
+                   'password' => $new_pass
+                );
+            $this->db->where('username', $this->input->post('username'));
+            $this->db->update('users', $data);
+            return true;
+        }
+		
     
         public function addlead() {
             $this->load->view('addlead');
@@ -89,24 +109,57 @@ class TeleCaller extends CI_Controller {
 		} else {
 		$data = array(
 		    'buyer_name' => $this->input->post('buyer_name'),
-                    'buyer_budget' => $this->input->post('buyer_budget'),
-                    'mobile' => $this->input->post('mobile'),
+            'buyer_budget' => $this->input->post('buyer_budget'),
+            'mobile' => $this->input->post('mobile'),
 		    'email' => $this->input->post('email'),
-                    'location' => $this->input->post('location'),
+            'location' => $this->input->post('location'),
 		    'post_lead' => $this->input->post('post_lead')  
 		);
                 //print_r($data); die();
         //$this->load->model('User_model');	
         $this->User_model->form_insert($data);
         $data['message'] = 'Lead Inserted Successfully';
-        $this->load->view('addlead', $data);
-        //redirect('telecaller/addlead');
+        //$this->load->view('leads', $data);
+        redirect('telecaller/leads', $data);
 	}	
         //}
 	 }
           
-         public function viewlead() {
-             echo "hello";
+         public function viewlead() { 
+         $this->User_model->checkUseLogin(); 
+         $data['page']   = 'index';
+         $id = $this->uri->segment(3);
+         $leads = $this->db->query("select * from leads where id=".$id);
+         $data['record'] = $leads->result_array();
+         $this->load->view("viewlead",$data);
+         }
+         
+         public function updatelead() {
+             $data = $this->input->post();
+             unset($data['update']);
+             $this->load->model('User_model');
+             $this->User_model->editlead('leads', 'id='.$data['id'],$data);
+             redirect('telecaller/leads');
+         }
+         
+         public function delete() {
+             $id = $this->uri->segment(3);
+             $this->load->model('User_model');
+             $this->User_model->delete('leads','id='.$id);
+             redirect('telecaller/leads');
+         }
+		 
+		 /** 
+		  * View Part Of Lead:
+		  * Function viewdetails
+		 **/
+		 public function viewdetails() { 
+         $this->User_model->checkUseLogin(); 
+         $data['page']   = 'index';
+         $id = $this->uri->segment(3);
+         $leads = $this->db->query("select * from leads where id=".$id);
+         $data['record'] = $leads->result_array();
+         $this->load->view("viewdetails",$data);
          }
 
 }

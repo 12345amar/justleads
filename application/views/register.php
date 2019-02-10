@@ -79,7 +79,7 @@
                     </div>
                     <div class="form-group m-b-0">
                         <div class="col-sm-12 text-center">
-                            Already have an account? <a href="pages-login.html" class="text-info m-l-5"><b>Sign In</b></a>
+                            Already have an account? <a href="<?php echo base_url('login'); ?>" class="text-info m-l-5"><b>Sign In</b></a>
                         </div>
                     </div>
                 </form>

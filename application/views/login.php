@@ -34,7 +34,6 @@
 
                    <form method="post" class="form-horizontal form-material" id="loginform" action="<?php echo base_url('login/index'); ?>">
                     
-
                         <h3 class="box-title m-b-20">Sign In</h3>
 
                         <div class="form-group ">
@@ -50,6 +49,7 @@
                                 <span class="text-danger" style="color:red;"><?php echo form_error('password'); ?></span>
                             </div>
                         </div>
+                        
                         <div class="form-group">
                             <div class="d-flex no-block align-items-center">
                                 <div class="checkbox checkbox-primary p-t-0">
@@ -61,20 +61,21 @@
                                 </div>
                             </div>
                         </div>
+                        
                         <div class="form-group text-center m-t-20">
                             <div class="col-xs-12">
                                 <button class="btn btn-info btn-lg btn-block text-uppercase waves-effect waves-light" name="submit" type="submit">Log In</button>
                                 
                             </div>
                         </div>
-                        <div class="row">
+                        <!--<div class="row">
                             <div class="col-xs-12 col-sm-12 col-md-12 m-t-10 text-center">
                                 <div class="social">
                                     <button class="btn btn-facebook" data-toggle="tooltip" title="Login with Facebook"> <i aria-hidden="true" class="fab fa-facebook-f"></i> </button>
                                     <button class="btn btn-googleplus" data-toggle="tooltip" title="Login with Google"> <i aria-hidden="true" class="fab fa-google-plus-g"></i> </button>
                                 </div>
                             </div>
-                        </div>
+                        </div>-->
                         <div class="form-group m-b-0">
                             <div class="col-sm-12 text-center">
                                 Don't have an account? <a href="<?php echo base_url('registration/index'); ?>" class="text-info m-l-5"><b>Sign Up</b></a>

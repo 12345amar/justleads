@@ -22,12 +22,24 @@ class Login extends CI_Controller {
                     'username'   => $this->input->post('username'),
                     'password'   => md5($this->input->post('password'))
                 );  
+                
                 if ($this->User_model->login_valid($userData)) {
-                   
-                    $this->session->set_flashdata('success', 'User logged in successfully.');  
-                    redirect('telecaller');
-                } else {
-                    
+                    //$userdata = $this->User_model->login_valid($userData);
+                    if(isset($userData['username']) && !empty($userData['username'])) { 
+                        //$userData=array(
+                        //'id'=>$user_info['id'],
+                        //'username'=>$username,
+                        //'logged_in' => true
+                        //);
+                    $this->session->set_userdata($userData);
+                    $this->session->set_flashdata('success', 'User logged in successfully.');
+                    if($userData['id'] == 1){
+                            redirect('admin');
+                        } else {
+                            redirect('telecaller');
+                        }
+                    }
+                } else {  
                     $this->session->set_flashdata('error', 'Username or Password does not match, try again.');                    
                     redirect('login');
                 }

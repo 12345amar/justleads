@@ -19,7 +19,11 @@
     <!-- Custom CSS -->
     <link href="<?php echo base_url(); ?>/assets/css/style.css" rel="stylesheet">
     <!-- You can change the theme colors from here -->
+	<link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
     <link href="<?php echo base_url(); ?>assets/css/colors/blue.css" id="theme" rel="stylesheet">
+	<link href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" rel="stylesheet" />
+    <link href="https://cdn.datatables.net/select/1.2.7/css/select.dataTables.min.css" rel="stylesheet" />
+	<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -622,64 +626,49 @@
                         <div class="card">
                             <div class="card-body">
 							
-							
-							
                                 <h4 class="card-title">Data Export</h4>
                                 <h6 class="card-subtitle">Export data to Copy, CSV, Excel, PDF & Print</h6>
-								
-								
 				                <div class="d-flex no-block align-self-center">
-      
                                     <div class="ml-auto">
-                                        <button class=" btn-sm pull-right collapsed" type="button" ><a href="<?php echo base_url('telecaller/addlead'); ?>"> Add Leads</a> </button>
+                                        <button class="btn btn-success btn-sm pull-right collapsed" type="button" ><a href="<?php echo base_url('telecaller/addlead'); ?>"> Add Leads</a> </button>
                                     </div> 
                                 </div>
 								
-								
-								
                                 <div class="table-responsive m-t-40">
                                     <table id="example23" class="display nowrap table table-hover table-striped table-bordered" cellspacing="0" width="100%">
-                                        <thead>
+                                        <thead class="thead-res">
                                             <tr>
-                                                <th>Sr.No</th>
+                                                <th></th>
                                                 <th>Buyer Name</th>
                                                 <th>Buyer Budget</th>
                                                 <th>Contact Number</th>
                                                 <th>Email Id</th>
                                                 <th>Location</th>
-												<th>Post Lead</th>
-												<th>Lead Status</th>
+												<th>Date</th>
+												<!--<th>Lead Status</th>-->
 												<th>Action</th>
                                             </tr>
                                         </thead>
-                                        <tfoot>
-                                            <tr>
-                                                <th>Sr.No</th>
-                                                <th>Buyer Name</th>
-                                                <th>Buyer Budget</th>
-                                                <th>Contact Number</th>
-                                                <th>Email Id</th>
-                                                <th>Location</th>
-												<th>Post Lead</th>
-												<th>Lead Status</th>
-												<th>Action</th>
-                                            </tr>
-                                        </tfoot>
+                                        <!--<tfoot>
+                                            
+                                        </tfoot>-->
                                         <tbody>
 										
 										<?php 
 										    foreach($record as $row) {
 												//print_r($row);
                                                 echo "<tr>";
-                                                echo "<td>".$row['id']."</td>";
+												echo "<td>","</td>";
+												//echo "<td>".'<input type="checkbox" name="checkbox" value="Yes">'."</td>";
+                                                //echo "<td>".$row['id']."</td>";
                                                 echo "<td>".$row['buyer_name']."</td>";
                                                 echo "<td>".$row['buyer_budget']."</td>";
                                                 echo "<td>".$row['mobile']."</td>";
                                                 echo "<td>".$row['email']."</td>";
 												echo "<td>".$row['location']."</td>";
 												echo "<td>".$row['post_lead']."</td>";
-												echo "<td>".$row['lead_status']."</td>";
-												echo "<td><a href='".base_url()."telecaller/viewlead".$row['id']."'>Edit</a>/<a href='".base_url()."telecaller/delete/".$row['id']."'>Delete</a>/<a href='".base_url()."home/delete/".$row['id']."'>Update</a></td>";
+												//echo "<td>".$row['lead_status']."</td>";
+												echo "<td><a href='".base_url()."telecaller/viewlead/".$row['id']."'>&nbsp;&nbsp;<i class='far fa-edit' aria-hidden='true'></i></a>&nbsp;&nbsp;&nbsp;<a href='".base_url()."telecaller/delete/".$row['id']."'><i class='fas fa-trash-alt' aria-hidden='true'></i></a>&nbsp;&nbsp;&nbsp;<a href='".base_url()."telecaller/viewdetails/".$row['id']."'><i class='fas fa-eye' aria-hidden='true'></i></a></td>";
                                                 echo "</tr>";
 											} 
                                         ?>
@@ -864,14 +853,23 @@
     <script src="<?php echo base_url(); ?>assets/js/custom.min.js"></script>
     <!-- This is data table -->
     <script src="<?php echo base_url(); ?>assets/plugins/datatables/datatables.min.js"></script>
+	
+	
+	<script src="<?php echo base_url(); ?>assets/plugins/jsgrid/db.js"></script>
+    <script type="text/javascript" src="<?php echo base_url(); ?>assets/plugins/jsgrid/jsgrid.min.js"></script>
+    <script src="<?php echo base_url(); ?>assets/js/jsgrid-init.js"></script>
+	<!-- -------------------------------------------------------------------------------- -->
+	<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/select/1.2.7/js/dataTables.select.min.js"></script>
     <!-- start - This is for export functionality only -->
-    <script src="../../../../../cdn.datatables.net/buttons/1.2.2/js/dataTables.buttons.min.js"></script>
-    <script src="../../../../../cdn.datatables.net/buttons/1.2.2/js/buttons.flash.min.js"></script>
-    <script src="../../../../../cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js"></script>
-    <script src="../../../../../cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/pdfmake.min.js"></script>
-    <script src="../../../../../cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/vfs_fonts.js"></script>
-    <script src="../../../../../cdn.datatables.net/buttons/1.2.2/js/buttons.html5.min.js"></script>
-    <script src="../../../../../cdn.datatables.net/buttons/1.2.2/js/buttons.print.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.2.2/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.2.2/js/buttons.flash.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js"></script>
+    <script src="https://cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/pdfmake.min.js"></script>
+    <script src="https://cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/vfs_fonts.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.2.2/js/buttons.html5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.2.2/js/buttons.print.min.js"></script>
     <!-- end - This is for export functionality only -->
     <script>
         $(function () {
@@ -912,13 +910,31 @@
                     }
                 });
             });
-        });
+        }); 
+		/*
         $('#example23').DataTable({
             dom: 'Bfrtip',
             buttons: [
                 'copy', 'csv', 'excel', 'pdf', 'print'
             ]
-        });
+        }); */
+		
+//Selecting checkbox on first-child:	
+		
+$(document).ready(function() {
+    $('#example23').DataTable( {
+        columnDefs: [ {
+            orderable: true,
+            className: 'select-checkbox',
+            targets:   0
+        } ],
+        select: {
+            style:    'multi',
+            selector: 'td:first-child'
+        },
+        order: [[ 0, 'asc' ]]
+    } );
+} );
     </script>
     <!-- ============================================================== -->
     <!-- Style switcher -->

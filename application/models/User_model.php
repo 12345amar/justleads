@@ -16,13 +16,21 @@ class User_model extends CI_Model {
      function form_insert($data) {
        $this->db->insert('leads', $data);
      }
-    
+     
+     public function editlead($tb,$where,$set) {
+         $this->db->set($set)->where($where)->update($tb);
+     }
+     
+     public function delete($tb,$where) {
+         $this->db->delete($tb,$where);
+     }
+   //user login model details:
     public function login_valid($userData)
     {       
-        $this->db->where('email', $userData['username']);
-        $this->db->or_where('mobile', $userData['username']);
-        $this->db->where('password', $userData['password']);
-        $query      = $this->db->get('users');
+       $this->db->where('email', $userData['username']);
+	   $this->db->where('password', $userData['password']);
+       $this->db->or_where('mobile', $userData['username']);
+        $query      = $this->db->get('users');	
         $userData   = $query->row();
         if (!empty($userData)) {
             $session_data = array(
@@ -33,22 +41,17 @@ class User_model extends CI_Model {
                         'mobile'    => $userData->mobile
                     );                    
             $this->session->set_userdata($session_data);  
-      
             return true;	
-	} 
-        else {
-            
+	    } 
+        else { 
             return false;	
-	}        
+	    }        
     }
     
    // public function saverecords($tb, $values) {
 	   //$this->db->insert($tb, $values);
    //}
-
-
    
-    
     public function checkUseLogin()
     {
         if ($this->session->userdata('isLogin') !== TRUE) {
@@ -66,6 +69,20 @@ class User_model extends CI_Model {
     function change_pass($session_id,$new_pass) {
         $update_pass = $this->db->query("UPDATE users set password='$new_pass' where id='$session_id'");
     }
+	
+	public function get_user($id) {
+      $this->db->where('id', $id);
+      $query = $this->db->get('users');
+      return $query->row();
+    }
+    
+    public function update($user_id, $userdata) {
+      $this->db->where('id', $user_id);
+      $this->db->update('users', $userdata);
+      //if($users->)
+    }
+	
+	
 }
 
 

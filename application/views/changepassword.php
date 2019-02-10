@@ -446,28 +446,32 @@
                                 <h4 class="m-b-0 text-white">Change Password </h4>
                             </div>
                             <div class="card-body">
-                                <form method="post" action="<?php echo base_url('telecaller/change_pass')?>" class="form-horizontal form-bordered">
+                                <form method="post" action="<?php echo base_url()?>telecaller/change_Password" class="form-horizontal form-bordered">
+								
+								    <?php if (isset($message)) { ?>
+                                    <CENTER><h3 style="color:green;">Lead inserted successfully</h3></CENTER><br>
+                                    <?php } ?>
                                     <div class="form-body">
                                         <div class="form-group row">
                                             <label class="control-label text-right col-md-3">Old Password</label>
                                             <div class="col-md-9">
                                                 <input type="password" name="old_password" placeholder="Old Password" class="form-control">
-                                                <!--<small class="form-control-feedback"> This is inline help </small>--> 
+                                                <span class="text-danger" style="color:red;"><?php echo form_error('old_password'); ?></span> 
 											</div>
                                         </div>
                                         <div class="form-group row">
                                             <label class="control-label text-right col-md-3">New Password</label>
                                             <div class="col-md-9">
-                                                <input type="password" name="newpassword" placeholder="New Password" class="form-control">
-                                                <!--<small class="form-control-feedback"> This is inline help </small>--> 
+                                                <input type="password" name="new_password" placeholder="New Password" class="form-control">
+                                                <span class="text-danger" style="color:red;"><?php echo form_error('new_password'); ?></span> 
 											</div>
                                         </div>
 										
 										<div class="form-group row">
                                             <label class="control-label text-right col-md-3">Confirm Password</label>
                                             <div class="col-md-9">
-                                                <input type="password" name="re_password" placeholder="Confirm Password" class="form-control">
-                                                <!--<small class="form-control-feedback"> This is inline help </small>--> 
+                                                <input type="password" name="pass_conf" placeholder="Confirm Password" class="form-control">
+                                                <span class="text-danger" style="color:red;"><?php echo form_error('pass_conf'); ?></span> 
 											</div>
                                         </div>
                                     
@@ -477,7 +481,8 @@
                                             <div class="col-md-12">
                                                 <div class="row">
                                                     <div class="offset-sm-3 col-md-9">
-                                                        <button type="submit" class="btn btn-success"> <i class="fa fa-check"></i> Change</button>
+                                                        <button type="submit" name="submit" class="btn btn-success"> <i class="fa fa-check"></i> Change</button>
+														<?php echo $this->session->flashdata("error"); ?>
                                                         <button type="button" class="btn btn-inverse">Cancel</button>
                                                     </div>
                                                 </div>

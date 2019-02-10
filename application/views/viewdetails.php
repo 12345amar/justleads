@@ -443,10 +443,10 @@
                     <div class="col-lg-12">
                         <div class="card card-outline-info">
                             <div class="card-header">
-                                <h4 class="m-b-0 text-white">Add Leads </h4>
+                                <h4 class="m-b-0 text-white">View Lead Details</h4>
                             </div>
                             <div class="card-body">
-                                <form method="post" action="<?php echo base_url()?>telecaller/updatelead" class="form-horizontal form-bordered">
+                                <form method="post" action="<?php echo base_url()?>telecaller/leads" class="form-horizontal form-bordered">
                                     
                                     <?php if (isset($message)) { ?>
                                     <CENTER><h3 style="color:green;">Lead inserted successfully</h3></CENTER><br>
@@ -521,7 +521,7 @@
 									
 							    <div class="form-group text-center m-t-20">
 									<div class="col-xs-12">
-										<button class="btn btn-success" name="update" type="submit">Update</button>
+										<button class="btn btn-success" name="view" type="submit">Back</button>
 										<?php echo $this->session->flashdata("error"); ?>
 									</div>
 								</div>
