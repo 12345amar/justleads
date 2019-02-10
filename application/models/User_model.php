@@ -58,6 +58,8 @@ class User_model extends CI_Model {
             
             redirect('logout');
         }
+        
+         
     }
 
     
@@ -81,7 +83,23 @@ class User_model extends CI_Model {
       $this->db->update('users', $userdata);
       //if($users->)
     }
-	
+    
+    public function getUserRole()
+    {
+        if ($this->session->userdata('id')) {
+        $id = $this->session->userdata('id');        
+        $result = $this->db->query("select roles.role from user_roles left
+            join roles on user_roles.role_id=roles.id where user_roles.user_id=$id")->row();
+        
+        return $result->role;
+        
+        } else {
+            
+            return false;
+        } 
+               
+        
+    }
 	
 }
 

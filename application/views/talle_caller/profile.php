@@ -1,7 +1,5 @@
 
             <!-- ============================================================== -->
-            <!-- Container fluid  -->
-            <!-- ============================================================== -->
             <div class="container-fluid">
                 <!-- ============================================================== -->
                 <!-- Bread crumb and right sidebar toggle -->
@@ -190,52 +188,34 @@
                                 </div>
                                 <div class="tab-pane" id="settings" role="tabpanel">
                                     <div class="card-body">
-                                        <form class="form-horizontal form-material">
+                                        <form method="post" action="" class="form-horizontal form-material">
                                             <div class="form-group">
-                                                <label class="col-md-12">Full Name</label>
+                                                <label class="col-md-12">User Name</label>
                                                 <div class="col-md-12">
-                                                    <input type="text" placeholder="Johnathan Doe" class="form-control form-control-line">
+                                                    <input type="text" name="username" value="" class="form-control form-control-line">
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <label for="example-email" class="col-md-12">Email</label>
                                                 <div class="col-md-12">
-                                                    <input type="email" placeholder="johnathan@admin.com" class="form-control form-control-line" name="example-email" id="example-email">
+                                                    <input type="email" name="email" value="" class="form-control form-control-line" name="example-email" id="example-email">
+                                                </div>
+                                            </div>
+											<div class="form-group">
+                                                <label class="col-md-12">Mobile No</label>
+                                                <div class="col-md-12">
+                                                    <input type="text" name="mobile" value="" class="form-control form-control-line">
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <label class="col-md-12">Password</label>
                                                 <div class="col-md-12">
-                                                    <input type="password" value="password" class="form-control form-control-line">
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <label class="col-md-12">Phone No</label>
-                                                <div class="col-md-12">
-                                                    <input type="text" placeholder="123 456 7890" class="form-control form-control-line">
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <label class="col-md-12">Message</label>
-                                                <div class="col-md-12">
-                                                    <textarea rows="5" class="form-control form-control-line"></textarea>
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <label class="col-sm-12">Select Country</label>
-                                                <div class="col-sm-12">
-                                                    <select class="form-control form-control-line">
-                                                        <option>London</option>
-                                                        <option>India</option>
-                                                        <option>Usa</option>
-                                                        <option>Canada</option>
-                                                        <option>Thailand</option>
-                                                    </select>
+                                                    <input type="password" name="password" value="" class="form-control form-control-line">
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <div class="col-sm-12">
-                                                    <button class="btn btn-success">Update Profile</button>
+                                                    <button class="btn btn-success" name="update">Update Profile</button>
                                                 </div>
                                             </div>
                                         </form>
@@ -292,7 +272,7 @@
                                     <a href="javascript:void(0)"><img src="<?php echo base_url(); ?>assets/images/users/5.jpg" alt="user-img" class="img-circle"> <span>Govinda Star <small class="text-success">online</small></span></a>
                                 </li>
                                 <li>
-                                    <a href="javascript:void(0)"><img src="<?php echo base_url(); ?>assets/images/users/6.jpg" alt="user-img" class="img-circle"> <span>John Abraham<small class="text-success">online</small></span></a>
+                                    <a href="javascript:void(0)"><img src="../assets/images/users/6.jpg" alt="user-img" class="img-circle"> <span>John Abraham<small class="text-success">online</small></span></a>
                                 </li>
                                 <li>
                                     <a href="javascript:void(0)"><img src="<?php echo base_url(); ?>assets/images/users/7.jpg" alt="user-img" class="img-circle"> <span>Hritik Roshan<small class="text-success">online</small></span></a>
@@ -312,6 +292,4 @@
             <!-- End Container fluid  -->
             <!-- ============================================================== -->
             <!-- ============================================================== -->
-            
-       
-  
+        

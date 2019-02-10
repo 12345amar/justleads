@@ -25,27 +25,40 @@ class Login extends CI_Controller {
                 
                 if ($this->User_model->login_valid($userData)) {
                     //$userdata = $this->User_model->login_valid($userData);
-                    if(isset($userData['username']) && !empty($userData['username'])) { 
-                        //$userData=array(
-                        //'id'=>$user_info['id'],
-                        //'username'=>$username,
-                        //'logged_in' => true
-                        //);
-                    $this->session->set_userdata($userData);
-                    $this->session->set_flashdata('success', 'User logged in successfully.');
-                    if($userData['id'] == 1){
-                            redirect('admin');
-                        } else {
-                            redirect('telecaller');
+                    if(isset($userData['username']) && !empty($userData['username'])) {                       
+                        $this->session->set_userdata($userData);
+                        $this->session->set_flashdata('success', 'User logged in successfully.');
+                      
+                        if($this->User_model->getUserRole() == 1) {
+
+                                redirect('admin');
+                            } else if($this->User_model->getUserRole() == 2) {
+                               
+                                redirect('telecaller');
+                            } else if ($this->User_model->getUserRole() == 3) {
+
+                                redirect('user');
+                            }
                         }
-                    }
+                     }
                 } else {  
                     $this->session->set_flashdata('error', 'Username or Password does not match, try again.');                    
                     redirect('login');
                 }
             }
-        }
         
+        
+        if ($this->User_model->getUserRole() == 1) {
+
+            redirect('admin');
+        } else if($this->User_model->getUserRole() == 2) {
+
+            redirect('telecaller');
+        } else if ($this->User_model->getUserRole() == 3) {
+
+            redirect('user');
+        }
+
         $this->load->view('login');
   
     } 
