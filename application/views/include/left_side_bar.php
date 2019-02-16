@@ -1,3 +1,4 @@
+
 <body class="fix-header fix-sidebar card-no-border">
     <!-- ============================================================== -->
     <!-- Preloader - style you can find in spinners.css -->
@@ -270,9 +271,26 @@
                                         </div>
                                     </li>
                                     <li role="separator" class="divider"></li>
+                                    
+                                   <?php if ($this->router->fetch_class() == 'admin') { ?>
+                                    <li><a href="<?php echo base_url('admin/profile'); ?>"><i class="ti-user"></i> My Profile</a></li>
+                                     <?php } ?>
+                                     <?php if ($this->router->fetch_class() == 'telecaller') { ?>
                                     <li><a href="<?php echo base_url('telecaller/profile'); ?>"><i class="ti-user"></i> My Profile</a></li>
+                                     <?php } ?>
+                                     <?php if ($this->router->fetch_class() == 'user') { ?>
+                                    <li><a href="<?php echo base_url('user/profile'); ?>"><i class="ti-user"></i> My Profile</a></li>
+                                     <?php } ?>
                                     <li><a href="#"><i class="ti-wallet"></i> My Balance</a></li>
+                                    <?php if ($this->router->fetch_class() == 'admin') { ?>
+                                    <li><a href="<?php echo base_url('admin/changepassword'); ?>"><i class="ti-lock"></i> Change Password</a></li>
+                                    <?php } ?>
+                                    <?php if ($this->router->fetch_class() == 'telecaller') { ?>
                                     <li><a href="<?php echo base_url('telecaller/changepassword'); ?>"><i class="ti-lock"></i> Change Password</a></li>
+                                    <?php } ?>
+                                    <?php if ($this->router->fetch_class() == 'user') { ?>
+                                    <li><a href="<?php echo base_url('user/changepassword'); ?>"><i class="ti-lock"></i> Change Password</a></li>
+                                    <?php } ?>
                                     <li><a href="#"><i class="ti-email"></i> Inbox</a></li>
                                     <li role="separator" class="divider"></li>
                                     <li><a href="#"><i class="ti-settings"></i> Account Setting</a></li>
@@ -308,7 +326,19 @@
                     <!-- User profile text-->
                     <div class="profile-text"> <a href="#" class="dropdown-toggle u-dropdown" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true">Markarn Doe</a>
                         <div class="dropdown-menu animated flipInY">
-                            <a href="<?php echo base_url('telecaller/profile'); ?>" class="dropdown-item"><i class="ti-user"></i> My Profile</a>
+                           
+              <?php if ($this->router->fetch_class() == 'admin') { ?>
+              <li class="nav-small-cap"><a href="<?php echo base_url(); ?>">Admin Dashboard</a></li>
+              <li><a href="<?php echo base_url('admin/profile'); ?>" class="dropdown-item"><i class="ti-user"></i> My Profile</a></li>
+              <?php } ?>
+              <?php if ($this->router->fetch_class() == 'telecaller') { ?>
+              <li class="nav-small-cap"><a href="<?php echo base_url(); ?>">Telecaller Dashboard</a></li>
+              <li><a href="<?php echo base_url('telecaller/profile'); ?>" class="dropdown-item"><i class="ti-user"></i> My Profile</a></li>
+              <?php } ?>
+              <?php if ($this->router->fetch_class() == 'user') { ?>
+              <li class="nav-small-cap"><a href="<?php echo base_url(); ?>">User Dashboard</a></li>
+              <li><a href="<?php echo base_url('user/profile'); ?>" class="dropdown-item"><i class="ti-user"></i> My Profile</a></li>
+              <?php } ?>
                             <a href="#" class="dropdown-item"><i class="ti-wallet"></i> My Balance</a>
                             <a href="#" class="dropdown-item"><i class="ti-email"></i> Inbox</a>
                             <div class="dropdown-divider"></div> <a href="#" class="dropdown-item"><i class="ti-settings"></i> Account Setting</a>
@@ -324,7 +354,7 @@
                         <?php if ($this->router->fetch_class() == 'telecaller') { ?>
                         <li class="nav-small-cap"><a href="<?php echo base_url(); ?>">Caller Dashboard</a></li>
                             <li>
-                                <a class="has-arrow waves-effect waves-dark" href="<?php echo base_url(); ?>"><span class="hide-menu">Dashboard </span></a>
+                                <a class="has-arrow waves-effect waves-dark" href="<?php echo base_url('telecaller'); ?>"><span class="hide-menu">Dashboard </span></a>
                             </li>
                             <li>
                                 <a class="has-arrow waves-effect waves-dark" href="<?php echo base_url('telecaller/leads'); ?>" aria-expanded="false">
@@ -333,22 +363,21 @@
                                 </a>                          
                             </li>
                         <?php } ?>
-
                         <?php if ($this->router->fetch_class() == 'admin') { ?>
                             <li class="nav-small-cap">Admin Dashboard</li>
                             <li>
                                 <a class="has-arrow waves-effect waves-dark" href="<?php echo base_url('admin'); ?>"><span class="hide-menu">Dashboard </span></a>
                             </li>
                             <li>
-                                <a class="has-arrow waves-effect waves-dark" href="<?php echo base_url('admin/leads'); ?>" aria-expanded="false">
+                                <a class="has-arrow waves-effect waves-dark" href="<?php echo base_url('admin/caller'); ?>" aria-expanded="false">
                                     <i class="mdi mdi-laptop-windows"></i>
-                                    <span class="hide-menu">Callers</span>
+                                    <span class="hide-menu">Telecallers</span>
                                 </a>                          
                             </li>
                             <li>
-                                <a class="has-arrow waves-effect waves-dark" href="<?php echo base_url('admin/leads'); ?>" aria-expanded="false">
+                                <a class="has-arrow waves-effect waves-dark" href="<?php echo base_url('admin/user'); ?>" aria-expanded="false">
                                     <i class="mdi mdi-laptop-windows"></i>
-                                    <span class="hide-menu">Users</span>
+                                    <span class="hide-menu">Clients</span>
                                 </a>                          
                             </li>
                             <li>
@@ -365,7 +394,7 @@
                                 <a class="has-arrow waves-effect waves-dark" href="#"><span class="hide-menu">Dashboard </span></a>
                             </li>
                             <li>
-                                <a class="has-arrow waves-effect waves-dark" href="<?php echo base_url('telecaller/leads'); ?>" aria-expanded="false">
+                                <a class="has-arrow waves-effect waves-dark" href="<?php echo base_url('user/leads'); ?>" aria-expanded="false">
                                     <i class="mdi mdi-laptop-windows"></i>
                                     <span class="hide-menu">Leads</span>
                                 </a>                          

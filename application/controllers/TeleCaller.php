@@ -33,7 +33,7 @@ class TeleCaller extends CI_Controller {
     }
 
     public function changepassword() {
-        $this->load->view('changepassword', $data);
+        $this->load->view('changepassword');
     }
 
     public function change_Password() {
@@ -135,10 +135,6 @@ class TeleCaller extends CI_Controller {
         redirect('telecaller/leads');
     }
 
-    /**
-     * View Part Of Lead:
-     * Function viewdetails
-     * */
     public function viewdetails() {
         
         

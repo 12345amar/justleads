@@ -1,5 +1,4 @@
 
-            <!-- Container fluid  -->
             <!-- ============================================================== -->
             <div class="container-fluid">
                 <!-- ============================================================== -->
@@ -80,7 +79,7 @@
                         <div class="card">
                             <!-- Nav tabs -->
                             <ul class="nav nav-tabs profile-tab" role="tablist">
-                                <li class="nav-item"> <a class="nav-link active" data-toggle="tab" href="#home" role="tab">Timeline</a> </li>
+                               
                                 <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#profile" role="tab">Profile</a> </li>
                                 <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#settings" role="tab">Settings</a> </li>
                             </ul>
@@ -148,15 +147,18 @@
                                         <div class="row">
                                             <div class="col-md-3 col-xs-6 b-r"> <strong>User Name</strong>
                                                 <br>
-                                                <p class="text-muted">Username</p>
+                                                <p class="text-muted">Admin</p>
                                             </div>
-                                            
+                                          
                                             <div class="col-md-3 col-xs-6 b-r"> <strong>Email</strong>
                                                 <br>
-                                                <p class="text-muted">Email</p>
+                                                <p class="text-muted">admin@gmail.com</p>
                                             </div>
-                                            
-                                            
+                                              <div class="col-md-3 col-xs-6 b-r"> <strong>Mobile</strong>
+                                                <br>
+                                                <p class="text-muted">9988776655</p>
+                                            </div>
+                                           
                                         </div>
                                         <hr>
                                         <p class="m-t-30">Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt.Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim.</p>
@@ -184,33 +186,31 @@
                                 </div>
                                 <div class="tab-pane" id="settings" role="tabpanel">
                                     <div class="card-body">
-                                         <form method="post" action="<?php echo base_url('admin/profile'); ?>" class="form-horizontal form-material">">
+                                        <form  class="form-horizontal form-material">
                                             <div class="form-group">
                                                 <label class="col-md-12">User Name</label>
                                                 <div class="col-md-12">
-                                                    <input type="text" name="username" placeholder="Username" class="form-control form-control-line">
+                                                    <input type="text" placeholder="username" class="form-control form-control-line">
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label class="col-md-12">Email</label>
+                                                <label for="example-email" class="col-md-12">Email</label>
                                                 <div class="col-md-12">
-                                                    <input type="email" name="email" placeholder="Email" class="form-control form-control-line">
+                                                    <input type="email" name="email" placeholder="email" class="form-control form-control-line" name="example-email" id="example-email">
                                                 </div>
                                             </div>
-                                            
-                                            <div class="form-group">
-                                                <label class="col-md-12">Mobile</label>
+											<div class="form-group">
+                                                <label class="col-md-12">Mobile No</label>
                                                 <div class="col-md-12">
-                                                    <input type="number" name="mobile" placeholder="mobile" class="form-control form-control-line">
+                                                    <input type="text" name="mobile" placeholder="mobile" class="form-control form-control-line">
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <label class="col-md-12">Password</label>
                                                 <div class="col-md-12">
-                                                    <input type="password" name="password" placeholder="Password" class="form-control form-control-line">
+                                                    <input type="password" name="password" value="password" class="form-control form-control-line">
                                                 </div>
                                             </div>
-                                          
                                             <div class="form-group">
                                                 <div class="col-sm-12">
                                                     <button class="btn btn-success" type="submit" name="update">Update Profile</button>
@@ -290,5 +290,4 @@
             <!-- End Container fluid  -->
             <!-- ============================================================== -->
             <!-- ============================================================== -->
-          
-  
+        
