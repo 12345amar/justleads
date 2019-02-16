@@ -62,6 +62,13 @@
 							
                                 <h4 class="card-title">Data Export</h4>
                                 <h6 class="card-subtitle">Export data to Copy, CSV, Excel, PDF & Print</h6>
+								
+								<?php
+                                      echo form_open_multipart('excel_import/admin_import');
+                                      echo form_upload('file','size="150"');
+                                      echo form_submit('upload', 'Import Data');
+                                      echo form_close();
+                                    ?>
 				                <div class="d-flex no-block align-self-center">
                                     <div class="ml-auto">
                                         <button class="btn btn-success btn-sm pull-right collapsed" type="button" ><a href="<?php echo base_url('admin/add_lead'); ?>"> Add Lead</a> </button>
