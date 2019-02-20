@@ -297,17 +297,13 @@
                                         <div class="dw-user-box">
                                             <div class="u-img"><img src="<?php echo base_url(); ?>assets/images/users/1.jpg" alt="user"></div>
                                             <div class="u-text">
-                                                <h4>Steave Jobs</h4>
-                                                <p class="text-muted">abc@gmail.com</p><a href="profile.html" class="btn btn-rounded btn-danger btn-sm">View Profile</a></div>
+                                                <h4>Admin</h4>
+                                                <p class="text-muted">admin@gmail.com</p><a href="<?php echo base_url('admin/profile'); ?>" class="btn btn-rounded btn-danger btn-sm">View Profile</a></div>
                                         </div>
                                     </li>
                                     <li role="separator" class="divider"></li>
-                                    <li><a href="<?php echo base_url('telecaller/profile'); ?>"><i class="ti-user"></i> My Profile</a></li>
-                                    <li><a href="#"><i class="ti-wallet"></i> My Balance</a></li>
-									<li><a href="<?php echo base_url('telecaller/changepassword'); ?>"><i class="ti-lock"></i> Change Password</a></li>
-                                    <li><a href="#"><i class="ti-email"></i> Inbox</a></li>
-                                    <li role="separator" class="divider"></li>
-                                    <li><a href="#"><i class="ti-settings"></i> Account Setting</a></li>
+                                <li><a href="<?php echo base_url('admin/profile'); ?>"><i class="ti-user"></i> My Profile</a></li>
+                                <li role="separator" class="divider"></li>
                                     <li role="separator" class="divider"></li>
                                     <li><a href="<?php echo base_url('logout'); ?>"><i class="fa fa-power-off"></i> Logout</a></li>
                                 </ul>
@@ -338,15 +334,7 @@
                     <!-- User profile image -->
                     <div class="profile-img"> <img src="<?php echo base_url(); ?>assets/images/users/profile.png" alt="user" /> </div>
                     <!-- User profile text-->
-                    <div class="profile-text"> <a href="#" class="dropdown-toggle u-dropdown" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true">Markarn Doe</a>
-                        <div class="dropdown-menu animated flipInY">
-                            <a href="#" class="dropdown-item"><i class="ti-user"></i> My Profile</a>
-                            <a href="#" class="dropdown-item"><i class="ti-wallet"></i> My Balance</a>
-                            <a href="#" class="dropdown-item"><i class="ti-email"></i> Inbox</a>
-                            <div class="dropdown-divider"></div> <a href="#" class="dropdown-item"><i class="ti-settings"></i> Account Setting</a>
-                            <div class="dropdown-divider"></div> <a href="pages-login.html" class="dropdown-item"><i class="fa fa-power-off"></i> Logout</a>
-                        </div>
-                    </div>
+                    
                 </div>
                 <!-- End User profile text-->
                 <!-- Sidebar navigation-->
@@ -355,23 +343,11 @@
                         <li class="nav-small-cap">PERSONAL</li>
                         <li>
                             <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu">Dashboard </span></a>
-                            <!--<ul aria-expanded="false" class="collapse">
-                                <li><a href="index.html">Dashboard 1</a></li>
-                                <li><a href="index2.html">Dashboard 2</a></li>
-                                <li><a href="index3.html">Dashboard 3</a></li>
-                                <li><a href="index4.html">Dashboard 4</a></li>
-                                <li><a href="index5.html">Dashboard 5</a></li>
-                                <li><a href="index6.html">Dashboard 6</a></li>
-                            </ul>-->
                         </li>
-                        <li> <a class="has-arrow waves-effect waves-dark" href="<?php echo base_url('telecaller/leads'); ?>" aria-expanded="false"><i class="mdi mdi-laptop-windows"></i><span class="hide-menu">Leads</span></a>
-                            <!--<ul aria-expanded="false" class="collapse">
-                                <li><a href="https://wrappixel.com/demos/admin-templates/material-pro/minisidebar/index.html">Minisidebar</a></li>
-                                <li><a href="https://wrappixel.com/demos/admin-templates/material-pro/horizontal/index2.html">Horizontal</a></li>
-                                <li><a href="https://wrappixel.com/demos/admin-templates/material-pro/dark/index3.html">Dark Version</a></li>
-                                <li><a href="https://wrappixel.com/demos/admin-templates/material-pro/material-rtl/index4.html">RTL Version</a></li>
-                            </ul>-->
-                        </li>
+                        <li><a class="has-arrow waves-effect waves-dark" href="<?php echo base_url('admin/caller'); ?>" aria-expanded="false"><i class="mdi mdi-laptop-windows"></i><span class="hide-menu">Telecaller</span></a></li>
+                         <li><a class="has-arrow waves-effect waves-dark" href="<?php echo base_url('admin/user'); ?>" aria-expanded="false"><i class="mdi mdi-laptop-windows"></i><span class="hide-menu">Cliets</span></a></li>
+                          <li><a class="has-arrow waves-effect waves-dark" href="<?php echo base_url('admin/leads'); ?>" aria-expanded="false"><i class="mdi mdi-laptop-windows"></i><span class="hide-menu">Leads</span></a></li>
+       
 						
                     </ul>
                 </nav>
@@ -379,14 +355,7 @@
             </div>
             <!-- End Sidebar scroll-->
             <!-- Bottom points-->
-            <div class="sidebar-footer">
-                <!-- item-->
-                <a href="#" class="link" data-toggle="tooltip" title="Settings"><i class="ti-settings"></i></a>
-                <!-- item-->
-                <a href="#" class="link" data-toggle="tooltip" title="Email"><i class="mdi mdi-gmail"></i></a>
-                <!-- item-->
-                <a href="#" class="link" data-toggle="tooltip" title="Logout"><i class="mdi mdi-power"></i></a>
-            </div>
+            
             <!-- End Bottom points-->
         </aside>
         <!-- ============================================================== -->
@@ -405,33 +374,16 @@
                 <!-- ============================================================== -->
                 <div class="row page-titles">
                     <div class="col-md-5 col-8 align-self-center">
-                        <h3 class="text-themecolor m-b-0 m-t-0">Forms</h3>
+                        <h3 class="text-themecolor m-b-0 m-t-0">Admin</h3>
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
+                            <li class="breadcrumb-item"><a href="javascript:void(0)">Change Password</a></li>
                             <li class="breadcrumb-item active">Form</li>
                         </ol>
                     </div>
                     <div class="col-md-7 col-4 align-self-center">
                         <div class="d-flex m-t-10 justify-content-end">
-                            <div class="d-flex m-r-20 m-l-10 hidden-md-down">
-                                <div class="chart-text m-r-10">
-                                    <h6 class="m-b-0"><small>THIS MONTH</small></h6>
-                                    <h4 class="m-t-0 text-info">$58,356</h4>
-                                </div>
-                                <div class="spark-chart">
-                                    <div id="monthchart"></div>
-                                </div>
-                            </div>
-                            <div class="d-flex m-r-20 m-l-10 hidden-md-down">
-                                <div class="chart-text m-r-10">
-                                    <h6 class="m-b-0"><small>LAST MONTH</small></h6>
-                                    <h4 class="m-t-0 text-primary">$48,356</h4>
-                                </div>
-                                <div class="spark-chart">
-                                    <div id="lastmonthchart"></div>
-                                </div>
-                            </div>
-                            <div class="">
+                            
+                           <div class="">
                                 <button class="right-side-toggle waves-effect waves-light btn-success btn btn-circle btn-sm pull-right m-l-10"><i class="ti-settings text-white"></i></button>
                             </div>
                         </div>
@@ -446,6 +398,21 @@
                                 <h4 class="m-b-0 text-white">Change Password </h4>
                             </div>
                             <div class="card-body">
+                                
+                                   <?php if ($this->session->flashdata('error')) {  ?>
+                <div class="alert alert-danger alert-dismissible">
+                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                    <strong>Warning!</strong> <?= $this->session->flashdata("error") ?>
+                </div>
+                <?php } ?>
+                
+                <?php if ($this->session->flashdata('success')) {  ?>
+                <div class="alert alert-success alert-dismissible">
+                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                    <strong></strong> <?= $this->session->flashdata("success") ?>
+                </div>
+                <?php } ?>
+                                
                                 <form method="post" action="<?php echo base_url()?>telecaller/change_Password" class="form-horizontal form-bordered">
 								
 								    <?php if (isset($message)) { ?>
@@ -562,9 +529,7 @@
             <!-- ============================================================== -->
             <!-- footer -->
             <!-- ============================================================== -->
-            <footer class="footer">
-                © 2018 Material Pro Admin by wrappixel.com
-            </footer>
+           
             <!-- ============================================================== -->
             <!-- End footer -->
             <!-- ============================================================== -->

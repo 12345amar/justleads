@@ -57,7 +57,7 @@
                 <!-- ============================================================== -->
                 <div class="row">
                     <div class="col-12">
-                          <?php if ($this->session->flashdata('error')) {  ?>
+                <?php if ($this->session->flashdata('error')) {  ?>
                 <div class="alert alert-danger alert-dismissible">
                     <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
                     <strong>Warning!</strong> <?= $this->session->flashdata("error") ?>
@@ -67,7 +67,7 @@
                 <?php if ($this->session->flashdata('success')) {  ?>
                 <div class="alert alert-success alert-dismissible">
                     <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                    <strong>Warning!</strong> <?= $this->session->flashdata("success") ?>
+                    <strong></strong> <?= $this->session->flashdata("success") ?>
                 </div>
                 <?php } ?>
                     
@@ -104,8 +104,8 @@
                                                 <td><?=$row['mobile']?></td>
                                                 <td><?=$row['updated']?></td>
                                                 <td>
-                                                  <a href='<?php echo base_url()."admin/edit_caller/".$row['id']; ?>'>&nbsp;&nbsp;<i class='far fa-edit' aria-hidden='true'></i></a>&nbsp;&nbsp;&nbsp;
-                                                  <a   href='<?php echo base_url()."admin/delete_caller/".$row['id']; ?>' onclick='return confirm("Are you sure to delete this item?")'><i class='fas fa-trash-alt' aria-hidden='true'></i></a>&nbsp;&nbsp;&nbsp;
+                                                  <a href='<?php echo base_url()."admin/edit_caller/".$row['id']; ?>'><i class='far fa-edit' aria-hidden='true'></i></a>&nbsp;&nbsp;&nbsp;
+                                                  <a href='<?php echo base_url()."admin/delete_caller/".$row['id']; ?>' onclick='return confirm("Are you sure to delete this item?")'><i class='fas fa-trash-alt' aria-hidden='true'></i></a>&nbsp;&nbsp;&nbsp;
                                                   <a href='<?php echo base_url()."admin/view_caller/".$row['id']; ?>'><i class='fas fa-eye' aria-hidden='true'></i></a>
                                                 </td>
                                             </tr>

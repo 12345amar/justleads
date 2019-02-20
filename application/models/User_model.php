@@ -97,8 +97,8 @@ class User_model extends CI_Model {
     {
         if ($this->session->userdata('isLogin') !== TRUE) {
             
-            redirect('logout');
-        }
+           // redirect('logout');
+        } 
         
          
     }
@@ -122,7 +122,6 @@ class User_model extends CI_Model {
     public function update($user_id, $userdata) {
       $this->db->where('id', $user_id);
       $this->db->update('users', $userdata);
-      //if($users->)
     }
     
     public function getUserRole()
@@ -138,14 +137,11 @@ class User_model extends CI_Model {
             
             return false;
         } 
-               
-        
     }
-	
-}
-
-
+    
+    public function profile($tb,$where,$set) {
+         $this->db->set($set)->where($where)->update($tb);
+     }
      
-
-       	
+}    	
 ?>

@@ -266,13 +266,13 @@
                                         <div class="dw-user-box">
                                             <div class="u-img"><img src="<?php echo base_url(); ?>assets/images/users/1.jpg" alt="user"></div>
                                             <div class="u-text">
-                                                <h4>Steave Jobs</h4>
-                                                <p class="text-muted">varun@gmail.com</p><a href="profile.html" class="btn btn-rounded btn-danger btn-sm">View Profile</a></div>
+                                                <h4>Admin</h4>
+                                                <p class="text-muted">admin@gmail.com</p><a href="admin/profile" class="btn btn-rounded btn-danger btn-sm">View Profile</a></div>
                                         </div>
                                     </li>
                                     <li role="separator" class="divider"></li>
                                     
-                                   <?php if ($this->router->fetch_class() == 'admin') { ?>
+                                    <?php if ($this->router->fetch_class() == 'admin') { ?>
                                     <li><a href="<?php echo base_url('admin/profile'); ?>"><i class="ti-user"></i> My Profile</a></li>
                                      <?php } ?>
                                      <?php if ($this->router->fetch_class() == 'telecaller') { ?>
@@ -281,7 +281,6 @@
                                      <?php if ($this->router->fetch_class() == 'user') { ?>
                                     <li><a href="<?php echo base_url('user/profile'); ?>"><i class="ti-user"></i> My Profile</a></li>
                                      <?php } ?>
-                                    <li><a href="#"><i class="ti-wallet"></i> My Balance</a></li>
                                     <?php if ($this->router->fetch_class() == 'admin') { ?>
                                     <li><a href="<?php echo base_url('admin/changepassword'); ?>"><i class="ti-lock"></i> Change Password</a></li>
                                     <?php } ?>
@@ -291,9 +290,7 @@
                                     <?php if ($this->router->fetch_class() == 'user') { ?>
                                     <li><a href="<?php echo base_url('user/changepassword'); ?>"><i class="ti-lock"></i> Change Password</a></li>
                                     <?php } ?>
-                                    <li><a href="#"><i class="ti-email"></i> Inbox</a></li>
                                     <li role="separator" class="divider"></li>
-                                    <li><a href="#"><i class="ti-settings"></i> Account Setting</a></li>
                                     <li role="separator" class="divider"></li>
                                     <li><a href="<?php echo base_url('logout'); ?>"><i class="fa fa-power-off"></i> Logout</a></li>
                                 </ul>
@@ -302,10 +299,7 @@
                         <!-- ============================================================== -->
                         <!-- Language -->
                         <!-- ============================================================== -->
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="flag-icon flag-icon-us"></i></a>
-                            <div class="dropdown-menu dropdown-menu-right scale-up"> <a class="dropdown-item" href="#"><i class="flag-icon flag-icon-in"></i> India</a> <a class="dropdown-item" href="#"><i class="flag-icon flag-icon-fr"></i> French</a> <a class="dropdown-item" href="#"><i class="flag-icon flag-icon-cn"></i> China</a> <a class="dropdown-item" href="#"><i class="flag-icon flag-icon-de"></i> Dutch</a> </div>
-                        </li>
+                       
                     </ul>
                 </div>
             </nav>
@@ -324,9 +318,8 @@
                     <!-- User profile image -->
                     <div class="profile-img"> <a href="<?php echo base_url(); ?>"><img src="<?php echo base_url(); ?>assets/images/users/profile.png" alt="user" /></a> </div>
                     <!-- User profile text-->
-                    <div class="profile-text"> <a href="#" class="dropdown-toggle u-dropdown" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true">Markarn Doe</a>
-                        <div class="dropdown-menu animated flipInY">
-                           
+                   
+              <div class="dropdown-menu animated flipInY">
               <?php if ($this->router->fetch_class() == 'admin') { ?>
               <li class="nav-small-cap"><a href="<?php echo base_url(); ?>">Admin Dashboard</a></li>
               <li><a href="<?php echo base_url('admin/profile'); ?>" class="dropdown-item"><i class="ti-user"></i> My Profile</a></li>
@@ -339,11 +332,9 @@
               <li class="nav-small-cap"><a href="<?php echo base_url(); ?>">User Dashboard</a></li>
               <li><a href="<?php echo base_url('user/profile'); ?>" class="dropdown-item"><i class="ti-user"></i> My Profile</a></li>
               <?php } ?>
-                            <a href="#" class="dropdown-item"><i class="ti-wallet"></i> My Balance</a>
-                            <a href="#" class="dropdown-item"><i class="ti-email"></i> Inbox</a>
-                            <div class="dropdown-divider"></div> <a href="#" class="dropdown-item"><i class="ti-settings"></i> Account Setting</a>
-                            <div class="dropdown-divider"></div> <a href="<?php echo base_url('logout'); ?>" class="dropdown-item"><i class="fa fa-power-off"></i> Logout</a>
-                        </div>
+              
+              <div class="dropdown-divider"></div> <a href="<?php echo base_url('logout'); ?>" class="dropdown-item"><i class="fa fa-power-off"></i> Logout</a>
+              </div>
                     </div>
                 </div>
                 <!-- End User profile text-->
@@ -412,14 +403,7 @@
             </div>
             <!-- End Sidebar scroll-->
             <!-- Bottom points-->
-            <div class="sidebar-footer">
-                <!-- item-->
-                <a href="#" class="link" data-toggle="tooltip" title="Settings"><i class="ti-settings"></i></a>
-                <!-- item-->
-                <a href="#" class="link" data-toggle="tooltip" title="Email"><i class="mdi mdi-gmail"></i></a>
-                <!-- item-->
-                <a href="<?php echo base_url('logout'); ?>" class="link" data-toggle="tooltip" title="Logout"><i class="mdi mdi-power"></i></a>
-            </div>
+            
             <!-- End Bottom points-->
         </aside>
         <!-- ============================================================== -->

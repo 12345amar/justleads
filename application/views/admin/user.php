@@ -57,6 +57,19 @@
                 <!-- ============================================================== -->
                 <div class="row">
                     <div class="col-12">
+                        <?php if ($this->session->flashdata('error')) {  ?>
+                <div class="alert alert-danger alert-dismissible">
+                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                    <strong>Warning!</strong> <?= $this->session->flashdata("error") ?>
+                </div>
+                <?php } ?>
+                
+                <?php if ($this->session->flashdata('success')) {  ?>
+                <div class="alert alert-success alert-dismissible">
+                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                    <strong></strong> <?= $this->session->flashdata("success") ?>
+                </div>
+                <?php } ?>
                         <div class="card">
                             <div class="card-body">
 							
@@ -72,7 +85,7 @@
                                     <table id="example23" class="display nowrap table table-hover table-striped table-bordered" cellspacing="0" width="100%">
                                         <thead class="thead-res">
                                             <tr>
-                                                <th></th>
+                                                <th>S. No.</th>
                                                 <th>Username</th>
                                                 <th>Email</th>
                                                 <th>Mobile</th>
@@ -81,19 +94,22 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <?php 
-				    foreach($record as $row) {
-					  echo "<tr>";
-					echo "<td>","</td>";
-			
-                                                echo "<td>".$row['username']."</td>";
-                                                echo "<td>".$row['email']."</td>";
-                                                echo "<td>".$row['mobile']."</td>";
-                                                echo "<td>".$row['updated']."</td>";
-                                                echo "<td><a href='".base_url()."admin/edit_user/".$row['id']."'>&nbsp;&nbsp;<i class='far fa-edit' aria-hidden='true'></i></a>&nbsp;&nbsp;&nbsp;<a href='".base_url()."admin/delete_user/".$row['id']."'><i class='fas fa-trash-alt' aria-hidden='true'></i></a>&nbsp;&nbsp;&nbsp;<a href='".base_url()."admin/view_user/".$row['id']."'><i class='fas fa-eye' aria-hidden='true'></i></a></td>";
-                                                echo "</tr>";
-											} 
-                                        ?>
+                                            <?php $i=1;
+				    foreach($record as $row) { ?>
+					  <tr>
+                                          <td><?=$i?></td>
+		                          <td><?=$row['username']?></td>
+                                          <td><?=$row['email']?></td>
+                                          <td><?=$row['mobile']?></td>
+                                          <td><?=$row['updated']?></td>
+                                          <td>      
+                                           <a href='<?php echo base_url()."admin/edit_user/".$row['id'];?>'>&nbsp;&nbsp;<i class='far fa-edit' aria-hidden='true'></i></a>&nbsp;&nbsp;&nbsp;
+                                           <a href='<?php echo base_url()."admin/delete_user/".$row['id'];?>' onclick='return confirm("Are you sure to delete this item?")'><i class='fas fa-trash-alt' aria-hidden='true'></i></a>&nbsp;&nbsp;&nbsp;
+                                           <a href='<?php echo base_url()."admin/view_user/".$row['id'];?>'><i class='fas fa-eye' aria-hidden='true'></i></a>
+                                           </td>
+                                          </tr>
+                                        						 
+                                    <?php $i++; } ?>
                                         </tbody>
                                     </table>
                                 </div>

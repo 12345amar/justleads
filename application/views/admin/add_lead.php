@@ -35,6 +35,21 @@
                                 <h4 class="m-b-0 text-white">Add Callers </h4>
                             </div>
                             <div class="card-body">
+                                
+                                <?php if ($this->session->flashdata('error')) {  ?>
+                <div class="alert alert-danger alert-dismissible">
+                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                    <strong>Warning!</strong> <?= $this->session->flashdata("error") ?>
+                </div>
+                <?php } ?>
+                
+                <?php if ($this->session->flashdata('success')) {  ?>
+                <div class="alert alert-success alert-dismissible">
+                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                    <strong></strong> <?= $this->session->flashdata("success") ?>
+                </div>
+                <?php } ?>
+                                
                                 <form method="post" action="<?php echo base_url()?>admin/insert_lead" class="form-horizontal form-bordered">
                                     
                                     <?php if (isset($message)) { ?>

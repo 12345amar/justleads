@@ -27,7 +27,7 @@
                 <?php if ($this->session->flashdata('success')) {  ?>
                 <div class="alert alert-success alert-dismissible">
                     <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                    <strong>Warning!</strong> <?= $this->session->flashdata("success") ?>
+                    <strong></strong> <?= $this->session->flashdata("success") ?>
                 </div>
                 <?php } ?>
                     
@@ -78,7 +78,7 @@
                         </div>-->
                         <div class="form-group m-b-0">
                             <div class="col-sm-12 text-center">
-                                Don't have an account? <a href="<?php echo base_url('registration/index'); ?>" class="text-info m-l-5"><b>Sign Up</b></a>
+                                Don't have an account? <a href="<?php echo base_url('registration'); ?>" class="text-info m-l-5"><b>Sign Up</b></a>
                             </div>
                         </div>
                     </form>
