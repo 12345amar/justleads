@@ -16,7 +16,7 @@ class Logout extends CI_Controller {
         $this->session->unset_userdata('email');
         $this->session->unset_userdata('mobile');
         $this->session->sess_destroy();
-        
+        $this->session->set_flashdata('success', 'Logout successfully.');
         return redirect('login');
     }
 }

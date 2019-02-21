@@ -25,14 +25,14 @@
                                         <div class="form-group row">
                                             <label class="control-label text-right col-md-3">Buyer Name</label>
                                             <div class="col-md-9">
-                                                <input type="text" name="buyer_name" value="<?php echo $record[0]['buyer_name']; ?>" placeholder="Buyer Name" class="form-control">
+                                                <input type="text" name="buyer_name" value="<?php echo $record[0]['buyer_name']; ?>" placeholder="Buyer Name" class="form-control" readonly="">
                                                 <span class="text-danger" style="color:red;"><?php echo form_error('buyer_name'); ?></span> 
 											</div>
                                         </div>
                                         <div class="form-group row">
                                             <label class="control-label text-right col-md-3">Buyer Budget</label>
                                             <div class="col-md-9">
-                                                <input type="text" name="buyer_budget" value="<?php echo $record[0]['buyer_budget']; ?>" placeholder="Buyer Budget" class="form-control">
+                                                <input type="text" name="buyer_budget" value="<?php echo $record[0]['buyer_budget']; ?>" placeholder="Buyer Budget" class="form-control" readonly="">
                                                 <span class="text-danger" style="color:red;"><?php echo form_error('buyer_budget'); ?></span> 
 											</div>
                                         </div>
@@ -40,7 +40,7 @@
 										<div class="form-group row">
                                             <label class="control-label text-right col-md-3">Contact Number</label>
                                             <div class="col-md-9">
-                                                <input type="number" name="mobile" value="<?php echo $record[0]['mobile']; ?>" placeholder="Contact Number" class="form-control">
+                                                <input type="number" name="mobile" value="<?php echo $record[0]['mobile']; ?>" placeholder="Contact Number" class="form-control" readonly="">
                                                 <span class="text-danger" style="color:red;"><?php echo form_error('mobile'); ?></span> 
 											</div>
                                         </div>
@@ -48,7 +48,7 @@
 									    <div class="form-group row">
                                             <label class="control-label text-right col-md-3">Email Id</label>
                                             <div class="col-md-9">
-                                                <input type="text" name="email" value="<?php echo $record[0]['email']; ?>" placeholder="Email Id" class="form-control">
+                                                <input type="text" name="email" value="<?php echo $record[0]['email']; ?>" placeholder="Email Id" class="form-control" readonly="">
                                                 <span class="text-danger" style="color:red;"><?php echo form_error('email'); ?></span>  
 											</div>
                                         </div>
@@ -57,7 +57,7 @@
 										<div class="form-group row">
                                             <label class="control-label text-right col-md-3">Location</label>
                                             <div class="col-md-9">
-                                                <input type="text" name="location" value="<?php echo $record[0]['location']; ?>" placeholder="Location" class="form-control">
+                                                <input type="text" name="location" value="<?php echo $record[0]['location']; ?>" placeholder="Location" class="form-control" readonly="">
                                                 <span class="text-danger" style="color:red;"><?php echo form_error('location'); ?></span> 
 											</div>
                                         </div>
@@ -66,7 +66,7 @@
 										<div class="form-group row">
                                             <label class="control-label text-right col-md-3">Post Lead</label>
                                             <div class="col-md-9">
-                                                <input type="text" name="post_lead" value="<?php echo $record[0]['post_lead']; ?>" placeholder="Post Lead" class="form-control">
+                                                <input type="text" name="post_lead" value="<?php echo $record[0]['post_lead']; ?>" placeholder="Post Lead" class="form-control" readonly="">
                                                 <span class="text-danger" style="color:red;"><?php echo form_error('post_lead'); ?></span> 
 											</div>
                                         </div>

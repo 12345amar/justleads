@@ -6,7 +6,7 @@ class Registration extends CI_Controller {
 
     public function __construct() {
         parent::__construct();
-        $this->load->model('register');
+        $this->load->view('register');
         $this->load->model('User_model');
         $this->User_model->checkUseLogin();
     }
@@ -15,6 +15,7 @@ class Registration extends CI_Controller {
      * User registration here
      * 
      */
+    
     public function index()
     {
          $data = array();

@@ -6,7 +6,7 @@ class TeleCaller extends CI_Controller {
 
     public function __construct() {
         parent::__construct();
-        
+
         $this->load->model('User_model');
         $this->User_model->checkUseLogin();
     }
@@ -73,7 +73,7 @@ class TeleCaller extends CI_Controller {
 
     public function addlead() {
         $data['page'] = 'addlead';
-        $this->load->view('layout', $data);        
+        $this->load->view('layout', $data);
     }
 
     public function insert() {
@@ -136,12 +136,12 @@ class TeleCaller extends CI_Controller {
     }
 
     public function viewdetails() {
-        
-        
-        $id             = $this->uri->segment(3);
-        $leads          = $this->db->query("select * from leads where id=" . $id);        
+
+
+        $id = $this->uri->segment(3);
+        $leads = $this->db->query("select * from leads where id=" . $id);
         $data['record'] = $leads->result_array();
-        $data['page']   = 'index';
+        $data['page'] = 'index';
         $this->load->view("viewdetails", $data);
     }
 

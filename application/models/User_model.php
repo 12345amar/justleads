@@ -15,7 +15,7 @@ class User_model extends CI_Model {
     
     // Caller Section in model..
     
-     function form_insert_caller($data) {
+    public function form_insert_caller($data) {
         $insert     = $this->db->insert('users', $data);
         $user_id    = $this->db->insert_id();
         if ($insert) {
@@ -52,7 +52,7 @@ class User_model extends CI_Model {
      
      // Leads Section in model..
      
-      function form_insert_lead($data) {
+     public function form_insert_lead($data) {
        $this->db->insert('leads', $data);
      }
      
@@ -97,19 +97,19 @@ class User_model extends CI_Model {
     {
         if ($this->session->userdata('isLogin') !== TRUE) {
             
-            redirect('logout');
-        }
+           // redirect('logout');
+        } 
         
          
     }
 
     
-    function fetch_pass($session_id) {
+    public function fetch_pass($session_id) {
         $fetch_pass = $this->db->query("select * from users where id='$session_id'");
         $res = $fetch_pass->result();
     }
     
-    function change_pass($session_id,$new_pass) {
+    public function change_pass($session_id,$new_pass) {
         $update_pass = $this->db->query("UPDATE users set password='$new_pass' where id='$session_id'");
     }
 	
@@ -122,7 +122,6 @@ class User_model extends CI_Model {
     public function update($user_id, $userdata) {
       $this->db->where('id', $user_id);
       $this->db->update('users', $userdata);
-      //if($users->)
     }
     
     public function getUserRole()
@@ -138,14 +137,11 @@ class User_model extends CI_Model {
             
             return false;
         } 
-               
-        
     }
-	
-}
-
-
+    
+    public function profile($tb,$where,$set) {
+         $this->db->set($set)->where($where)->update($tb);
+     }
      
-
-       	
+}    	
 ?>

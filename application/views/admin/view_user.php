@@ -25,14 +25,14 @@
                                         <div class="form-group row">
                                             <label class="control-label text-right col-md-3">User Name</label>
                                             <div class="col-md-9">
-                                                <input type="text" name="username" value="<?php echo $record[0]['username']; ?>"  placeholder="User Name" class="form-control">
+                                                <input type="text" name="username" value="<?php echo $record[0]['username']; ?>"  placeholder="User Name" class="form-control" readonly="">
                                                 <span class="text-danger" style="color:red;"><?php echo form_error('username'); ?></span> 
 											</div>
                                         </div>
                                         <div class="form-group row">
                                             <label class="control-label text-right col-md-3">Email</label>
                                             <div class="col-md-9">
-                                                <input type="text" name="email" value="<?php echo $record[0]['email']; ?>" placeholder="Email" class="form-control">
+                                                <input type="text" name="email" value="<?php echo $record[0]['email']; ?>" placeholder="Email" class="form-control" readonly="">
                                                 <span class="text-danger" style="color:red;"><?php echo form_error('email'); ?></span> 
 											</div>
                                         </div>
@@ -40,7 +40,7 @@
 										<div class="form-group row">
                                             <label class="control-label text-right col-md-3">Mobile</label>
                                             <div class="col-md-9">
-                                                <input type="number" name="mobile" value="<?php echo $record[0]['mobile']; ?>" placeholder="Mobile" class="form-control">
+                                                <input type="number" name="mobile" value="<?php echo $record[0]['mobile']; ?>" placeholder="Mobile" class="form-control" readonly="">
                                                 <span class="text-danger" style="color:red;"><?php echo form_error('mobile'); ?></span> 
 											</div>
                                         </div>

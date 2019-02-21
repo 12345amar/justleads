@@ -27,7 +27,7 @@
                 <?php if ($this->session->flashdata('success')) {  ?>
                 <div class="alert alert-success alert-dismissible">
                     <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                    <strong>Warning!</strong> <?= $this->session->flashdata("success") ?>
+                    <strong></strong> <?= $this->session->flashdata("success") ?>
                 </div>
                 <?php } ?>
                     
@@ -38,14 +38,14 @@
 
                         <div class="form-group ">
                             <div class="col-xs-12">
-                                <input type="text" name="username" class="form-control" placeholder="Enter Email or Mobile"> 
+                                <input type="text" name="username" value="<?php echo set_value('email'); ?>" class="form-control" placeholder="Enter Email or Mobile"> 
                                 <span class="text-danger" style="color:red;"><?php echo form_error('username'); ?></span>
                             </div>
                         </div>
 
                         <div class="form-group">
                             <div class="col-xs-12">
-                                <input type="password" name="password" class="form-control" placeholder="Enter Password"> 
+                                <input type="password" name="password" value="<?php echo set_value('password'); ?>" class="form-control" placeholder="Enter Password"> 
                                 <span class="text-danger" style="color:red;"><?php echo form_error('password'); ?></span>
                             </div>
                         </div>
@@ -57,7 +57,7 @@
                                     <label for="checkbox-signup"> Remember me </label>
                                 </div> 
                                 <div class="ml-auto">
-                                    <a href="javascript:void(0)" id="to-recover" class="text-muted"><i class="fa fa-lock m-r-5"></i> Forgot pwd?</a> 
+                                    <a href="<?php echo base_url('forgot'); ?>" id="to-recover" class="text-muted"><i class="fa fa-lock m-r-5"></i> Forgot pwd?</a> 
                                 </div>
                             </div>
                         </div>
@@ -78,7 +78,7 @@
                         </div>-->
                         <div class="form-group m-b-0">
                             <div class="col-sm-12 text-center">
-                                Don't have an account? <a href="<?php echo base_url('registration/index'); ?>" class="text-info m-l-5"><b>Sign Up</b></a>
+                                Don't have an account? <a href="<?php echo base_url('registration'); ?>" class="text-info m-l-5"><b>Sign Up</b></a>
                             </div>
                         </div>
                     </form>

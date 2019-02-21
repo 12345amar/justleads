@@ -46,20 +46,7 @@ class Login extends CI_Controller {
                     redirect('login');
                 }
             }
-        
-        
-        if ($this->User_model->getUserRole() == 1) {
-
-            redirect('admin');
-        } else if($this->User_model->getUserRole() == 2) {
-
-            redirect('telecaller');
-        } else if ($this->User_model->getUserRole() == 3) {
-
-            redirect('user');
-        }
-
-        $this->load->view('login');
+         $this->load->view('login');
   
     } 
 

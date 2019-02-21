@@ -9,46 +9,15 @@
                 <!-- ============================================================== -->
                 <div class="row page-titles">
                     <div class="col-md-5 col-8 align-self-center">
-                        <h3 class="text-themecolor m-b-0 m-t-0">Table Data table</h3>
+                        <h3 class="text-themecolor m-b-0 m-t-0">Admin</h3>
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item">
-                                <a href="javascript:void(0)">Home</a>
+                                <a href="javascript:void(0)">Caller</a>
                             </li>
-                            <li class="breadcrumb-item active">Table Data table</li>
+                            <li class="breadcrumb-item active">Form</li>
                         </ol>
                     </div>
-                    <div class="col-md-7 col-4 align-self-center">
-                        <div class="d-flex m-t-10 justify-content-end">
-                            <div class="d-flex m-r-20 m-l-10 hidden-md-down">
-                                <div class="chart-text m-r-10">
-                                    <h6 class="m-b-0">
-                                        <small>THIS MONTH</small>
-                                    </h6>
-                                    <h4 class="m-t-0 text-info">$58,356</h4>
-                                </div>
-                                <div class="spark-chart">
-                                    <div id="monthchart"></div>
-                                </div>
-                            </div>
-                            <div class="d-flex m-r-20 m-l-10 hidden-md-down">
-                                <div class="chart-text m-r-10">
-                                    <h6 class="m-b-0">
-                                        <small>LAST MONTH</small>
-                                    </h6>
-                                    <h4 class="m-t-0 text-primary">$48,356</h4>
-                                </div>
-                                <div class="spark-chart">
-                                    <div id="lastmonthchart"></div>
-                                </div>
-                            </div>
-                            <div class="">
-                                <button class="right-side-toggle waves-effect waves-light btn-success btn btn-circle btn-sm pull-right m-l-10">
-                                    <i class="ti-settings text-white"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+               </div>
                 <!-- ============================================================== -->
                 <!-- End Bread crumb and right sidebar toggle -->
                 <!-- ============================================================== -->
@@ -57,7 +26,7 @@
                 <!-- ============================================================== -->
                 <div class="row">
                     <div class="col-12">
-                          <?php if ($this->session->flashdata('error')) {  ?>
+                <?php if ($this->session->flashdata('error')) {  ?>
                 <div class="alert alert-danger alert-dismissible">
                     <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
                     <strong>Warning!</strong> <?= $this->session->flashdata("error") ?>
@@ -67,16 +36,13 @@
                 <?php if ($this->session->flashdata('success')) {  ?>
                 <div class="alert alert-success alert-dismissible">
                     <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                    <strong>Warning!</strong> <?= $this->session->flashdata("success") ?>
+                    <strong></strong> <?= $this->session->flashdata("success") ?>
                 </div>
                 <?php } ?>
                     
                         <div class="card">
                             <div class="card-body">
-							
-                                <h4 class="card-title">Data Export</h4>
-                                <h6 class="card-subtitle">Export data to Copy, CSV, Excel, PDF & Print</h6>
-				                <div class="d-flex no-block align-self-center">
+				  <div class="d-flex no-block align-self-center">
                                     <div class="ml-auto">
                                         <button class="btn btn-success btn-sm pull-right collapsed" type="button" ><a href="<?php echo base_url('admin/add_caller'); ?>"> Add Caller</a> </button>
                                     </div> 
@@ -104,8 +70,8 @@
                                                 <td><?=$row['mobile']?></td>
                                                 <td><?=$row['updated']?></td>
                                                 <td>
-                                                  <a href='<?php echo base_url()."admin/edit_caller/".$row['id']; ?>'>&nbsp;&nbsp;<i class='far fa-edit' aria-hidden='true'></i></a>&nbsp;&nbsp;&nbsp;
-                                                  <a   href='<?php echo base_url()."admin/delete_caller/".$row['id']; ?>' onclick='return confirm("Are you sure to delete this item?")'><i class='fas fa-trash-alt' aria-hidden='true'></i></a>&nbsp;&nbsp;&nbsp;
+                                                  <a href='<?php echo base_url()."admin/edit_caller/".$row['id']; ?>'><i class='far fa-edit' aria-hidden='true'></i></a>&nbsp;&nbsp;&nbsp;
+                                                  <a href='<?php echo base_url()."admin/delete_caller/".$row['id']; ?>' onclick='return confirm("Are you sure to delete this item?")'><i class='fas fa-trash-alt' aria-hidden='true'></i></a>&nbsp;&nbsp;&nbsp;
                                                   <a href='<?php echo base_url()."admin/view_caller/".$row['id']; ?>'><i class='fas fa-eye' aria-hidden='true'></i></a>
                                                 </td>
                                             </tr>
