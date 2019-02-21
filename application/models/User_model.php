@@ -13,22 +13,63 @@ class User_model extends CI_Model {
      * @return boolean
      */
     
-     function form_insert($data) {
-       $this->db->insert('leads', $data);
+    // Caller Section in model..
+    
+     function form_insert_caller($data) {
+        $insert     = $this->db->insert('users', $data);
+        $user_id    = $this->db->insert_id();
+        if ($insert) {
+            $this->db->insert('user_roles', ['user_id' => $user_id, 'role_id' => 2]);
+            
+            return TRUE;
+        } else {
+           
+            return False;
+        }
      }
      
-     public function editlead($tb,$where,$set) {
+     public function edit_caller($tb,$where,$set) {
          $this->db->set($set)->where($where)->update($tb);
      }
      
-     public function delete($tb,$where) {
+     public function delete_caller($tb,$where) {
          $this->db->delete($tb,$where);
      }
+     
+     // User Section in model..
+     
+     function form_insert_user($data) {
+       $this->db->insert('users', $data);
+     }
+     
+     public function edit_user($tb,$where,$set) {
+         $this->db->set($set)->where($where)->update($tb);
+     }
+     
+     public function delete_user($tb,$where) {
+         $this->db->delete($tb,$where);
+     }
+     
+     // Leads Section in model..
+     
+      function form_insert_lead($data) {
+       $this->db->insert('leads', $data);
+     }
+     
+     public function edit_lead($tb,$where,$set) {
+         $this->db->set($set)->where($where)->update($tb);
+     }
+     
+     public function delete_lead($tb,$where) {
+         $this->db->delete($tb,$where);
+     }
+     
+     
    //user login model details:
     public function login_valid($userData)
     {       
        $this->db->where('email', $userData['username']);
-	   $this->db->where('password', $userData['password']);
+        $this->db->where('password', $userData['password']);
        $this->db->or_where('mobile', $userData['username']);
         $query      = $this->db->get('users');	
         $userData   = $query->row();
