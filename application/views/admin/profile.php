@@ -1,7 +1,7 @@
-
+                   
 <!-- Container fluid  -->
 <!-- ============================================================== -->
-<div class="container-fluid">
+    <div class="container-fluid">
     <!-- ============================================================== -->
     <!-- Bread crumb and right sidebar toggle -->
     <!-- ============================================================== -->
@@ -9,20 +9,15 @@
         <div class="col-md-5 col-8 align-self-center">
             <h3 class="text-themecolor m-b-0 m-t-0">Admin</h3>
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="javascript:void(0)">Dashboard</a></li>
-                <li class="breadcrumb-item active">Profile</li>
+                <li class="breadcrumb-item"><a href="javascript:void(0)">Profile</a></li>
+                <li class="breadcrumb-item active">Form</li>
             </ol>
         </div>
-        <div class="col-md-7 col-4 align-self-center">
-            <div class="d-flex m-t-10 justify-content-end">
-               
-                
-                <div class="">
-                    <button class="right-side-toggle waves-effect waves-light btn-success btn btn-circle btn-sm pull-right m-l-10"><i class="ti-settings text-white"></i></button>
-                </div>
-            </div>
-        </div>
+        
     </div>
+    
+      
+                            
     <!-- ============================================================== -->
     <!-- End Bread crumb and right sidebar toggle -->
     <!-- ============================================================== -->
@@ -32,8 +27,7 @@
     <!-- Row -->
     <div class="row">
         <!-- Column -->
-
-        <!-- Column -->
+       <!-- Column -->
         <!-- Column -->
         <div class="col-lg-12 col-xlg-12 col-md-12">
             <div class="card">
@@ -47,21 +41,21 @@
                         <div class="card-body">
                             <div class="tab-pane" id="settings" role="tabpanel">
                                 <div class="card-body">
-                                    
-                 <?php if ($this->session->flashdata('error')) {  ?>
-                <div class="alert alert-danger alert-dismissible">
-                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                    <strong>Warning!</strong> <?= $this->session->flashdata("error") ?>
-                </div>
-                <?php } ?>
-                
-                <?php if ($this->session->flashdata('success')) {  ?>
-                <div class="alert alert-success alert-dismissible">
-                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                    <strong>Success!</strong> <?= $this->session->flashdata("success") ?>
-                </div>
-                <?php } ?>
-                                    
+
+                                    <?php if ($this->session->flashdata('error')) { ?>
+                                        <div class="alert alert-danger alert-dismissible">
+                                            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                            <strong>Warning!</strong> <?= $this->session->flashdata("error") ?>
+                                        </div>
+                                    <?php } ?>
+
+                                    <?php if ($this->session->flashdata('success')) { ?>
+                                        <div class="alert alert-success alert-dismissible">
+                                            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                            <strong>Success!</strong> <?= $this->session->flashdata("success") ?>
+                                        </div>
+                                    <?php } ?>
+
                                     <form  action="<?php echo base_url('admin/update_profile'); ?>" method="post" class="form-horizontal form-material">
                                         <?php echo form_hidden('id', $record[0]['id']); ?>
 

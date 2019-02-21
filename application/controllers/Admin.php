@@ -45,45 +45,35 @@ class Admin extends CI_Controller {
         $this->load->view('layout', $data);
     }
 
+     public function add_caller() {
+        $data['page'] = 'add_caller';
+        $this->load->view('layout', $data);
+         }
+         
     public function insert_caller() {
-
-     
-
+        
         if ($this->input->post()) {
-   
             $this->form_validation->set_rules('username', 'Username', 'required');
-            $this->form_validation->set_rules('email', 'Email', 'required');
-            $this->form_validation->set_rules('mobile', 'Mobile Number', 'required|regex_match[/^[0-9]{10}$/]');
-            $this->form_validation->set_rules('password', 'Password', 'required');
-            if ($this->form_validation->run() == true) {
-
-                $data = array(
+            $this->form_validation->set_rules('email', 'Email', 'required|valid_email|is_unique[users.email]');
+            $this->form_validation->set_rules('mobile', 'Mobile',  'required|min_length[5]|max_length[12]');
+            $this->form_validation->set_rules('password', 'password', 'required');
+          $data = array(
                     'username'  => $this->input->post('username'),
                     'email'     => $this->input->post('email'),
                     'mobile'    => $this->input->post('mobile'),
                     'password'  => md5($this->input->post('password')),
-                );
-                $result = $this->User_model->form_insert_caller($data);
-                if ($result == TRUE) {
-
-                    $this->session->set_flashdata('success', 'Tele Caller created successfully.');
-                    redirect('admin/caller');
-                } else {
-
-                    $this->session->set_flashdata('error', 'Unable to create Tele Caller, try again.');
-                    redirect('admin/caller');
-                }
-            }
-        } else {
-            redirect('admin/caller');
-        }
+            );
+            if ($this->form_validation->run() == TRUE) {
+            $this->User_model->form_insert_caller($data);
+            $this->session->set_flashdata('success', ' Inserted Successfully.');
+            redirect('admin/caller', $data);
+         } else {
+            $data['page'] = 'add_caller';
+            $this->load->view('layout', $data);
+           }  
+       }
     }
-
-    public function add_caller() {
-        $data['page'] = 'add_caller';
-        $this->load->view('layout', $data);
-         }
-
+    
     public function view_caller() {
         $id = $this->uri->segment(3);
         $users = $this->db->query("select * from users where id=" . $id);
@@ -127,15 +117,19 @@ class Admin extends CI_Controller {
         $this->load->view('layout', $data);
     }
 
+     public function add_user() {
+        $data['page'] = 'add_user';
+        $this->load->view('layout', $data);
+    }
+    
     public function insert_user() {
      
-        $this->form_validation->set_rules('username', 'Username', 'required');
-        $this->form_validation->set_rules('email', 'Email', 'required');
-        $this->form_validation->set_rules('mobile', 'Mobile Number', 'required|regex_match[/^[0-9]{10}$/]');
-        $this->form_validation->set_rules('password', 'Password', 'required');
-        if ($this->form_validation->run() == FALSE) {
-            $this->load->view('add_user');
-        } else {
+     if($this->input->post()){
+            $this->form_validation->set_rules('username', 'Username', 'required');
+            $this->form_validation->set_rules('email', 'Email', 'required|valid_email|is_unique[users.email]');
+            $this->form_validation->set_rules('mobile', 'Mobile',  'required|min_length[5]|max_length[12]');
+            $this->form_validation->set_rules('password', 'password', 'required');
+        if ($this->form_validation->run() == TRUE) {
             $data = array(
                 'username' => $this->input->post('username'),
                 'email' => $this->input->post('email'),
@@ -146,14 +140,13 @@ class Admin extends CI_Controller {
             $this->session->set_flashdata('success', 'User inserted successfully.');
             //$data['message'] = 'User Inserted Successfully';
             redirect('admin/user', $data);
-        }
+           } else {
+             $data['page'] = 'add_user';
+             $this->load->view('layout', $data);
+             }
     }
-
-    public function add_user() {
-        $data['page'] = 'add_user';
-        $this->load->view('layout', $data);
     }
-
+    
     public function view_user() {
         $id = $this->uri->segment(3);
         $users = $this->db->query("select * from users where id=" . $id);
@@ -202,20 +195,14 @@ class Admin extends CI_Controller {
 
     public function insert_lead() {
        
-       
+        if($this->input->post()){
         $this->form_validation->set_rules('buyer_name', 'Buyer Name', 'required');
         $this->form_validation->set_rules('buyer_budget', 'Buyer Budget', 'required');
         $this->form_validation->set_rules('mobile', 'Mobile Number', 'required|regex_match[/^[0-9]{10}$/]');
         $this->form_validation->set_rules('email', 'Email', 'required|valid_email');
         $this->form_validation->set_rules('location', 'Location', 'required');
         $this->form_validation->set_rules('post_lead', 'Post Lead', 'required');
-        if ($this->form_validation->run() == FALSE) {
-            $data['page'] = 'add_lead';
-            $this->load->view('layout', $data);
-            
-        } else {
-           
-            $data = array(
+        $data = array(
                 'buyer_name' => $this->input->post('buyer_name'),
                 'buyer_budget' => $this->input->post('buyer_budget'),
                 'mobile' => $this->input->post('mobile'),
@@ -223,11 +210,15 @@ class Admin extends CI_Controller {
                 'location' => $this->input->post('location'),
                 'post_lead' => $this->input->post('post_lead')
             );
+        if ($this->form_validation->run() == TRUE) {
             $this->User_model->form_insert_lead($data);
             $this->session->set_flashdata('success', 'Lead Inserted Successfully.');
-            //$data['message'] = 'Lead Inserted Successfully';
             redirect('admin/leads', $data);
-        }
+         } else {
+            $data['page'] = 'add_lead';
+            $this->load->view('layout', $data);
+           }
+         }
     }
 
     public function view_lead() {
@@ -250,7 +241,7 @@ class Admin extends CI_Controller {
         $data = $this->input->post();
         unset($data['update']);
         $this->User_model->edit_lead('leads', 'id=' . $data['id'], $data);
-        $this->session->set_flashdata('Lead Updated Successfully.');
+        $this->session->set_flashdata('success', 'User details updated successfully.');
         redirect('admin/leads');
     }
 
@@ -266,13 +257,13 @@ class Admin extends CI_Controller {
     }
 
     public function change_Password() {
-        $this->User_model->checkUseLogin();
+      $data = array();
+        if($this->input->post()){
         $this->form_validation->set_rules('old_password', 'Old Password', 'callback_password_check');
-        $this->form_validation->set_rules('new_password', 'Old Password', 'required');
+        $this->form_validation->set_rules('new_password', 'New Password', 'required');
         $this->form_validation->set_rules('pass_conf', 'Confirm Password', 'required|matches[new_password]');
-        $this->form_validation->set_error_delimiters('<div class="error">', '</div>');
-        if ($this->form_validation->run() == false) {
-            $this->load->view('admin/changepassword');
+       if ($this->form_validation->run() == false) {
+            $this->load->view('changepassword', $data);
             $this->session->set_flashdata('errror', 'Password not changed please try again.');
         } else {
             $id = $this->session->userdata('id');
@@ -281,6 +272,7 @@ class Admin extends CI_Controller {
             $this->session->set_flashdata('success', 'Password changed Successfully.');
             redirect('login');
         }
+      }
     }
 
     public function password_check($old_password) {

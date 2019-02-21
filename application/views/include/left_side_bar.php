@@ -20,22 +20,16 @@
                 <!-- Logo -->
                 <!-- ============================================================== -->
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="<?php echo base_url(); ?>">
-                        <!-- Logo icon -->
-                        <b>
-                            <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
-                            <!-- Dark Logo icon -->
-                            <img src="<?php echo base_url(); ?>assets/images/logo-icon.png" alt="homepage" class="dark-logo" />
-                            <!-- Light Logo icon -->
-                            <img src="<?php echo base_url(); ?>assets/images/logo-light-icon.png" alt="homepage" class="light-logo" />
-                        </b>
-                        <!--End Logo icon -->
-                        <!-- Logo text -->
-                        <span>
-                            <!-- dark Logo text -->
-                            <img src="<?php echo base_url(); ?>assets/images/logo-text.png" alt="homepage" class="dark-logo" />
-                            <!-- Light Logo text -->    
-                            <img src="<?php echo base_url(); ?>assets/images/logo-light-text.png" class="light-logo" alt="homepage" /></span> </a>
+
+                    <!-- Logo icon -->
+
+                    <!--End Logo icon -->
+                    <!-- Logo text -->
+                    <span>
+                        <!-- dark Logo text -->
+
+                        <!-- Light Logo text -->    
+                        <img src="<?php echo base_url(); ?>assets/images/justleads-logo.png" class="light-logo" alt="homepage" /></span> 
                 </div>
                 <!-- ============================================================== -->
                 <!-- End Logo -->
@@ -267,31 +261,30 @@
                                             <div class="u-img"><img src="<?php echo base_url(); ?>assets/images/users/1.jpg" alt="user"></div>
                                             <div class="u-text">
                                                 <h4>Admin</h4>
-                                                <p class="text-muted">admin@gmail.com</p><a href="admin/profile" class="btn btn-rounded btn-danger btn-sm">View Profile</a></div>
+                                                <?php if ($this->router->fetch_class() == 'admin') { ?>
+                                                <p class="text-muted">admin@gmail.com</p><a href="<?php echo base_url('admin/profile'); ?>" class="btn btn-rounded btn-danger btn-sm">View Profile</a></div>
+                                            <?php } ?>
                                         </div>
+
                                     </li>
-                                    <li role="separator" class="divider"></li>
-                                    
                                     <?php if ($this->router->fetch_class() == 'admin') { ?>
-                                    <li><a href="<?php echo base_url('admin/profile'); ?>"><i class="ti-user"></i> My Profile</a></li>
-                                     <?php } ?>
-                                     <?php if ($this->router->fetch_class() == 'telecaller') { ?>
-                                    <li><a href="<?php echo base_url('telecaller/profile'); ?>"><i class="ti-user"></i> My Profile</a></li>
-                                     <?php } ?>
-                                     <?php if ($this->router->fetch_class() == 'user') { ?>
-                                    <li><a href="<?php echo base_url('user/profile'); ?>"><i class="ti-user"></i> My Profile</a></li>
-                                     <?php } ?>
-                                    <?php if ($this->router->fetch_class() == 'admin') { ?>
-                                    <li><a href="<?php echo base_url('admin/changepassword'); ?>"><i class="ti-lock"></i> Change Password</a></li>
+                                        <li><a href="<?php echo base_url('admin/profile'); ?>"><i class="ti-user"></i> My Profile</a></li>
                                     <?php } ?>
                                     <?php if ($this->router->fetch_class() == 'telecaller') { ?>
-                                    <li><a href="<?php echo base_url('telecaller/changepassword'); ?>"><i class="ti-lock"></i> Change Password</a></li>
+                                        <li><a href="<?php echo base_url('telecaller/profile'); ?>"><i class="ti-user"></i> My Profile</a></li>
                                     <?php } ?>
                                     <?php if ($this->router->fetch_class() == 'user') { ?>
-                                    <li><a href="<?php echo base_url('user/changepassword'); ?>"><i class="ti-lock"></i> Change Password</a></li>
+                                        <li><a href="<?php echo base_url('user/profile'); ?>"><i class="ti-user"></i> My Profile</a></li>
                                     <?php } ?>
-                                    <li role="separator" class="divider"></li>
-                                    <li role="separator" class="divider"></li>
+                                    <?php if ($this->router->fetch_class() == 'admin') { ?>
+                                        <li><a href="<?php echo base_url('admin/changepassword'); ?>"><i class="ti-lock"></i> Change Password</a></li>
+                                    <?php } ?>
+                                    <?php if ($this->router->fetch_class() == 'telecaller') { ?>
+                                        <li><a href="<?php echo base_url('telecaller/changepassword'); ?>"><i class="ti-lock"></i> Change Password</a></li>
+                                    <?php } ?>
+                                    <?php if ($this->router->fetch_class() == 'user') { ?>
+                                        <li><a href="<?php echo base_url('user/changepassword'); ?>"><i class="ti-lock"></i> Change Password</a></li>
+                                    <?php } ?>
                                     <li><a href="<?php echo base_url('logout'); ?>"><i class="fa fa-power-off"></i> Logout</a></li>
                                 </ul>
                             </div>
@@ -299,7 +292,7 @@
                         <!-- ============================================================== -->
                         <!-- Language -->
                         <!-- ============================================================== -->
-                       
+
                     </ul>
                 </div>
             </nav>
@@ -318,97 +311,65 @@
                     <!-- User profile image -->
                     <div class="profile-img"> <a href="<?php echo base_url(); ?>"><img src="<?php echo base_url(); ?>assets/images/users/profile.png" alt="user" /></a> </div>
                     <!-- User profile text-->
-                   
-              <div class="dropdown-menu animated flipInY">
-              <?php if ($this->router->fetch_class() == 'admin') { ?>
-              <li class="nav-small-cap"><a href="<?php echo base_url(); ?>">Admin Dashboard</a></li>
-              <li><a href="<?php echo base_url('admin/profile'); ?>" class="dropdown-item"><i class="ti-user"></i> My Profile</a></li>
-              <?php } ?>
-              <?php if ($this->router->fetch_class() == 'telecaller') { ?>
-              <li class="nav-small-cap"><a href="<?php echo base_url(); ?>">Telecaller Dashboard</a></li>
-              <li><a href="<?php echo base_url('telecaller/profile'); ?>" class="dropdown-item"><i class="ti-user"></i> My Profile</a></li>
-              <?php } ?>
-              <?php if ($this->router->fetch_class() == 'user') { ?>
-              <li class="nav-small-cap"><a href="<?php echo base_url(); ?>">User Dashboard</a></li>
-              <li><a href="<?php echo base_url('user/profile'); ?>" class="dropdown-item"><i class="ti-user"></i> My Profile</a></li>
-              <?php } ?>
-              
-              <div class="dropdown-divider"></div> <a href="<?php echo base_url('logout'); ?>" class="dropdown-item"><i class="fa fa-power-off"></i> Logout</a>
-              </div>
+
+                    <div class="dropdown-menu animated flipInY">
+                        <?php if ($this->router->fetch_class() == 'admin') { ?>
+                            <li class="nav-small-cap"><a href="#">Admin Dashboard</a></li>
+                            <li><a href="<?php echo base_url('admin/profile'); ?>" class="dropdown-item"><i class="ti-user"></i> My Profile</a></li>
+                        <?php } ?>
+                        <?php if ($this->router->fetch_class() == 'telecaller') { ?>
+                            <li class="nav-small-cap"><a href="#">Telecaller Dashboard</a></li>
+                            <li><a href="<?php echo base_url('telecaller/profile'); ?>" class="dropdown-item"><i class="ti-user"></i> My Profile</a></li>
+                        <?php } ?>
+                        <?php if ($this->router->fetch_class() == 'user') { ?>
+                            <li class="nav-small-cap"><a href="#">User Dashboard</a></li>
+                            <li><a href="<?php echo base_url('user/profile'); ?>" class="dropdown-item"><i class="ti-user"></i> My Profile</a></li>
+                        <?php } ?>
+
+                        <div class="dropdown-divider"></div> <a href="<?php echo base_url('logout'); ?>" class="dropdown-item"><i class="fa fa-power-off"></i> Logout</a>
                     </div>
                 </div>
-                <!-- End User profile text-->
-                <!-- Sidebar navigation-->
-                <nav class="sidebar-nav">
-                    <ul id="sidebarnav">
-
-                        <?php if ($this->router->fetch_class() == 'telecaller') { ?>
-                        <li class="nav-small-cap"><a href="<?php echo base_url(); ?>">Caller Dashboard</a></li>
-                            <li>
-                                <a class="has-arrow waves-effect waves-dark" href="<?php echo base_url('telecaller'); ?>"><span class="hide-menu">Dashboard </span></a>
-                            </li>
-                            <li>
-                                <a class="has-arrow waves-effect waves-dark" href="<?php echo base_url('telecaller/leads'); ?>" aria-expanded="false">
-                                    <i class="mdi mdi-laptop-windows"></i>
-                                    <span class="hide-menu">Leads</span>
-                                </a>                          
-                            </li>
-                        <?php } ?>
-                        <?php if ($this->router->fetch_class() == 'admin') { ?>
-                            <li class="nav-small-cap">Admin Dashboard</li>
-                            <li>
-                                <a class="has-arrow waves-effect waves-dark" href="<?php echo base_url('admin'); ?>"><span class="hide-menu">Dashboard </span></a>
-                            </li>
-                            <li>
-                                <a class="has-arrow waves-effect waves-dark" href="<?php echo base_url('admin/caller'); ?>" aria-expanded="false">
-                                    <i class="mdi mdi-laptop-windows"></i>
-                                    <span class="hide-menu">Telecallers</span>
-                                </a>                          
-                            </li>
-                            <li>
-                                <a class="has-arrow waves-effect waves-dark" href="<?php echo base_url('admin/user'); ?>" aria-expanded="false">
-                                    <i class="mdi mdi-laptop-windows"></i>
-                                    <span class="hide-menu">Clients</span>
-                                </a>                          
-                            </li>
-                            <li>
-                                <a class="has-arrow waves-effect waves-dark" href="<?php echo base_url('admin/leads'); ?>" aria-expanded="false">
-                                    <i class="mdi mdi-laptop-windows"></i>
-                                    <span class="hide-menu">Leads</span>
-                                </a>                          
-                            </li>
-                        <?php } ?>
-
-                        <?php if ($this->router->fetch_class() == 'user') { ?>
-                            <li class="nav-small-cap">User Dashboard</li>
-                            <li>
-                                <a class="has-arrow waves-effect waves-dark" href="#"><span class="hide-menu">Dashboard </span></a>
-                            </li>
-                            <li>
-                                <a class="has-arrow waves-effect waves-dark" href="<?php echo base_url('user/leads'); ?>" aria-expanded="false">
-                                    <i class="mdi mdi-laptop-windows"></i>
-                                    <span class="hide-menu">Leads</span>
-                                </a>                          
-                            </li>
-                        <?php } ?>
-
-
-
-
-
-
-                    </ul>
-                </nav>
-                <!-- End Sidebar navigation -->
             </div>
-            <!-- End Sidebar scroll-->
-            <!-- Bottom points-->
-            
-            <!-- End Bottom points-->
-        </aside>
-        <!-- ============================================================== -->
-        <!-- End Left Sidebar - style you can find in sidebar.scss  -->
-        <!-- ============================================================== -->
-          <!-- Page wrapper  -->
-        <!-- ============================================================== -->
-        <div class="page-wrapper">
+            <!-- End User profile text-->
+            <!-- Sidebar navigation-->
+            <nav class="sidebar-nav">
+                <ul id="sidebarnav">
+                    <?php if ($this->router->fetch_class() == 'telecaller') { ?>
+                        <li class="nav-small-cap"><a href="#">Telecaller Dashboard</a></li>
+                        <li><a class="has-arrow waves-effect waves-dark" href="#"><span class="hide-menu">Dashboard </span></a></li>
+                        <li><a class="has-arrow waves-effect waves-dark" href="<?php echo base_url('telecaller/leads'); ?>" aria-expanded="false"><i class="mdi mdi-laptop-windows"></i><span class="hide-menu">Leads</span></a></li>
+                    <?php } ?>
+
+                    <?php if ($this->router->fetch_class() == 'admin') { ?>
+                        <li class="nav-small-cap"><a href="#">Admin Dashboard</a></li>
+                        <li><a class="has-arrow waves-effect waves-dark" href="#"><span class="hide-menu">Dashboard</span></a></li>
+                        <li><a class="has-arrow waves-effect waves-dark" href="<?php echo base_url('admin/caller'); ?>" aria-expanded="false"><i class="mdi mdi-laptop-windows"></i> <span class="hide-menu">Telecallers</span></a></li>
+                        <li><a class="has-arrow waves-effect waves-dark" href="<?php echo base_url('admin/user'); ?>" aria-expanded="false"><i class="mdi mdi-laptop-windows"></i><span class="hide-menu">Clients</span></a></li>
+                        <li><a class="has-arrow waves-effect waves-dark" href="<?php echo base_url('admin/leads'); ?>" aria-expanded="false"><i class="mdi mdi-laptop-windows"></i><span class="hide-menu">Leads</span></a></li>
+                    <?php } ?>
+
+                    <?php if ($this->router->fetch_class() == 'user') { ?>
+                        <li class="nav-small-cap">User Dashboard</li>
+                        <li><a class="has-arrow waves-effect waves-dark" href="#"><span class="hide-menu">Dashboard</span></a></li>
+                        <li><a class="has-arrow waves-effect waves-dark" href="<?php echo base_url('user/leads'); ?>" aria-expanded="false"><i class="mdi mdi-laptop-windows"></i><span class="hide-menu">Leads</span></a></li> <?php } ?>
+
+
+
+
+
+
+                </ul>
+            </nav>
+            <!-- End Sidebar navigation -->
+    </div>
+    <!-- End Sidebar scroll-->
+    <!-- Bottom points-->
+
+    <!-- End Bottom points-->
+</aside>
+<!-- ============================================================== -->
+<!-- End Left Sidebar - style you can find in sidebar.scss  -->
+<!-- ============================================================== -->
+<!-- Page wrapper  -->
+<!-- ============================================================== -->
+<div class="page-wrapper">
