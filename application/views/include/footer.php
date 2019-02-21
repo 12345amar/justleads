@@ -115,6 +115,14 @@ $(document).ready(function() {
     } );
 } );
     </script>
+    
+     <script>
+               
+                $("#uploadLeads").change(function(){
+                    
+                    $("#uploadLeadsForm").submit();
+                });
+                </script>
     <!-- ============================================================== -->
     <!-- Style switcher -->
     <!-- ============================================================== -->

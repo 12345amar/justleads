@@ -59,11 +59,32 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-body">
-							
+				  <?php if ($this->session->flashdata('error')) { ?>
+                        <div class="alert alert-danger alert-dismissible">
+                            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                            <strong>Warning!</strong> <?= $this->session->flashdata("error") ?>
+                        </div>
+                    <?php } ?>
+
+                    <?php if ($this->session->flashdata('success')) { ?>
+                        <div class="alert alert-success alert-dismissible">
+                            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                            <strong></strong> <?= $this->session->flashdata("success") ?>
+                        </div>
+                    <?php } ?>			
                                 <h4 class="card-title">Data Export</h4>
-                                <h6 class="card-subtitle">Export data to Copy, CSV, Excel, PDF & Print</h6>
+                               
 				                <div class="d-flex no-block align-self-center">
                                     <div class="ml-auto">
+                                        
+                                        <form method="post" action="<?php echo base_url()?>telecaller/importLeadsByExcel" enctype="multipart/form-data" id="uploadLeadsForm">
+                                        <label class="btn btn-success btn-sm pull-right collapsed" style="width: 38%;">
+                                               <input type="file" name="leads" id="uploadLeads" style="opacity:0.0;width: 5%;"> <i class="far fa-file-excel"></i> Upload Excel
+                                        </label>
+                                     </form>
+                                          
+                                               
+                                            
                                         <button class="btn btn-success btn-sm pull-right collapsed" type="button" ><a href="<?php echo base_url('telecaller/addlead'); ?>"> Add Leads</a> </button>
                                     </div> 
                                 </div>
@@ -254,4 +275,4 @@
             <!-- ============================================================== -->
             <!-- ============================================================== -->
            
-   
+           

@@ -9,6 +9,56 @@ class TeleCaller extends CI_Controller {
 
         $this->load->model('User_model');
         $this->User_model->checkUseLogin();
+        //load the excel library
+        $this->load->library('excel');
+    }
+
+    public function importLeadsByExcel() {
+        
+        if ($_FILES['leads']['tmp_name']) {
+            
+            $path   = $_FILES['leads']['tmp_name'];
+            $object = PHPExcel_IOFactory::load($path);
+            foreach ($object->getWorksheetIterator() as $worksheet) {
+                $highestRow     = $worksheet->getHighestRow();
+                $highestColumn  = $worksheet->getHighestColumn();
+
+                for ($row=2; $row<=$highestRow; $row++) {
+                    $buyer_name    = $worksheet->getCellByColumnAndRow(0, $row)->getValue();
+                    $buyer_budget  = $worksheet->getCellByColumnAndRow(1, $row)->getValue();
+                    $mobile        = $worksheet->getCellByColumnAndRow(2, $row)->getValue();
+                    $email         = $worksheet->getCellByColumnAndRow(3, $row)->getValue();
+                    $post_lead     = $worksheet->getCellByColumnAndRow(4, $row)->getValue();
+                    $lead_status   = $worksheet->getCellByColumnAndRow(5, $row)->getValue();
+
+                    $data[] = array(
+                     'buyer_name'      => $buyer_name,
+                     'buyer_budget'    => $buyer_budget,
+                     'mobile'          => $mobile,
+                     'email'           => $email,
+                     'post_lead'       => $post_lead,
+                     'lead_status'     => $lead_status
+                    );
+                }
+            }
+   
+            $insert = $this->db->insert_batch('leads', $data);
+            if ($insert) {
+                
+                $this->session->set_flashdata('success', 'File uploaded successfully.');
+                redirect('telecaller/leads');
+            } else {
+             
+                $this->session->set_flashdata('error', 'Unable to upload file, try again.');
+                redirect('telecaller/leads');
+            }
+            
+        } else {
+           
+            $this->session->set_flashdata('error', 'File is not valid, try again.');
+            redirect('telecaller/leads');
+        }
+   
     }
 
     /**
