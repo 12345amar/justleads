@@ -97,7 +97,7 @@ class User_model extends CI_Model {
     {
         if ($this->session->userdata('isLogin') !== TRUE) {
             
-           // redirect('logout');
+            redirect('logout');
         } 
         
          

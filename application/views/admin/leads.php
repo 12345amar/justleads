@@ -31,16 +31,20 @@
 
                     <h4 class="card-title">Data Export</h4>
                     <h6 class="card-subtitle">Export data to Copy, CSV, Excel, PDF & Print</h6>
-
-                    <?php
-                    echo form_open_multipart('excel_import/admin_import');
-                    echo form_upload('file', 'size="150"');
-                    echo form_submit('upload', 'Import Data');
-                    echo form_close();
-                    ?>
                     <div class="d-flex no-block align-self-center">
                         <div class="ml-auto">
-                            <button class="btn btn-success btn-sm pull-right collapsed" type="button" ><a href="<?php echo base_url('admin/add_lead'); ?>"> Add Lead</a> </button>
+                            
+                                    <form method="post" action="<?php echo base_url()?>admin/importLeadsByExcel" enctype="multipart/form-data" id="uploadLeadsForm">
+                                        <label class="btn btn-success btn-sm pull-right collapsed" style="width: 25%;">
+                                               <input type="file" name="leads" id="uploadLeads" style="opacity:0.0;width: 5%;"> <i class="far fa-file-excel"></i> Upload Excel
+                                        </label>
+                                            
+                                        <label class="btn btn-success btn-sm pull-right collapsed" style="width: 25%;">
+                                               <input type="button" name="addlead" style="opacity:0.0;width: 5%;"> <i class="far fa-file-archive"></i> <a href="<?php echo base_url('admin/add_lead'); ?>"> Add Leads</a>
+                                               <!--<button type="button" ><a href="<?php //echo base_url('telecaller/addlead'); ?>"> Add Leads</a> </button>-->
+                                        </label>
+                                     </form>
+                            <!--<button class="btn btn-success btn-sm pull-right collapsed" type="button" ><a href="<?php echo base_url('admin/add_lead'); ?>"> Add Lead</a> </button>-->
                         </div> 
                     </div>
 
@@ -49,30 +53,35 @@
                             <thead class="thead-res">
                                 <tr>
                                     <th></th>
-                                    <th>Buyer Name</th>
-                                    <th>Buyer Budget</th>
-                                    <th>Mobile</th>
+                                    <th>Date</th>
+                                    <th>Name</th>
                                     <th>Email</th>
+                                    <th>Lead Source</th>
+                                    <th>Budget</th>
                                     <th>Location</th>
-                                    <th>Post Lead</th>
+                                    <th>Mobile</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php
-                                foreach ($record as $row) {
-                                    echo "<tr>";
-                                    echo "<td>", "</td>";
-                                    echo "<td>" . $row['buyer_name'] . "</td>";
-                                    echo "<td>" . $row['buyer_budget'] . "</td>";
-                                    echo "<td>" . $row['mobile'] . "</td>";
-                                    echo "<td>" . $row['email'] . "</td>";
-                                    echo "<td>" . $row['location'] . "</td>";
-                                    echo "<td>" . $row['post_lead'] . "</td>";
-                                    echo "<td><a href='" . base_url() . "admin/edit_lead/" . $row['id'] . "'>&nbsp;&nbsp;<i class='far fa-edit' aria-hidden='true'></i></a>&nbsp;&nbsp;&nbsp;<a href='" . base_url() . "admin/delete_lead/" . $row['id'] . "'><i class='fas fa-trash-alt' aria-hidden='true'></i></a>&nbsp;&nbsp;&nbsp;<a href='" . base_url() . "admin/view_lead/" . $row['id'] . "'><i class='fas fa-eye' aria-hidden='true'></i></a></td>";
-                                    echo "</tr>";
-                                }
-                                ?>
+                                <?php $i=1;
+                                foreach ($record as $row) { ?>
+                                    <tr>
+                                    <td><?=$i?></td>
+                                    <td><?=$row['created']?></td>
+                                    <td><?=$row['buyer_name']?></td>
+                                    <td><?=$row['email']?></td>
+                                    <td><?=$row['lead_source']?></td>
+                                    <td><?=$row['buyer_budget']?></td>
+                                    <td><?=$row['location']?></td>
+                                    <td><?=$row['mobile']?></td>
+                                   <td>
+                                       <a href='<?php echo base_url()."admin/edit_lead/".$row['id'] ?>'><i class='far fa-edit' aria-hidden='true'></i></a>&nbsp;&nbsp;
+                                       <a href='<?php echo base_url()."admin/delete_lead/".$row['id'] ?>'><i class='fas fa-trash-alt' aria-hidden='true'></i></a>&nbsp;&nbsp;
+                                       <a href='<?php echo base_url()."admin/view_lead/".$row['id'] ?>'><i class='fas fa-eye' aria-hidden='true'></i></a>
+                                   </td>
+                                    </tr>
+                                <?php $i++; } ?>
                             </tbody>
                         </table>
                     </div>

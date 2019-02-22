@@ -63,11 +63,46 @@
                                     <span class="text-danger" style="color:red;"><?php echo form_error('buyer_name'); ?></span> 
                                 </div>
                             </div>
+                            
+                            
                             <div class="form-group row">
+                                <label class="control-label text-right col-md-3">Email</label>
+                                <div class="col-md-9">
+                                    <input type="email" name="email" value="<?php echo set_value('email'); ?>" placeholder="Email Id" class="form-control">
+                                    <span class="text-danger" style="color:red;"><?php echo form_error('email'); ?></span>  
+                                </div>
+                            </div>
+                            
+                             <div class="form-group row">
+                                <label class="control-label text-right col-md-3">Lead Source</label>
+                                <div class="col-md-9">
+                                    <input type="text" name="lead_source" value="<?php echo set_value('lead_source'); ?>" placeholder="Lead Source" class="form-control">
+                                    <span class="text-danger" style="color:red;"><?php echo form_error('lead_source'); ?></span> 
+                                </div>
+                            </div>
+                            
+                            
+                             <div class="form-group row">
                                 <label class="control-label text-right col-md-3">Buyer Budget</label>
                                 <div class="col-md-9">
                                     <input type="text" name="buyer_budget" value="<?php echo set_value('buyer_budget'); ?>"  placeholder="Buyer Budget" class="form-control">
                                     <span class="text-danger" style="color:red;"><?php echo form_error('buyer_budget'); ?></span> 
+                                </div>
+                            </div>
+                            
+                             <div class="form-group row">
+                                <label class="control-label text-right col-md-3">Location</label>
+                                <div class="col-md-9">
+                                    <input type="text" name="location" value="<?php echo set_value('location'); ?>" placeholder="Location" class="form-control">
+                                    <span class="text-danger" style="color:red;"><?php echo form_error('location'); ?></span> 
+                                </div>
+                            </div>
+                            
+                             <div class="form-group row">
+                                <label class="control-label text-right col-md-3">Project</label>
+                                <div class="col-md-9">
+                                    <input type="text" name="project" value="<?php echo set_value('project'); ?>" placeholder="Project" class="form-control">
+                                    <span class="text-danger" style="color:red;"><?php echo form_error('project'); ?></span> 
                                 </div>
                             </div>
 
@@ -78,30 +113,38 @@
                                     <span class="text-danger" style="color:red;"><?php echo form_error('mobile'); ?></span> 
                                 </div>
                             </div>
-
-                            <div class="form-group row">
-                                <label class="control-label text-right col-md-3">Email Id</label>
+                            
+                            
+                              <div class="form-group row">
+                                <label class="control-label text-right col-md-3">Lead Status</label>
                                 <div class="col-md-9">
-                                    <input type="text" name="email" value="<?php echo set_value('email'); ?>" placeholder="Email Id" class="form-control">
-                                    <span class="text-danger" style="color:red;"><?php echo form_error('email'); ?></span>  
+                                    <input type="text" name="lead_status" value="<?php echo set_value('lead_status'); ?>" placeholder="Lead Status" class="form-control">
+                                    <span class="text-danger" style="color:red;"><?php echo form_error('lead_status'); ?></span> 
                                 </div>
                             </div>
-
-
-                            <div class="form-group row">
-                                <label class="control-label text-right col-md-3">Location</label>
+                            
+                              <div class="form-group row">
+                                <label class="control-label text-right col-md-3">Size</label>
                                 <div class="col-md-9">
-                                    <input type="text" name="location" value="<?php echo set_value('location'); ?>" placeholder="Location" class="form-control">
-                                    <span class="text-danger" style="color:red;"><?php echo form_error('location'); ?></span> 
+                                    <input type="text" name="size" value="<?php echo set_value('size'); ?>" placeholder="Size" class="form-control">
+                                    <span class="text-danger" style="color:red;"><?php echo form_error('size'); ?></span> 
                                 </div>
                             </div>
-
-
+                            
+                            
                             <div class="form-group row">
-                                <label class="control-label text-right col-md-3">Post Lead</label>
+                                <label class="control-label text-right col-md-3">Priority</label>
                                 <div class="col-md-9">
-                                    <input type="text" name="post_lead" value="<?php echo set_value('post_lead'); ?>" placeholder="Post Lead" class="form-control">
-                                    <span class="text-danger" style="color:red;"><?php echo form_error('post_lead'); ?></span> 
+                                    <input type="text" name="priority" value="<?php echo set_value('priority'); ?>" placeholder="Priority" class="form-control">
+                                    <span class="text-danger" style="color:red;"><?php echo form_error('priority'); ?></span> 
+                                </div>
+                            </div>
+                            
+                             <div class="form-group row">
+                                <label class="control-label text-right col-md-3">Message</label>
+                                <div class="col-md-9">
+                                    <input type="text" name="message" value="<?php echo set_value('message'); ?>" placeholder="Message" class="form-control">
+                                    <span class="text-danger" style="color:red;"><?php echo form_error('message'); ?></span> 
                                 </div>
                             </div>
 

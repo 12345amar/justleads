@@ -346,6 +346,7 @@
                         <li><a class="has-arrow waves-effect waves-dark" href="<?php echo base_url('admin/caller'); ?>" aria-expanded="false"><i class="mdi mdi-laptop-windows"></i> <span class="hide-menu">Telecallers</span></a></li>
                         <li><a class="has-arrow waves-effect waves-dark" href="<?php echo base_url('admin/user'); ?>" aria-expanded="false"><i class="mdi mdi-laptop-windows"></i><span class="hide-menu">Clients</span></a></li>
                         <li><a class="has-arrow waves-effect waves-dark" href="<?php echo base_url('admin/leads'); ?>" aria-expanded="false"><i class="mdi mdi-laptop-windows"></i><span class="hide-menu">Leads</span></a></li>
+                        <li><a class="has-arrow waves-effect waves-dark" href="<?php echo base_url('admin/filter_leads'); ?>" aria-expanded="false"><i class="mdi mdi-laptop-windows"></i><span class="hide-menu">Filter Leads</span></a></li>
                     <?php } ?>
 
                     <?php if ($this->router->fetch_class() == 'user') { ?>

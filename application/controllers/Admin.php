@@ -8,8 +8,66 @@ class Admin extends CI_Controller {
         parent::__construct();
         $this->load->model('User_model');
         $this->User_model->checkUseLogin();
+        //load the excel library
+        $this->load->library('excel');
     }
 
+    
+        public function importLeadsByExcel() {
+        
+        if ($_FILES['leads']['tmp_name']) {
+            
+            $path   = $_FILES['leads']['tmp_name'];
+            $object = PHPExcel_IOFactory::load($path);
+            foreach ($object->getWorksheetIterator() as $worksheet) {
+                $highestRow     = $worksheet->getHighestRow();
+                $highestColumn  = $worksheet->getHighestColumn();
+
+                for ($row=2; $row<=$highestRow; $row++) {
+                    $buyer_name    = $worksheet->getCellByColumnAndRow(0, $row)->getValue();
+                    $buyer_budget  = $worksheet->getCellByColumnAndRow(1, $row)->getValue();
+                    $mobile        = $worksheet->getCellByColumnAndRow(2, $row)->getValue();
+                    $email         = $worksheet->getCellByColumnAndRow(3, $row)->getValue();
+                    $location      = $worksheet->getCellByColumnAndRow(4, $row)->getValue();
+                    $lead_source     = $worksheet->getCellByColumnAndRow(5, $row)->getValue();
+                    $lead_status   = $worksheet->getCellByColumnAndRow(6, $row)->getValue();
+
+                    $data[] = array(
+                     'buyer_name'      => $buyer_name,
+                     'buyer_budget'    => $buyer_budget,
+                     'mobile'          => $mobile,
+                     'email'           => $email,
+                     'location'        => $location,
+                     'lead_source'       => $lead_source,
+                     'lead_status'     => $lead_status
+                    );
+                }
+            }
+   
+            $insert = $this->db->insert_batch('leads', $data);
+            if ($insert) {
+                
+                $this->session->set_flashdata('success', 'File uploaded successfully.');
+                redirect('admin/leads');
+            } else {
+             
+                $this->session->set_flashdata('error', 'Unable to upload file, try again.');
+                redirect('admin/leads');
+            }
+            
+        } else {
+           
+            $this->session->set_flashdata('error', 'File is not valid, try again.');
+            redirect('admin/leads');
+        }
+   
+    }
+    
+    
+    /**
+     * Layout of Admin
+     * 
+     */
     public function index() {
         $data['page'] = 'index';
         $this->load->view('layout', $data);
@@ -197,18 +255,30 @@ class Admin extends CI_Controller {
        
         if($this->input->post()){
         $this->form_validation->set_rules('buyer_name', 'Buyer Name', 'required');
-        $this->form_validation->set_rules('buyer_budget', 'Buyer Budget', 'required');
-        $this->form_validation->set_rules('mobile', 'Mobile Number', 'required|regex_match[/^[0-9]{10}$/]');
         $this->form_validation->set_rules('email', 'Email', 'required|valid_email');
+        $this->form_validation->set_rules('lead_source', 'Lead Source', 'required');
+        $this->form_validation->set_rules('buyer_budget', 'Buyer Budget', 'required');
         $this->form_validation->set_rules('location', 'Location', 'required');
-        $this->form_validation->set_rules('post_lead', 'Post Lead', 'required');
+        $this->form_validation->set_rules('project', 'Project', 'required');
+        $this->form_validation->set_rules('mobile', 'Mobile Number', 'required|regex_match[/^[0-9]{10}$/]');
+        $this->form_validation->set_rules('lead_status', 'Lead Status', 'required');
+        $this->form_validation->set_rules('size', 'Size', 'required');
+        $this->form_validation->set_rules('priority', 'Priority', 'required');
+        $this->form_validation->set_rules('message', 'Message', 'required');
+        
         $data = array(
                 'buyer_name' => $this->input->post('buyer_name'),
-                'buyer_budget' => $this->input->post('buyer_budget'),
-                'mobile' => $this->input->post('mobile'),
                 'email' => $this->input->post('email'),
+                'lead_source' => $this->input->post('lead_source'),
+                'buyer_budget' => $this->input->post('buyer_budget'),
                 'location' => $this->input->post('location'),
-                'post_lead' => $this->input->post('post_lead')
+                'project' => $this->input->post('project'),
+                'mobile' => $this->input->post('mobile'),
+                'lead_status' => $this->input->post('lead_status'),
+                'size' => $this->input->post('size'),
+                'priority' => $this->input->post('priority'),
+                'message' => $this->input->post('message'),
+                
             );
         if ($this->form_validation->run() == TRUE) {
             $this->User_model->form_insert_lead($data);
@@ -292,6 +362,16 @@ class Admin extends CI_Controller {
         $this->db->where('username', $this->input->post('username'));
         $this->db->update('users', $data);
         return true;
+    }
+    
+    
+        /**
+     * Layout of Admin Filter Leads
+     * 
+     */
+    public function filter_leads() {
+        $data['page'] = 'filter_leads';
+        $this->load->view('layout', $data);
     }
 
 }
