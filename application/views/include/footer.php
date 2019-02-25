@@ -1,6 +1,6 @@
  <!-- footer -->
             <!-- ============================================================== -->
-            <footer class="footer"> © 2019 Design & Develope by zeltisinfotech.com </footer>
+            <!--<footer class="footer"> © 2019 Design & Develope by zeltisinfotech.com </footer>-->
             <!-- ============================================================== -->
             <!-- End footer -->
             <!-- ============================================================== -->
@@ -118,11 +118,11 @@ $(document).ready(function() {
     
      <script>
                
-                $("#uploadLeads").change(function(){
+        $("#uploadLeads").change(function(){
                     
-                    $("#uploadLeadsForm").submit();
-                });
-                </script>
+        $("#uploadLeadsForm").submit();
+        });
+     </script>
     <!-- ============================================================== -->
     <!-- Style switcher -->
     <!-- ============================================================== -->

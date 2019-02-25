@@ -8,7 +8,7 @@ class Registration extends CI_Controller {
         parent::__construct();
         $this->load->view('register');
         $this->load->model('User_model');
-        $this->User_model->checkUseLogin();
+        //$this->User_model->checkUseLogin();
     }
 
     /**

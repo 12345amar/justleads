@@ -57,7 +57,7 @@
                             <!-- dark Logo text -->
 
                             <!-- Light Logo text -->    
-                            <img src="<?php echo base_url(); ?>assets/images/justleads-logo.png" class="light-logo" alt="homepage" /></span> </a>
+                            <img src="<?php echo base_url(); ?>assets/images/justleads-logo.png" style="height:70px;" class="light-logo" alt="homepage" /></span> </a>
                     </div>
                     <!-- ============================================================== -->
                     <!-- End Logo -->

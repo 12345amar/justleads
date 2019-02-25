@@ -1,6 +1,4 @@
-
-    
-    
+   
     <?php include('include/header.php'); ?>
 <center>
     
@@ -64,14 +62,14 @@
                              <span class="help-block" style="color:red;" <?php echo form_error('confirm'); ?></span>
                         </div>
                     </div>
-                    <div class="form-group">
+                    <!--<div class="form-group">
                         <div class="">
                             <div class="checkbox checkbox-success p-t-0">
                                 <input id="checkbox-signup" type="checkbox">
                                 <label for="checkbox-signup"> I agree to all <a href="#">Terms</a></label>
                             </div>
                         </div>
-                    </div>
+                    </div>-->
                     <div class="form-group text-center m-t-20">
                         <div class="col-xs-12">
                             <button class="btn btn-info btn-lg btn-block text-uppercase waves-effect waves-light" type="submit">Sign Up</button>

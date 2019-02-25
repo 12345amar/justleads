@@ -35,12 +35,12 @@
                         <div class="ml-auto">
                             
                                     <form method="post" action="<?php echo base_url()?>admin/importLeadsByExcel" enctype="multipart/form-data" id="uploadLeadsForm">
-                                        <label class="btn btn-success btn-sm pull-right collapsed" style="width: 25%;">
-                                               <input type="file" name="leads" id="uploadLeads" style="opacity:0.0;width: 5%;"> <i class="far fa-file-excel"></i> Upload Excel
+                                        <label class="btn btn-info btn-sm pull-right collapsed" style="width: 25%;">
+                                               <input type="file" name="leads" id="uploadLeads" style="opacity:0.0;width: 5%;"> <i class="fas fa-upload"></i> Upload Excel
                                         </label>
                                             
-                                        <label class="btn btn-success btn-sm pull-right collapsed" style="width: 25%;">
-                                               <input type="button" name="addlead" style="opacity:0.0;width: 5%;"> <i class="far fa-file-archive"></i> <a href="<?php echo base_url('admin/add_lead'); ?>"> Add Leads</a>
+                                        <label class="btn btn-danger btn-sm pull-right collapsed" style="width: 25%;">
+                                            <input type="" name="addlead" class="addlead" style="opacity:0.0;width: 0%;"> <i class="fas fa-plus"></i> <a href="<?php echo base_url('admin/add_lead'); ?>"><span class="addlead"> Add Leads</span></a>
                                                <!--<button type="button" ><a href="<?php //echo base_url('telecaller/addlead'); ?>"> Add Leads</a> </button>-->
                                         </label>
                                      </form>

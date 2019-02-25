@@ -309,9 +309,14 @@ html body .m-t-30 {
   margin-top: 30px; }
 
 html body .m-t-40 {
+  font-size: 12px !important;
+  font-weight: 400;
+  color: #000000 !important;	
   margin-top: 40px; }
 
 html body .m-b-0 {
+  color: #000000 !important;
+  font-weight: 500;
   margin-bottom: 0px; }
 
 html body .m-b-5 {
@@ -2085,6 +2090,7 @@ ul#themecolors {
  page title
 *******************/
 .page-titles {
+  padding-top: 80px;
   padding-bottom: 20px; }
 
 /*******************
@@ -2195,6 +2201,7 @@ ul#themecolors {
   border-color: #7460ee; }
 
 .card-outline-info {
+  margin-top: 70px;
   border-color: #1e88e5; }
   .card-outline-info .card-header {
     background: #1e88e5;
@@ -4993,7 +5000,7 @@ Login register and recover password Page
   background-position: center center;
   height: 100%;
   width: 100%;
-  padding: 10% 0;
+  padding: 5% 0;
   position: fixed; }
 
 .login-box {
@@ -5424,8 +5431,9 @@ sidebar navigation
     .sidebar-nav ul li {
       list-style: none; }
       .sidebar-nav ul li a {
-        color: #607d8b;
-        padding: 8px 35px 8px 15px;
+        color: #000000 !important;
+		font-weight: 400;
+       /* padding: 8px 35px 8px 15px; */
         display: block;
         font-size: 15px;
         border-radius: 4px;
@@ -5463,7 +5471,7 @@ sidebar navigation
       .sidebar-nav > ul > li.active > a i {
         color: #26c6da; }
   .sidebar-nav > ul > li > a.active i, .sidebar-nav > ul > li > a:hover i {
-    color: #26c6da; }
+    color: #1e88e5 !important; }
   .sidebar-nav > ul > li > a i {
     width: 27px;
     height: 27px;
@@ -8031,3 +8039,24 @@ input[type=checkbox]:not(:disabled).tabbed:focus ~ .lever::after {
     background-color: rgba(255, 255, 255, 0.5); }
     .switch label input[type=checkbox]:checked + .lever.switch-col-white:after {
       background-color: #ffffff; }
+
+/* changes of custom css files: 25/02/2019 */
+.topbar {
+	    background: #7460ee !important;
+}
+.navbar-header {
+	background: #ffffff !important;
+}
+
+.topbar {
+    position: fixed;
+    width: 100%;
+}
+
+.ml-auto a .addlead {
+	color: #fff !important;
+}
+
+.container-fluid .row .page-titles {
+	    
+}

@@ -5,7 +5,6 @@ include('include/header.php');
 include('include/left_side_bar.php');
 
 
-
 if ($this->router->fetch_class() == 'telecaller') {  
    
     include('talle_caller/'.$page.'.php'); 
