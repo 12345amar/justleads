@@ -5,10 +5,19 @@
                 <!-- ============================================================== -->
                 <!-- Bread crumb and right sidebar toggle -->
                 <!-- ============================================================== -->
-              
+                    <div class="row page-titles">
+                        <div class="col-md-5 col-8 align-self-center">
+                            <h3 class="text-themecolor m-b-0 m-t-0">Admin</h3>
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="javascript:void(0)">View Caller</a></li>
+                                <!--<li class="breadcrumb-item active">Form</li>-->
+                            </ol>
+                        </div>
+
+                    </div> 
 					
                 <!-- Row -->
-                <div class="row">
+                <div class="row" style="margin-top: -70px;">
                     <div class="col-lg-12">
                         <div class="card card-outline-info">
                             <div class="card-header">
@@ -49,7 +58,7 @@
 									
 							    <div class="form-group text-center m-t-20">
 									<div class="col-xs-12">
-										<button class="btn btn-success" name="view" type="submit">Back</button>
+										<button class="btn btn-danger" name="view" type="submit">Back</button>
 										<?php echo $this->session->flashdata("error"); ?>
 									</div>
 								</div>

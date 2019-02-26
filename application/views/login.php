@@ -52,10 +52,10 @@
                         
                         <div class="form-group">
                             <div class="d-flex no-block align-items-center">
-                                <div class="checkbox checkbox-primary p-t-0">
+                                <!--<div class="checkbox checkbox-primary p-t-0">
                                     <input id="checkbox-signup" name="checkme" <?php //if(get_cookie('userId')){echo 'checked';};  ?> type="checkbox" value='1'>
                                     <label for="checkbox-signup"> Remember me </label>
-                                </div> 
+                                </div>--> 
                                 <div class="ml-auto">
                                     <a href="<?php echo base_url('forgot'); ?>" id="to-recover" class="text-muted"><i class="fa fa-lock m-r-5"></i> Forgot pwd?</a> 
                                 </div>

@@ -14,7 +14,7 @@
                             <li class="breadcrumb-item">
                                 <a href="javascript:void(0)">Caller</a>
                             </li>
-                            <li class="breadcrumb-item active">Form</li>
+                            <!--<li class="breadcrumb-item active">Form</li>-->
                         </ol>
                     </div>
                </div>
@@ -44,7 +44,13 @@
                             <div class="card-body">
 				  <div class="d-flex no-block align-self-center">
                                     <div class="ml-auto">
-                                        <button class="btn btn-success btn-sm pull-right collapsed" type="button" ><a href="<?php echo base_url('admin/add_caller'); ?>"> Add Caller</a> </button>
+                                        <!--<button class="btn btn-success btn-sm pull-right collapsed" type="button" ><a href="<?php //echo base_url('admin/add_caller'); ?>"> Add Caller</a> </button>-->
+                                        
+                                          <label class="btn btn-danger btn-sm pull-right collapsed" style="width: 50%;">
+                                            <input type="" name="addlead" class="addlead" style="opacity:0.0;width: 0%;"> <i class="fas fa-plus"></i> <a href="<?php echo base_url('admin/add_caller'); ?>"><span class="addlead"> Add Caller</span></a>
+                                               <!--<button type="button" ><a href="<?php //echo base_url('telecaller/addlead'); ?>"> Add Leads</a> </button>-->
+                                        </label>
+                                        
                                     </div> 
                                 </div>
 								

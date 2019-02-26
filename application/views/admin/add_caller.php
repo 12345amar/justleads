@@ -27,8 +27,23 @@
     <![endif]-->
     </head>
 
+    
+ <div class="container-fluid">
+     
+                <!-- Bread crumb and right sidebar toggle -->
+                    <!-- ============================================================== -->
+                    <div class="row page-titles">
+                        <div class="col-md-5 col-8 align-self-center">
+                            <h3 class="text-themecolor m-b-0 m-t-0">Admin</h3>
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="javascript:void(0)">Add Caller</a></li>
+                                <!--<li class="breadcrumb-item active">Form</li>-->
+                            </ol>
+                        </div>
+
+                    </div> 
     <!-- Row -->
-    <div class="row">
+    <div class="row"style="margin-top: -70px;">
         <div class="col-lg-12">
             <div class="card card-outline-info">
                 <div class="card-header">
@@ -57,29 +72,29 @@
                         <?php } ?>
                         <div class="form-body">
                             <div class="form-group row">
-                                <label class="control-label text-right col-md-3">Username</label>
-                                <div class="col-md-9">
+                                <!--<label class="control-label text-right col-md-3">Username</label>-->
+                                <div class="col-md-12">
                                     <input type="text" name="username" value="<?php echo set_value('username'); ?>" placeholder="Username" class="form-control">
                                     <span class="text-danger" style="color:red;"><?php echo form_error('username'); ?></span> 
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label class="control-label text-right col-md-3">Email</label>
-                                <div class="col-md-9">
+                                <!--<label class="control-label text-right col-md-3">Email</label>-->
+                                <div class="col-md-12">
                                     <input type="email" name="email" value="<?php echo set_value('email'); ?>" placeholder="Email" class="form-control">
                                     <span class="text-danger" style="color:red;"><?php echo form_error('email'); ?></span>  
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label class="control-label text-right col-md-3">Mobile</label>
-                                <div class="col-md-9">
+                                <!--<label class="control-label text-right col-md-3">Mobile</label>-->
+                                <div class="col-md-12">
                                     <input type="number" name="mobile" value="<?php echo set_value('mobile'); ?>" placeholder="Mobile" class="form-control">
                                     <span class="text-danger" style="color:red;"><?php echo form_error('mobile'); ?></span> 
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label class="control-label text-right col-md-3">Password</label>
-                                <div class="col-md-9">
+                                <!--<label class="control-label text-right col-md-3">Password</label>-->
+                                <div class="col-md-12">
                                     <input type="password" name="password" value="<?php echo set_value('password'); ?>" placeholder="password" class="form-control">
                                     <span class="text-danger" style="color:red;"><?php echo form_error('password'); ?></span> 
                                 </div>
@@ -87,8 +102,9 @@
 
                             <div class="form-group text-center m-t-20">
                                 <div class="col-xs-12">
-                                    <button class="btn btn-success" name="submit" type="submit">Submit</button>
+                                    <button class="btn btn-success btn-info" name="submit" type="submit">Submit</button>
                                     <?php echo $this->session->flashdata("error"); ?>
+                                    <a href="<?php echo base_url('admin/caller'); ?>"><button type="button" class="btn btn-danger">Cancel</button></a>
                                 </div>
                             </div>
                     </form>
@@ -97,6 +113,7 @@
         </div>
     </div>
 </div>
+ </div>    
 <footer class="footer">
     © 2018 Material Pro Admin by wrappixel.com
 </footer>
@@ -120,8 +137,6 @@
 <!-- Style switcher -->
 <!-- ============================================================== -->
 <script src="<?php echo base_url(); ?>assets/plugins/styleswitcher/jQuery.style.switcher.js"></script>
-
-
 
 <!-- Mirrored from wrappixel.com/demos/admin-templates/material-pro/material/form-layout.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 19 Dec 2018 09:05:26 GMT -->
 </html>

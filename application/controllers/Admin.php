@@ -92,7 +92,17 @@ class Admin extends CI_Controller {
         redirect('admin/profile');
     }
     
-    // Caller section in Admin Controller
+    public function view_profile() {
+        
+        $data['record'] = $this->db->query('select users.* from users 
+                left join user_roles on users.id=user_roles.user_id 
+                where user_roles.role_id=1 order by id desc')->result_array();
+        $data['page'] = 'view_profile';
+        $this->load->view('layout', $data);
+        
+    }
+
+        // Caller section in Admin Controller
 
     public function caller() {
         $data['record'] = $this->db->query('select users.* from users 
@@ -113,7 +123,7 @@ class Admin extends CI_Controller {
         if ($this->input->post()) {
             $this->form_validation->set_rules('username', 'Username', 'required');
             $this->form_validation->set_rules('email', 'Email', 'required|valid_email|is_unique[users.email]');
-            $this->form_validation->set_rules('mobile', 'Mobile',  'required|min_length[5]|max_length[12]');
+            $this->form_validation->set_rules('mobile', 'Mobile',  'required|min_length[10]|max_length[12]');
             $this->form_validation->set_rules('password', 'password', 'required');
           $data = array(
                     'username'  => $this->input->post('username'),
@@ -185,7 +195,7 @@ class Admin extends CI_Controller {
      if($this->input->post()){
             $this->form_validation->set_rules('username', 'Username', 'required');
             $this->form_validation->set_rules('email', 'Email', 'required|valid_email|is_unique[users.email]');
-            $this->form_validation->set_rules('mobile', 'Mobile',  'required|min_length[5]|max_length[12]');
+            $this->form_validation->set_rules('mobile', 'Mobile',  'required|min_length[10]|max_length[12]');
             $this->form_validation->set_rules('password', 'password', 'required');
         if ($this->form_validation->run() == TRUE) {
             $data = array(
@@ -195,7 +205,7 @@ class Admin extends CI_Controller {
                 'password' => md5($this->input->post('password')),
             );
             $this->User_model->form_insert_user($data);
-            $this->session->set_flashdata('success', 'User inserted successfully.');
+            $this->session->set_flashdata('success', 'Caller added successfully.');
             //$data['message'] = 'User Inserted Successfully';
             redirect('admin/user', $data);
            } else {
@@ -225,7 +235,7 @@ class Admin extends CI_Controller {
         $data = $this->input->post();
         unset($data['update']);
         $this->User_model->edit_user('users', 'id=' . $data['id'], $data);
-        $this->session->set_flashdata('success', 'User details updated successfully.');
+        $this->session->set_flashdata('success', 'Client updated successfully.');
         redirect('admin/user');
     }
 
@@ -233,7 +243,7 @@ class Admin extends CI_Controller {
         $id = $this->uri->segment(3);
         $this->load->model('User_model');
         $this->User_model->delete_user('users', 'id=' . $id);
-        $this->session->set_flashdata('success', 'User deleted successfully.');
+        $this->session->set_flashdata('success', 'Client deleted successfully.');
         redirect('admin/user');
     }
 
@@ -311,7 +321,7 @@ class Admin extends CI_Controller {
         $data = $this->input->post();
         unset($data['update']);
         $this->User_model->edit_lead('leads', 'id=' . $data['id'], $data);
-        $this->session->set_flashdata('success', 'User details updated successfully.');
+        $this->session->set_flashdata('success', 'Update Leads successfully.');
         redirect('admin/leads');
     }
 

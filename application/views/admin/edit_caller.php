@@ -13,11 +13,10 @@
                             <li class="breadcrumb-item active">Edit Caller</li>
                         </ol>
                     </div>
-                    
                 </div>
 					
                 <!-- Row -->
-                <div class="row">
+                <div class="row" style="margin-top:-70px;">
                     <div class="col-lg-12">
                         <div class="card card-outline-info">
                             <div class="card-header">
@@ -56,7 +55,7 @@
                                         <div class="form-group row">
                                             <label class="control-label text-right col-md-3">Email</label>
                                             <div class="col-md-9">
-                                                <input type="text" name="email" value="<?php echo $record[0]['email']; ?>" placeholder="Email" class="form-control">
+                                                <input type="email" name="email" value="<?php echo $record[0]['email']; ?>" placeholder="Email" class="form-control">
                                                 <span class="text-danger" style="color:red;"><?php echo form_error('email'); ?></span> 
 											</div>
                                         </div>
@@ -73,7 +72,7 @@
 									
 							    <div class="form-group text-center m-t-20">
 									<div class="col-xs-12">
-										<button class="btn btn-success" name="update" type="submit">Update</button>
+										<button class="btn btn-success btn-info" name="update" type="submit">Update</button>
 										<?php echo $this->session->flashdata("error"); ?>
 									</div>
 								</div>

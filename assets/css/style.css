@@ -1565,8 +1565,9 @@ Form-control
 ******************/
 .form-control {
   color: #67757c;
-  min-height: 38px;
-  display: initial; }
+  min-height: 32px;
+  display: initial;
+  font-size: 12px; }
 
 .form-control-sm {
   min-height: 20px; }
@@ -1582,10 +1583,13 @@ Form-control
   background-color: #26c6da; }
 
 form label {
+  font-size: 12px;
+  color: #000000;
   font-weight: 400; }
 
 .form-group {
-  margin-bottom: 25px; }
+  margin-top: -1%;
+  margin-bottom: 25px;  }
 
 .form-horizontal label {
   margin-bottom: 0px; }
@@ -1594,8 +1598,8 @@ form label {
   padding-top: 0px; }
 
 .form-bordered .form-group {
-  border-bottom: 1px solid rgba(120, 130, 140, 0.13);
-  padding-bottom: 20px; }
+  /* border-bottom: 1px solid rgba(120, 130, 140, 0.13); 
+  padding-bottom: 20px; */ }
 
 /*******************
 Layouts
@@ -2204,7 +2208,7 @@ ul#themecolors {
   margin-top: 70px;
   border-color: #1e88e5; }
   .card-outline-info .card-header {
-    background: #1e88e5;
+    background: #eeeeee;
     border-color: #1e88e5; }
 
 .card-outline-inverse {

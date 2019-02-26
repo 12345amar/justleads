@@ -79,12 +79,13 @@
                                         </div>
                                         <div class="form-group">
                                             <div class="col-md-12">
-                                                <input type="number" name="mobile" placeholder="mobile"  value="<?php echo $record[0]['mobile']; ?>" class="form-control form-control-line">
+                                                <input type="number" name="mobile" placeholder="mobile" maxlength="10"  value="<?php echo $record[0]['mobile']; ?>" class="form-control form-control-line">
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <div class="col-sm-12">
-                                                <button name="update" type="submit" class="btn btn-success">Update Profile</button>
+                                                <button name="update" type="submit" class="btn btn-success btn-info">Update Profile</button>
+                                                <a href="<?php echo base_url('admin/index'); ?>"><button type="button" class="btn btn-danger">Cancel</button></a>
                                             </div>
                                         </div>
                                     </form>

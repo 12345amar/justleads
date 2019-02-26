@@ -372,7 +372,7 @@
                     </div>
 
                     <!-- Row -->
-                    <div class="row">
+                    <div class="row" style="margin-top: -70px !important;">
                         <div class="col-lg-12">
                             <div class="card card-outline-info">
                                 <div class="card-header">
@@ -401,20 +401,20 @@
                                         <?php } ?>
                                         <div class="form-body">
                                             <div class="form-group row">
-                                                 <div class="col-md-9">
+                                                 <div class="col-md-12">
                                                     <input type="password" name="old_password" value="<?php echo set_value('old_password'); ?>" placeholder="Old Password" class="form-control">
                                                     <span class="text-danger" style="color:red;"><?php echo form_error('old_password'); ?></span> 
                                                 </div>
                                             </div>
                                             <div class="form-group row">
-                                                 <div class="col-md-9">
+                                                 <div class="col-md-12">
                                                     <input type="password" name="new_password" value="<?php echo set_value('new_password'); ?>" placeholder="New Password" class="form-control">
                                                     <span class="text-danger" style="color:red;"><?php echo form_error('new_password'); ?></span> 
                                                 </div>
                                             </div>
 
                                             <div class="form-group row">
-                                                <div class="col-md-9">
+                                                <div class="col-md-12">
                                                     <input type="password" name="pass_conf" placeholder="Confirm Password" class="form-control">
                                                     <span class="text-danger" style="color:red;"><?php echo form_error('pass_conf'); ?></span> 
                                                 </div>
@@ -426,9 +426,9 @@
                                                 <div class="col-md-12">
                                                     <div class="row">
                                                         <div class="offset-sm-3 col-md-9">
-                                                            <button type="submit" name="submit" class="btn btn-success"> <i class="fa fa-send"></i> Change</button>
+                                                            <button type="submit" name="submit" class="btn btn-success btn-info"> <i class="fa fa-send"></i> Change</button>
                                                             <?php echo $this->session->flashdata("error"); ?>
-                                                            <a href="<?php echo base_url('admin/index'); ?>"><button type="button" class="btn btn-inverse">Cancel</button></a>
+                                                            <a href="<?php echo base_url('admin/index'); ?>"><button type="button" class="btn btn-danger">Cancel</button></a>
                                                         </div>
                                                     </div>
                                                 </div>

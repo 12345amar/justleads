@@ -5,7 +5,8 @@
     <!-- ============================================================== -->
     <div class="preloader">
         <svg class="circular" viewBox="25 25 50 50">
-        <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10" /> </svg>
+        <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10" /> 
+		</svg>
     </div>
     <!-- ============================================================== -->
     <!-- Main wrapper - style you can find in pages.scss -->
@@ -260,7 +261,7 @@
                                             <div class="u-text">
                                                 <h4>Admin</h4>
                                                 <?php if ($this->router->fetch_class() == 'admin') { ?>
-                                                <p class="text-muted">admin@gmail.com</p><a href="<?php echo base_url('admin/profile'); ?>" class="btn btn-rounded btn-danger btn-sm">View Profile</a></div>
+                                                <p class="text-muted">admin@gmail.com</p><a href="<?php echo base_url('admin/view_profile'); ?>" class="btn btn-rounded btn-danger btn-sm">View Profile</a></div>
                                             <?php } ?>
                                         </div>
 
@@ -305,7 +306,7 @@
             <!-- Sidebar scroll-->
             <div class="scroll-sidebar">
                 <!-- User profile -->
-                <div class="user-profile" style="background: url(<?php echo base_url(); ?>assets/images/background/user-info.jpg) no-repeat;">
+                <div class="user-profile" style="background: url(<?php echo base_url(); ?>assets/images/background/user-info.png) no-repeat;">
                     <!-- User profile image -->
                     <div class="profile-img"> <a href="<?php echo base_url(); ?>"><img src="<?php echo base_url(); ?>assets/images/users/profile.png" alt="user" /></a> </div>
                     <!-- User profile text-->
