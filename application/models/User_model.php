@@ -38,8 +38,17 @@ class User_model extends CI_Model {
      
      // User Section in model..
      
-     function form_insert_user($data) {
-       $this->db->insert('users', $data);
+     public function form_insert_user($data) {
+        $insert     = $this->db->insert('users', $data);
+        $user_id    = $this->db->insert_id();
+        if ($insert) {
+            $this->db->insert('user_roles', ['user_id' => $user_id, 'role_id' => 3]);
+            
+            return TRUE;
+        } else {
+           
+            return False;
+        }
      }
      
      public function edit_user($tb,$where,$set) {
@@ -113,7 +122,7 @@ class User_model extends CI_Model {
         $update_pass = $this->db->query("UPDATE users set password='$new_pass' where id='$session_id'");
     }
 	
-	public function get_user($id) {
+     public function get_user($id) {
       $this->db->where('id', $id);
       $query = $this->db->get('users');
       return $query->row();
@@ -142,6 +151,30 @@ class User_model extends CI_Model {
     public function profile($tb,$where,$set) {
          $this->db->set($set)->where($where)->update($tb);
      }
+     
+    //Outside User Section in model..
+     
+     public function insert_user($data) {
+        $insert     = $this->db->insert('users', $data);
+        $user_id    = $this->db->insert_id();
+        if ($insert) {
+            $this->db->insert('user_roles', ['user_id' => $user_id, 'role_id' => 3]);
+            
+            return TRUE;
+        } else {
+           
+            return False;
+        }
+     }
+     
+     //User Controller Details:
+     
+         function select() 
+         {
+         $this->db->order_by('id'); 
+         $query = $this->db->get('users');
+         return $query;
+         }
      
 }    	
 ?>

@@ -296,7 +296,19 @@
                                             </div>
                                         </li>
                                         <li role="separator" class="divider"></li>
+                                        
+                                        <?php if ($this->router->fetch_class() == 'admin') { ?>
                                         <li><a href="<?php echo base_url('admin/profile'); ?>"><i class="ti-user"></i> My Profile</a></li>
+                                        <?php } ?>
+                                        
+                                        <?php if ($this->router->fetch_class() == 'telecaller') { ?>
+                                        <li><a href="<?php echo base_url('telecaller/profile'); ?>"><i class="ti-user"></i> My Profile</a></li>
+                                        <?php } ?>
+                                        
+                                        <?php if ($this->router->fetch_class() == 'user') { ?>
+                                        <li><a href="<?php echo base_url('user/profile'); ?>"><i class="ti-user"></i> My Profile</a></li>
+                                        <?php } ?>
+                                        
                                         <li role="separator" class="divider"></li>
                                         <li role="separator" class="divider"></li>
                                         <li><a href="<?php echo base_url('logout'); ?>"><i class="fa fa-power-off"></i> Logout</a></li>
@@ -329,15 +341,33 @@
                     <!-- End User profile text-->
                     <!-- Sidebar navigation-->
                     <nav class="sidebar-nav">
-                        <ul id="sidebarnav">
-                            <li class="nav-small-cap">Admin Dashboard</li>
-                            <li><a class="has-arrow waves-effect waves-dark" href="#"><span class="hide-menu">Dashboard</span></a></li>
-                            <li><a class="has-arrow waves-effect waves-dark" href="<?php echo base_url('admin/caller'); ?>" aria-expanded="false"><i class="mdi mdi-laptop-windows"></i><span class="hide-menu">Telecallers</span></a></li>
-                            <li><a class="has-arrow waves-effect waves-dark" href="<?php echo base_url('admin/user'); ?>" aria-expanded="false"><i class="mdi mdi-laptop-windows"></i><span class="hide-menu">Cliets</span></a></li>
-                            <li><a class="has-arrow waves-effect waves-dark" href="<?php echo base_url('admin/leads'); ?>" aria-expanded="false"><i class="mdi mdi-laptop-windows"></i><span class="hide-menu">Leads</span></a></li>
+                <ul id="sidebarnav">
+                    <?php if ($this->router->fetch_class() == 'telecaller') { ?>
+                        <li class="nav-small-cap"><a href="#">Telecaller Dashboard</a></li>
+                        <li><a class="has-arrow waves-effect waves-dark" href="#"><span class="hide-menu">Dashboard </span></a></li>
+                        <li><a class="has-arrow waves-effect waves-dark" href="<?php echo base_url('telecaller/leads'); ?>" aria-expanded="false"><i class="mdi mdi-laptop-windows"></i><span class="hide-menu">Leads</span></a></li>
+                    <?php } ?>
 
+                    <?php if ($this->router->fetch_class() == 'admin') { ?>
+                        <!--<li class="nav-small-cap"><a href="#">Admin Dashboard</a></li>-->
+                        <li><a class="has-arrow waves-effect waves-dark" href="<?php echo base_url('admin'); ?>"><i class="mdi mdi-gauge"></i><span class="hide-menu">Dashboard</span></a></li>
+                        <li><a class="has-arrow waves-effect waves-dark" href="<?php echo base_url('admin/caller'); ?>" aria-expanded="false"><i class="ti-headphone-alt"></i> <span class="hide-menu">Telecallers</span></a></li>
+                        <li><a class="has-arrow waves-effect waves-dark" href="<?php echo base_url('admin/user'); ?>" aria-expanded="false"><i class="fas fa-users"></i><span class="hide-menu">Clients</span></a></li>
+                        <li><a class="has-arrow waves-effect waves-dark" href="<?php echo base_url('admin/leads'); ?>" aria-expanded="false"><i class="fas fa-info-circle"></i><span class="hide-menu">Leads</span></a></li>
+                        <li><a class="has-arrow waves-effect waves-dark" href="<?php echo base_url('admin/filter_leads'); ?>" aria-expanded="false"><i class="fas fa-info-circle"></i><span class="hide-menu">Filter Leads</span></a></li>
+                    <?php } ?>
 
-                        </ul>
+                    <?php if ($this->router->fetch_class() == 'user') { ?>
+                        <li class="nav-small-cap">User Dashboard</li>
+                        <li><a class="has-arrow waves-effect waves-dark" href="#"><span class="hide-menu">Dashboard</span></a></li>
+                        <li><a class="has-arrow waves-effect waves-dark" href="<?php echo base_url('user/leads'); ?>" aria-expanded="false"><i class="fas fa-credit-card"></i><span class="hide-menu">My Balance</span></a></li>
+                        <li><a class="has-arrow waves-effect waves-dark" href="<?php echo base_url('user/leads'); ?>" aria-expanded="false"><i class="fas fa-info-circle"></i><span class="hide-menu">My Leads</span></a></li>
+                        <li><a class="has-arrow waves-effect waves-dark" href="<?php echo base_url('user/leads'); ?>" aria-expanded="false"><i class="fas fa-pencil-alt"></i><span class="hide-menu">Rejects Status</span></a></li>
+                        <li><a class="has-arrow waves-effect waves-dark" href="<?php echo base_url('user/leads'); ?>" aria-expanded="false"><i class="fas fa-info-circle"></i><span class="hide-menu">Today Leads</span></a></li>
+                        
+                    <?php } ?>
+
+                </ul>
                     </nav>
                     <!-- End Sidebar navigation -->
                 </div>
@@ -362,10 +392,10 @@
                     <!-- ============================================================== -->
                     <div class="row page-titles">
                         <div class="col-md-5 col-8 align-self-center">
-                            <h3 class="text-themecolor m-b-0 m-t-0">Admin</h3>
+                            <!--<h3 class="text-themecolor m-b-0 m-t-0">Admin</h3>-->
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="javascript:void(0)">Change Password</a></li>
-                                <li class="breadcrumb-item active">Form</li>
+                                <!--<li class="breadcrumb-item active">Form</li>-->
                             </ol>
                         </div>
 
@@ -393,9 +423,20 @@
                                             <strong></strong> <?= $this->session->flashdata("success") ?>
                                         </div>
                                     <?php } ?>
-
+                                     
+                                    <?php if ($this->router->fetch_class() == 'admin') { ?>
                                     <form method="post" action="<?php echo base_url() ?>admin/change_Password" class="form-horizontal form-bordered">
-
+                                    <?php } ?>
+                                        
+                                      <?php if ($this->router->fetch_class() == 'telecaller') { ?>
+                                    <form method="post" action="<?php echo base_url() ?>telecaller/change_Password" class="form-horizontal form-bordered">
+                                    <?php } ?>
+                                        
+                                    <?php if ($this->router->fetch_class() == 'user') { ?>
+                                    <form method="post" action="<?php echo base_url() ?>user/change_Password" class="form-horizontal form-bordered">
+                                    <?php } ?>
+                                        
+                                        
                                         <?php if (isset($message)) { ?>
                                             <CENTER><h3 style="color:green;">Lead inserted successfully</h3></CENTER><br>
                                         <?php } ?>

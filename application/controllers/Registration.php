@@ -31,16 +31,21 @@ class Registration extends CI_Controller {
                 'mobile'    => $this->input->post('mobile'),
                 'password'  => md5($this->input->post('password')),
             );
-           if ($this->form_validation->run() == true) {
-                $insert = $this->db->insert('users', $data);
-                if ($insert) {
-           $this->session->set_flashdata('success', 'Your registration was successfull. Please login to your account.');
-                    redirect('login');
-                } else {
+            
+             if ($this->form_validation->run() == TRUE) {
+            $data = array(
+                'username' => $this->input->post('username'),
+                'email' => $this->input->post('email'),
+                'mobile' => $this->input->post('mobile'),
+                'password' => md5($this->input->post('password')),
+            );
+            $this->User_model->insert_user($data);
+            $this->session->set_flashdata('success', 'Your registration was successfull. Please login to your account.');
+            redirect('login');
+           } else {
                      $this->session->set_flashdata('error', 'Unable to create account, please try again.');   
                      redirect('register');
                 }
-            }
             }
                 $this->load->view('register');     
             }

@@ -259,10 +259,21 @@
                                         <div class="dw-user-box">
                                             <div class="u-img"><img src="<?php echo base_url(); ?>assets/images/users/1.jpg" alt="user"></div>
                                             <div class="u-text">
-                                                <h4>Admin</h4>
+                                                <?php if ($this->router->fetch_class() == 'admin') { ?>
+                                                <h4><?php //echo $record[0]['username']; ?></h4>
+                                                <?php } ?>
+                                                
+                                                <?php if ($this->router->fetch_class() == 'telecaller') { ?>
+                                                <h4><?php echo $record[0]['username']; ?></h4>
+                                                <?php } ?>
+                                                
+                                                <?php if ($this->router->fetch_class() == 'user') { ?>
+                                                <h5><?php echo $record[4]['username']; ?></h5>
+                                                <?php } ?>
+                                                
                                                 <?php if ($this->router->fetch_class() == 'admin') { ?>
                                                 <p class="text-muted">admin@gmail.com</p><a href="<?php echo base_url('admin/view_profile'); ?>" class="btn btn-rounded btn-danger btn-sm">View Profile</a></div>
-                                            <?php } ?>
+                                                <?php } ?>
                                         </div>
 
                                     </li>
@@ -351,7 +362,12 @@
                     <?php if ($this->router->fetch_class() == 'user') { ?>
                         <li class="nav-small-cap">User Dashboard</li>
                         <li><a class="has-arrow waves-effect waves-dark" href="#"><span class="hide-menu">Dashboard</span></a></li>
-                        <li><a class="has-arrow waves-effect waves-dark" href="<?php echo base_url('user/leads'); ?>" aria-expanded="false"><i class="mdi mdi-laptop-windows"></i><span class="hide-menu">Leads</span></a></li> <?php } ?>
+                        <li><a class="has-arrow waves-effect waves-dark" href="<?php echo base_url('user'); ?>" aria-expanded="false"><i class="fas fa-credit-card"></i><span class="hide-menu">My Balance</span></a></li>
+                        <li><a class="has-arrow waves-effect waves-dark" href="<?php echo base_url('user/myleads'); ?>" aria-expanded="false"><i class="fas fa-info-circle"></i><span class="hide-menu">My Leads</span></a></li>
+                        <li><a class="has-arrow waves-effect waves-dark" href="<?php echo base_url('user/leads'); ?>" aria-expanded="false"><i class="fas fa-pencil-alt"></i><span class="hide-menu">Rejects Status</span></a></li>
+                        <li><a class="has-arrow waves-effect waves-dark" href="<?php echo base_url('user/todayleads'); ?>" aria-expanded="false"><i class="fas fa-info-circle"></i><span class="hide-menu">Today Leads</span></a></li>
+                        
+                    <?php } ?>
 
                 </ul>
             </nav>

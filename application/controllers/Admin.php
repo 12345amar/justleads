@@ -111,7 +111,7 @@ class Admin extends CI_Controller {
        
         $data['page'] = 'caller';
         $this->load->view('layout', $data);
-    }
+    } 
 
      public function add_caller() {
         $data['page'] = 'add_caller';
@@ -123,7 +123,7 @@ class Admin extends CI_Controller {
         if ($this->input->post()) {
             $this->form_validation->set_rules('username', 'Username', 'required');
             $this->form_validation->set_rules('email', 'Email', 'required|valid_email|is_unique[users.email]');
-            $this->form_validation->set_rules('mobile', 'Mobile',  'required|min_length[10]|max_length[12]');
+            $this->form_validation->set_rules('mobile', 'Mobile',  'required|min_length[10]|max_length[12]|regex_match[/^[0-9]{10}$/]');
             $this->form_validation->set_rules('password', 'password', 'required');
           $data = array(
                     'username'  => $this->input->post('username'),
@@ -162,7 +162,7 @@ class Admin extends CI_Controller {
         $data = $this->input->post();
         unset($data['update']);
         $this->User_model->edit_caller('users', 'id=' . $data['id'], $data);
-        $this->session->set_flashdata('success', 'Caller details updated successfully.');
+        $this->session->set_flashdata('success', 'Caller updated successfully.');
         redirect('admin/caller');
     }
 
@@ -331,6 +331,36 @@ class Admin extends CI_Controller {
         $this->session->set_flashdata('Lead deleted Successfully.');
         redirect('admin/leads');
     }
+    
+    /**
+     * Layout of Admin Filter Leads
+     * 
+     */
+    public function filter_leads() {
+        $data['page'] = 'filter_leads';
+        $this->load->view('layout', $data);
+    }
+    
+    /**
+     * Layout of Package
+     * 
+     */
+    
+    public function package() {
+        $data['record'] = $this->db->query("select * from leads order by id desc")->result_array();
+        $data['page'] = 'package';
+        $this->load->view('layout', $data);
+    }
+    
+     /**
+     * Layout of Create Package
+     * 
+     */
+    
+    public function create_package() {
+        $data['page'] = 'create_package';
+        $this->load->view('layout', $data);
+    }
 
     public function changepassword() {
         $this->load->view('changepassword');
@@ -372,16 +402,6 @@ class Admin extends CI_Controller {
         $this->db->where('username', $this->input->post('username'));
         $this->db->update('users', $data);
         return true;
-    }
-    
-    
-        /**
-     * Layout of Admin Filter Leads
-     * 
-     */
-    public function filter_leads() {
-        $data['page'] = 'filter_leads';
-        $this->load->view('layout', $data);
     }
 
 }
