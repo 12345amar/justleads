@@ -36,11 +36,11 @@
                 <!-- ============================================================== -->
                 <!-- Bread crumb and right sidebar toggle -->
                 <!-- ============================================================== -->
+                                    
                 <div class="row page-titles">
                     <div class="col-md-5 col-8 align-self-center">
-                        <h5 class="text-themecolor m-b-0 m-t-0">Dear <?php echo $record[4]['username'];?> welcome to your panel</h5>
-						
-						
+                        <h6 class="text-themecolor m-b-0 m-t-0">
+                            Dear <?php echo $this->session->userdata('username'); ?> welcome to your panel</h6>			
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="javascript:void(0)"></a></li>
                             <!--<li class="breadcrumb-item active">Profile</li>-->
@@ -58,7 +58,9 @@
 				<div class="row">
                     <!-- Column -->
                     <div class="col-md-6 col-lg-3">
+                        <a href="#">
                         <div class="card card-body">
+                            
                             <!-- Row -->
                             <div class="row">
                                 <!-- Column -->
@@ -70,10 +72,13 @@
                                     <div data-label="20%" class="css-bar m-b-0 css-bar-info css-bar-20"></div>
                                 </div>
                             </div>
+                           
                         </div>
+                       </a>
                     </div>
                     <!-- Column -->
                     <div class="col-md-6 col-lg-3">
+                     <a href="#">
                         <div class="card card-body">
                             <!-- Row -->
                             <div class="row">
@@ -87,9 +92,11 @@
                                 </div>
                             </div>
                         </div>
+                      </a>
                     </div>
                     <!-- Column -->
                     <div class="col-md-6 col-lg-3">
+                      <a href="#">
                         <div class="card card-body">
                             <!-- Row -->
                             <div class="row">
@@ -103,9 +110,11 @@
                                 </div>
                             </div>
                         </div>
+                       </a>   
                     </div>
                     <!-- Column -->
                     <div class="col-md-6 col-lg-3">
+                      <a href="#">
                         <div class="card card-body">
                             <!-- Row -->
                             <div class="row">
@@ -119,6 +128,7 @@
                                 </div>
                             </div>
                         </div>
+                       </a>   
                     </div>
                 </div>
 

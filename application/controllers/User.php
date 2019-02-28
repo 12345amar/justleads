@@ -24,6 +24,18 @@ class User extends CI_Controller {
         $this->load->view('layout', $userdata);
     }
     
+    //User Profile Update
+    
+    public function update_profile() {
+        $id = $this->uri->segment(3); 
+        $userdata = $this->input->post();
+        unset($userdata['update']);
+        $this->User_model->profile('users', 'id=' . $userdata['id'], $userdata);
+        $this->session->set_flashdata('success', 'User details updated  successfully.');
+        redirect('user/profile');
+    }
+    
+    
     //Change Password of User Section
     public function changepassword() {
         $this->load->view('changepassword');
@@ -44,7 +56,7 @@ class User extends CI_Controller {
             $newpass = $this->input->post('new_password');
             $this->User_model->update($id, array('password' => md5($newpass)));
             $this->session->set_flashdata('success', 'Password changed Successfully.');
-            redirect('login');
+            redirect('user');
         }
       }
       //$this->load->view(changepassword);
@@ -76,6 +88,11 @@ class User extends CI_Controller {
     
     public function todayleads() {
         $data['page'] = 'todayleads';
+        $this->load->view('layout', $data);
+    }
+    
+        public function rejectstatus() {
+        $data['page'] = 'rejectstatus';
         $this->load->view('layout', $data);
     }
 }

@@ -12,7 +12,12 @@ class Admin extends CI_Controller {
         $this->load->library('excel');
     }
 
-    
+    /**
+     * 
+     * Upload Excel By Admin
+     * function: importLeadsByExcel
+     * 
+     **/
         public function importLeadsByExcel() {
         
         if ($_FILES['leads']['tmp_name']) {
@@ -29,7 +34,7 @@ class Admin extends CI_Controller {
                     $mobile        = $worksheet->getCellByColumnAndRow(2, $row)->getValue();
                     $email         = $worksheet->getCellByColumnAndRow(3, $row)->getValue();
                     $location      = $worksheet->getCellByColumnAndRow(4, $row)->getValue();
-                    $lead_source     = $worksheet->getCellByColumnAndRow(5, $row)->getValue();
+                    $lead_source   = $worksheet->getCellByColumnAndRow(5, $row)->getValue();
                     $lead_status   = $worksheet->getCellByColumnAndRow(6, $row)->getValue();
 
                     $data[] = array(
@@ -38,7 +43,7 @@ class Admin extends CI_Controller {
                      'mobile'          => $mobile,
                      'email'           => $email,
                      'location'        => $location,
-                     'lead_source'       => $lead_source,
+                     'lead_source'     => $lead_source,
                      'lead_status'     => $lead_status
                     );
                 }
@@ -60,7 +65,6 @@ class Admin extends CI_Controller {
             $this->session->set_flashdata('error', 'File is not valid, try again.');
             redirect('admin/leads');
         }
-   
     }
     
     
@@ -347,24 +351,116 @@ class Admin extends CI_Controller {
      */
     
     public function package() {
-        $data['record'] = $this->db->query("select * from leads order by id desc")->result_array();
+        $data['record'] = $this->db->query("select * from package order by id desc")->result_array();
         $data['page'] = 'package';
         $this->load->view('layout', $data);
     }
     
-     /**
+    /**
      * Layout of Create Package
      * 
-     */
-    
+     **/
     public function create_package() {
         $data['page'] = 'create_package';
         $this->load->view('layout', $data);
+    } 
+    
+    
+    /**
+     * 
+     * Layout of Insert Package
+     * 
+     */
+    public function insert_package(){
+      
+        if($this->input->post()){
+        $this->form_validation->set_rules('package_id', 'Package ID', 'required');
+        $this->form_validation->set_rules('package_name', 'Package Name', 'required');
+        $this->form_validation->set_rules('total_leads', 'Total Lead', 'required');
+        $this->form_validation->set_rules('package_price', 'Package Price', 'required');
+        
+        $data = array(
+                'package_id' => $this->input->post('package_id'),
+                'package_name' => $this->input->post('package_name'),
+                'total_leads' => $this->input->post('total_leads'),
+                'package_price' => $this->input->post('package_price')    
+            );
+        if ($this->form_validation->run() == TRUE) {
+            $this->User_model->insert_package($data);
+            $this->session->set_flashdata('success', 'Package Created Successfully.');
+            redirect('admin/package', $data);
+         } else {
+            $data['page'] = 'create_package';
+            $this->load->view('layout', $data);
+           }
+         }  
     }
-
+    
+    /**
+     * Layout of Edit Package
+     * 
+     */
+     public function edit_package() {
+        $id = $this->uri->segment(3);
+        $packages = $this->db->query("select * from package where id=" . $id);
+        $data['record'] = $packages->result_array();
+        $data['page'] = 'edit_package';
+        $this->load->view("layout", $data);
+    }
+    
+    /**
+     * Layout of Update Package
+     * 
+     */
+    
+    public function update_package() {
+        $data = $this->input->post();
+        unset($data['update']);
+        $this->User_model->edit_lead('package', 'id=' . $data['id'], $data);
+        $this->session->set_flashdata('success', 'Update Package successfully.');
+        redirect('admin/package');
+    }
+    
+    /**
+     * Layout of Delete Package
+     * 
+     */
+    
+        public function delete_package() {
+        $id = $this->uri->segment(3);
+        $this->User_model->delete_lead('package', 'id=' . $id);
+        $this->session->set_flashdata('success', 'Package deleted Successfully.');
+        redirect('admin/package');
+    }
+    
+    /**
+     * Layout of View Package
+     * 
+     */
+    
+    public function view_package() {
+        $id = $this->uri->segment(3);
+        $leads = $this->db->query("select * from package where id=" . $id);
+        $data['record'] = $leads->result_array();
+        $data['page'] = 'view_package';
+        $this->load->view("layout", $data);
+    }
+    
+    
+    /**
+     * Layout of Change Password
+     * 
+     */
     public function changepassword() {
         $this->load->view('changepassword');
     }
+    
+     /**
+     * 
+     * Functionality of Change Password:
+     * Functions: change_Password, password_check, saveNewPass
+     * 
+     **/
 
     public function change_Password() {
       $data = array();

@@ -9,10 +9,10 @@
     <!-- ============================================================== -->
     <div class="row page-titles">
         <div class="col-md-5 col-8 align-self-center">
-            <h3 class="text-themecolor m-b-0 m-t-0">Admin</h3>
+            <h3 class="text-themecolor m-b-0 m-t-0">Client</h3>
             <ol class="breadcrumb">
                 <li class="breadcrumb-item">
-                    <a href="javascript:void(0)">Package</a>
+                    <a href="javascript:void(0)">Leads</a>
                 </li>
                 <!--<li class="breadcrumb-item active">Form</li>-->
             </ol>
@@ -28,67 +28,44 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-body">
-                   
-                    <?php if ($this->session->flashdata('error')) { ?>
-                        <div class="alert alert-danger alert-dismissible">
-                            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                            <strong>Warning!</strong> <?= $this->session->flashdata("error") ?>
-                        </div>
-                    <?php } ?>
 
-                    <?php if ($this->session->flashdata('success')) { ?>
-                        <div class="alert alert-success alert-dismissible">
-                            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                            <strong></strong> <?= $this->session->flashdata("success") ?>
-                        </div>
-                    <?php } ?>
                     <!--<h4 class="card-title">Data Export</h4>
                     <h6 class="card-subtitle">Export data to Copy, CSV, Excel, PDF & Print</h6>-->
-                    <div class="d-flex no-block align-self-center">
-                        <div class="ml-auto">
-                            
-                                    <form method="post" action="<?php echo base_url()?>admin/importLeadsByExcel" enctype="multipart/form-data" id="uploadLeadsForm">
-                                        <!--<label class="btn btn-info btn-sm pull-right collapsed" style="width: 25%;">
-                                               <input type="file" name="leads" id="uploadLeads" style="opacity:0.0;width: 5%;"> <i class="fas fa-upload"></i> Upload Excel
-                                        </label>-->
-                                            
-                                        <label class="btn btn-danger btn-sm pull-right collapsed" style="width: 50%;">
-                                            <input type="" name="addlead" class="addlead" style="opacity:0.0;width: 0%;"> <i class="fas fa-plus"></i> <a href="<?php echo base_url('admin/create_package'); ?>"><span class="addlead">Create Package</span></a>
-                                               <!--<button type="button" ><a href="<?php //echo base_url('telecaller/addlead'); ?>"> Add Leads</a> </button>-->
-                                        </label>
-                                     </form>
-                            <!--<button class="btn btn-success btn-sm pull-right collapsed" type="button" ><a href="<?php echo base_url('admin/add_lead'); ?>"> Add Lead</a> </button>-->
-                        </div> 
-                    </div>
 
                     <div class="table-responsive m-t-40">
                         <table id="example23" class="display nowrap table table-hover table-striped table-bordered" cellspacing="0" width="100%">
                             <thead class="thead-res">
                                 <tr>
                                     <th></th>
-                                    <th>Package ID</th>
-                                    <th>Package Name</th>
-                                    <th>Total Leads</th>
-                                    <th>Package Price</th>
+                                    <th>Date</th>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <th>Lead Source</th>
+                                    <th>Budget</th>
+                                    <th>Location</th>
+                                    <th>Mobile</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php $i=1;
-                                foreach ($record as $row) { ?>
+                                <?php //$i=1;
+                                //foreach ($record as $row) { ?>
                                     <tr>
-                                    <td><?=$i?></td>
-                                    <td><?=$row['package_id']?></td>
-                                    <td><?=$row['package_name']?></td>
-                                    <td><?=$row['total_leads']?></td>
-                                    <td><?=$row['package_price']?></td>
+                                    <td><?php //$i?></td>
+                                    <td><?php //$row['created']?></td>
+                                    <td><?php //$row['buyer_name']?></td>
+                                    <td><?php //$row['email']?></td>
+                                    <td><?php //$row['lead_source']?></td>
+                                    <td><?php //$row['buyer_budget']?></td>
+                                    <td><?php //$row['location']?></td>
+                                    <td><?php //$row['mobile']?></td>
                                    <td>
-                                       <a href='<?php echo base_url()."admin/edit_package/".$row['id'] ?>'><i class='far fa-edit' aria-hidden='true'></i></a>&nbsp;&nbsp;
-                                       <a href='<?php echo base_url()."admin/delete_package/".$row['id'] ?>' onclick='return confirm("Are you sure to delete this item?")'><i class='fas fa-trash-alt' aria-hidden='true'></i></a>&nbsp;&nbsp;
-                                       <a href='<?php echo base_url()."admin/view_package/".$row['id'] ?>'><i class='fas fa-eye' aria-hidden='true'></i></a>
+                                       <a href='<?php echo base_url()."admin/edit_lead/".$row['id'] ?>'><i class='far fa-edit' aria-hidden='true'></i></a>&nbsp;&nbsp;
+                                       <a href='<?php echo base_url()."admin/delete_lead/".$row['id'] ?>' onclick='return confirm("Are you sure to delete this item?")'><i class='fas fa-trash-alt' aria-hidden='true'></i></a>&nbsp;&nbsp;
+                                       <a href='<?php echo base_url()."admin/view_lead/".$row['id'] ?>'><i class='fas fa-eye' aria-hidden='true'></i></a>
                                    </td>
                                     </tr>
-                                <?php $i++; } ?>
+                                <?php //$i++; } ?>
                             </tbody>
                         </table>
                     </div>

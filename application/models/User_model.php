@@ -51,6 +51,23 @@ class User_model extends CI_Model {
         }
      }
      
+    /**
+     * Model of Edit Package
+     * 
+     */
+    public function edit_package($tb,$where,$set) {
+         $this->db->set($set)->where($where)->update($tb);
+     }
+     
+    /**
+     * Model of Delete Package
+     * 
+     */
+     
+    public function delete_package($tb,$where) {
+         $this->db->delete($tb,$where);
+     }
+     
      public function edit_user($tb,$where,$set) {
          $this->db->set($set)->where($where)->update($tb);
      }
@@ -71,6 +88,18 @@ class User_model extends CI_Model {
      
      public function delete_lead($tb,$where) {
          $this->db->delete($tb,$where);
+     }
+     
+     public function insert_package($data) {
+        $insert     = $this->db->insert('package', $data);
+        //$user_id    = $this->db->insert_id();
+        if ($insert) {
+            //$this->db->insert('user_roles', ['user_id' => $user_id, 'role_id' => 3]);
+            return TRUE;
+        } else {
+           
+            return False;
+        }
      }
      
      

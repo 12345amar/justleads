@@ -1,7 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
-
     <!-- Mirrored from wrappixel.com/demos/admin-templates/material-pro/material/form-layout.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 19 Dec 2018 09:05:26 GMT -->
     <head>
         <meta charset="utf-8">
@@ -36,7 +34,7 @@
             <h3 class="text-themecolor m-b-0 m-t-0">Admin</h3>
             <ol class="breadcrumb">
                 <li class="breadcrumb-item">
-                    <a href="javascript:void(0)">Create Package</a>
+                    <a href="javascript:void(0)">Edit Package</a>
                 </li>
                 <!--<li class="breadcrumb-item active">Form</li>-->
             </ol>
@@ -68,16 +66,17 @@
                         </div>
                     <?php } ?>
 
-                    <form method="post" action="<?php echo base_url() ?>admin/insert_package" class="form-horizontal form-bordered">
+                    <form method="post" action="<?php echo base_url() ?>admin/update_package" class="form-horizontal form-bordered">
 
                         <?php if (isset($success)) { ?>
                             <CENTER><h3 style="color:green;">Package created successfully</h3></CENTER><br>
                         <?php } ?>
+                        <?php echo form_hidden('id', $record[0]['id']); ?>
                         <div class="form-body">
                             <div class="form-group row">
                                 <!--<label class="control-label text-right col-md-3">Buyer Name</label>-->
                                 <div class="col-md-12">
-                                    <input type="text" name="package_id" value="" placeholder="Package ID" class="form-control">
+                                    <input type="text" name="package_id" value="<?php echo $record[0]['package_id']; ?>" placeholder="Package ID" class="form-control">
                                     <span class="text-danger" style="color:red;"><?php echo form_error('package_id'); ?></span> 
                                 </div>
                             </div>
@@ -86,7 +85,7 @@
                             <div class="form-group row">
                                 <!--<label class="control-label text-right col-md-3">Email</label>-->
                                 <div class="col-md-12">
-                                    <input type="text" name="package_name" value="" placeholder="Package Name" class="form-control">
+                                    <input type="text" name="package_name" value="<?php echo $record[0]['package_name']; ?>" placeholder="Package Name" class="form-control">
                                     <span class="text-danger" style="color:red;"><?php echo form_error('package_name'); ?></span>  
                                 </div>
                             </div>
@@ -94,7 +93,7 @@
                              <div class="form-group row">
                                 <!--<label class="control-label text-right col-md-3">Lead Source</label>-->
                                 <div class="col-md-12">
-                                    <input type="text" name="total_leads" value="" placeholder="Total Leads" class="form-control">
+                                    <input type="text" name="total_leads" value="<?php echo $record[0]['total_leads']; ?>" placeholder="Total Leads" class="form-control">
                                     <span class="text-danger" style="color:red;"><?php echo form_error('total_leads'); ?></span> 
                                 </div>
                             </div>
@@ -103,14 +102,14 @@
                              <div class="form-group row">
                                 <!--<label class="control-label text-right col-md-3">Buyer Budget</label>-->
                                 <div class="col-md-12">
-                                    <input type="text" name="package_price" value=""  placeholder="Package Price" class="form-control">
+                                    <input type="text" name="package_price" value="<?php echo $record[0]['package_price']; ?>"  placeholder="Package Price" class="form-control">
                                     <span class="text-danger" style="color:red;"><?php echo form_error('package_price'); ?></span> 
                                 </div>
                             </div>
 
                             <div class="form-group text-center m-t-20">
                                 <div class="col-xs-12">
-                                    <button class="btn btn-success btn-info" name="submit" type="submit">Submit</button>
+                                    <button class="btn btn-success btn-info" name="update" type="submit">Submit</button>
                                     <?php echo $this->session->flashdata("error"); ?>
                                     <a href="<?php echo base_url('admin/package'); ?>"><button type="button" class="btn btn-danger">Cancel</button></a>
                                 </div>
