@@ -50,12 +50,26 @@
                             <div class="tab-pane" id="settings" role="tabpanel">
                                 <div class="card-body">
 
+                                    <?php if ($this->session->flashdata('error')) { ?>
+                                        <div class="alert alert-danger alert-dismissible">
+                                            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                            <strong>Warning!</strong> <?= $this->session->flashdata("error") ?>
+                                        </div>
+                                    <?php } ?>
+
+                                    <?php if ($this->session->flashdata('success')) { ?>
+                                        <div class="alert alert-success alert-dismissible">
+                                            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                            <strong>Success!</strong> <?= $this->session->flashdata("success") ?>
+                                        </div>
+                                    <?php } ?>
+                                    
                                     <form  action="<?php echo base_url('user/update_profile'); ?>" method="post" class="form-horizontal form-material">
-                                        <?php //echo form_hidden('id', $record[0]['id']); ?>
+                                    <?php echo form_hidden('id', $record[0]['id']); ?>
 
                                         <div class="form-group">
                                             <div class="col-md-12">
-                                                <input type="text" name="username" placeholder="username" value="<?php echo $this->session->userdata('username'); ?>" class="form-control form-control-line">
+                                                <input type="text" name="username" placeholder="username" value="<?php echo ($record[0]['username']); ?>" class="form-control form-control-line">
                                             </div>
                                         </div>
                                         <div class="form-group">

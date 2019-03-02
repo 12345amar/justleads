@@ -15,7 +15,7 @@ class User extends CI_Controller {
         $this->load->view('layout', $data);
     }
     
-    //User Profile Section
+    //User Profile Section Controller
     public function profile() {
         $userdata['record'] = $this->db->query('select users.* from users 
                 left join user_roles on users.id=user_roles.user_id 
