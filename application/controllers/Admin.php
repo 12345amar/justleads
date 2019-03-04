@@ -350,9 +350,9 @@ class Admin extends CI_Controller {
      * 
      */
     
-    public function package() {
+    public function credits() {
         $data['record'] = $this->db->query("select * from package order by id desc")->result_array();
-        $data['page'] = 'package';
+        $data['page'] = 'credits';
         $this->load->view('layout', $data);
     }
     
@@ -360,8 +360,8 @@ class Admin extends CI_Controller {
      * Layout of Create Package
      * 
      **/
-    public function create_package() {
-        $data['page'] = 'create_package';
+    public function add_credits() {
+        $data['page'] = 'add_credits';
         $this->load->view('layout', $data);
     } 
     

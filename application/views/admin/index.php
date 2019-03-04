@@ -13,7 +13,7 @@
 <!-- ============================================================== -->
 <!-- Container fluid  -->
 <!-- ============================================================== -->
-<div class="container-fluid">
+<!--<div class="container-fluid">-->
     <!-- ============================================================== -->
     <!-- Bread crumb and right sidebar toggle -->
     <!-- ============================================================== -->
@@ -46,7 +46,7 @@
                     <!-- Column -->
                     <div class="col-lg-3 col-md-6">
                         <div class="card">
-                            <div class="card-body">
+                            <div class="card-body box-shadow">
                                 <div class="d-flex flex-row">
                                     <div class="round round-lg align-self-center round-info"><i class="ti-headphone-alt"></i></div>
                                     
@@ -56,7 +56,6 @@
                                         <h5 class="text-muted m-b-0">Telecaller</h5>
                                     </div>
                                     </a>
-                                    
                                 </div>
                             </div>
                         </div>
@@ -65,7 +64,7 @@
                     <!-- Column -->
                     <div class="col-lg-3 col-md-6">
                         <div class="card">
-                            <div class="card-body">
+                            <div class="card-body box-shadow">
                                 <div class="d-flex flex-row">
                                     <div class="round round-lg align-self-center round-warning"><i class="fas fa-users"></i></div>
                                     
@@ -83,14 +82,14 @@
                     <!-- Column -->
                     <div class="col-lg-3 col-md-6">
                         <div class="card">
-                            <div class="card-body">
+                            <div class="card-body box-shadow">
                                 <div class="d-flex flex-row">
                                     <div class="round round-lg align-self-center round-primary"><i class="fab fa-docker"></i></div>
                                     
-                                    <a href="<?php echo base_url('admin/package'); ?>">
+                                    <a href="<?php echo base_url('admin/credits'); ?>">
                                     <div class="m-l-10 align-self-center">
                                         <!--<h3 class="m-b-0 font-lgiht">$1795</h3>-->
-                                        <h5 class="text-muted m-b-0">Packages</h5>
+                                        <h5 class="text-muted m-b-0">Credits</h5>
                                     </div>
                                     </a>
                                     
@@ -101,7 +100,7 @@
                     <!-- Column -->
                     <div class="col-lg-3 col-md-6">
                         <div class="card">
-                            <div class="card-body">
+                            <div class="card-body box-shadow">
                                 <div class="d-flex flex-row">
                                     <div class="round round-lg align-self-center round-danger"><i class="fas fa-info-circle"></i></div>
                                     
@@ -181,7 +180,7 @@
     <!-- ============================================================== -->
     <!-- End Right sidebar -->
     <!-- ============================================================== -->
-</div>
+<!--</div>-->
 <!-- ============================================================== -->
 <!-- End Container fluid  -->
 <!-- ============================================================== -->

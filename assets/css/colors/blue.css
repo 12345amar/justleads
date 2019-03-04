@@ -1,11 +1,11 @@
 /*
-Template Name: Material Pro Admin
+Template Name: Monster Admin
 Author: Themedesigner
 Email: niravjoshi87@gmail.com
 File: scss
 */
 /*
-Template Name: Material Pro Admin
+Template Name: Monster Admin
 Author: Themedesigner
 Email: niravjoshi87@gmail.com
 File: scss
@@ -36,11 +36,7 @@ File: scss
 /*Top bar
 *******************/
 .topbar {
-  background: #1e88e5;
-}
-
-.topbar .navbar-header {
-  background: rgba(0, 0, 0, 0.05);
+  background: #ffffff;
 }
 
 .topbar .top-navbar .navbar-header .navbar-brand .dark-logo {
@@ -53,11 +49,11 @@ File: scss
 }
 
 .topbar .navbar-light .navbar-nav .nav-item > a.nav-link {
-  color: #ffffff !important;
+  color: #0096db !important;
 }
 
 .topbar .navbar-light .navbar-nav .nav-item > a.nav-link:hover, .topbar .navbar-light .navbar-nav .nav-item > a.nav-link:focus {
-  color: rgba(255, 255, 255, 0.8) !important;
+  color: rgba(87, 88, 90, 0.8) !important;
 }
 
 /*******************
@@ -150,23 +146,9 @@ a.link:hover, a.link:focus {
   color: #99abb4;
 }
 
-.sidebar-nav > ul > li > a.active i, .sidebar-nav > ul > li > a:hover i {
-  color: #26c6da;
-}
-
-.sidebar-nav > ul > li > a i {
-  color: #99abb4;
-}
-
-.sidebar-nav > ul > li > a.active {
-  font-weight: 400;
-  background: #ffffff;
-  color: #1e88e5;
-}
-
 .sidebar-nav > ul > li.active > a, .sidebar-nav > ul > li.active:hover > a {
   color: #ffffff;
-  background: #26c6da !important;
+  background: #26c6da;
 }
 
 .sidebar-nav > ul > li.active > a i, .sidebar-nav > ul > li.active:hover > a i {
@@ -175,4 +157,18 @@ a.link:hover, a.link:focus {
 
 .sidebar-nav > ul > li.active > a:after, .sidebar-nav > ul > li.active:hover > a:after {
   border-color: #ffffff;
+}
+
+.sidebar-nav > ul > li > a.active i, .sidebar-nav > ul > li > a:hover i {
+  color: #ffb22b;
+}
+
+.sidebar-nav > ul > li > a i {
+  color: #ffb22b;
+}
+
+.sidebar-nav > ul > li > a.active {
+  font-weight: 400;
+  background: #57585a !important;
+  color: #1e88e5;
 }

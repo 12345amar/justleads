@@ -1,6 +1,9 @@
+ 
  <!-- footer -->
             <!-- ============================================================== -->
-            <!--<footer class="footer"> © 2019 Design & Develope by zeltisinfotech.com </footer>-->
+            <footer class="footer">
+                © 2019 Design & Develope  by ZeltisInfotech.com
+            </footer>
             <!-- ============================================================== -->
             <!-- End footer -->
             <!-- ============================================================== -->
@@ -28,28 +31,30 @@
     <!--stickey kit -->
     <script src="<?php echo base_url(); ?>assets/plugins/sticky-kit-master/dist/sticky-kit.min.js"></script>
     <script src="<?php echo base_url(); ?>assets/plugins/sparkline/jquery.sparkline.min.js"></script>
+    <!--stickey kit -->
+    <script src="<?php echo base_url(); ?>assets/plugins/sticky-kit-master/dist/sticky-kit.min.js"></script>
+    <script src="<?php echo base_url(); ?>assets/plugins/sparkline/jquery.sparkline.min.js"></script>
+    <script src="<?php echo base_url(); ?>assets/plugins/sparkline/jquery.sparkline.min.js"></script>
     <!--Custom JavaScript -->
     <script src="<?php echo base_url(); ?>assets/js/custom.min.js"></script>
-    <!-- This is data table -->
-    <script src="<?php echo base_url(); ?>assets/plugins/datatables/datatables.min.js"></script>
-	
-	
-	<script src="<?php echo base_url(); ?>assets/plugins/jsgrid/db.js"></script>
-    <script type="text/javascript" src="<?php echo base_url(); ?>assets/plugins/jsgrid/jsgrid.min.js"></script>
-    <script src="<?php echo base_url(); ?>assets/js/jsgrid-init.js"></script>
-	<!-- -------------------------------------------------------------------------------- -->
-	<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
-    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/select/1.2.7/js/dataTables.select.min.js"></script>
-    <!-- start - This is for export functionality only -->
-    <script src="https://cdn.datatables.net/buttons/1.2.2/js/dataTables.buttons.min.js"></script>
-    <script src="https://cdn.datatables.net/buttons/1.2.2/js/buttons.flash.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js"></script>
-    <script src="https://cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/pdfmake.min.js"></script>
-    <script src="https://cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/vfs_fonts.js"></script>
-    <script src="https://cdn.datatables.net/buttons/1.2.2/js/buttons.html5.min.js"></script>
-    <script src="https://cdn.datatables.net/buttons/1.2.2/js/buttons.print.min.js"></script>
-    <!-- end - This is for export functionality only -->
+    <!-- ============================================================== -->
+    <!-- This page plugins -->
+    <!-- ============================================================== -->
+    <!-- chartist chart -->
+    <script src="<?php echo base_url(); ?>assets/plugins/chartist-js/dist/chartist.min.js"></script>
+    <script src="<?php echo base_url(); ?>assets/plugins/chartist-plugin-tooltip-master/dist/chartist-plugin-tooltip.min.js"></script>
+    <!--c3 JavaScript -->
+    <script src="<?php echo base_url(); ?>assets/plugins/d3/d3.min.js"></script>
+    <script src="<?php echo base_url(); ?>assets/plugins/c3-master/c3.min.js"></script>
+    <!-- Vector map JavaScript -->
+    <script src="<?php echo base_url(); ?>assets/plugins/vectormap/jquery-jvectormap-2.0.2.min.js"></script>
+    <script src="<?php echo base_url(); ?>assets/plugins/vectormap/jquery-jvectormap-us-aea-en.js"></script>
+    <script src="<?php echo base_url(); ?>assets/js/dashboard2.js"></script>
+    <!-- ============================================================== -->
+    <!-- Style switcher -->
+    <!-- ============================================================== -->
+    <script src="<?php echo base_url(); ?>assets/plugins/styleswitcher/jQuery.style.switcher.js"></script>
+
     <script>
         $(function () {
             $('#myTable').DataTable();

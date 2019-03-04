@@ -45,22 +45,21 @@
             <header class="topbar">
                 <nav class="navbar top-navbar navbar-expand-md navbar-light">
                     <!-- ============================================================== -->
-                    <!-- Logo -->
-                    <!-- ============================================================== -->
-                    <div class="navbar-header">
-
+                   <!-- Logo -->
+                <!-- ============================================================== -->
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="<?php echo base_url('admin'); ?>">
                         <!-- Logo icon -->
-
                         <!--End Logo icon -->
                         <!-- Logo text -->
                         <span>
-                            <!-- dark Logo text -->
-
-                            <!-- Light Logo text -->    
-                            <img src="<?php echo base_url(); ?>assets/images/justleads-logo.png" style="height:70px;" class="light-logo" alt="homepage" /></span> </a>
-                    </div>
-                    <!-- ============================================================== -->
-                    <!-- End Logo -->
+                         <!-- dark Logo text -->
+                         <img src="<?php echo base_url(); ?>assets/images/justleads-logo.png" alt="homepage" class="dark-logo" style="height: 70px;" />
+                         <!-- Light Logo text -->    
+                         <img src="<?php echo base_url(); ?>assets/images/justleads-logo.png" class="light-logo" style="height: 70px;" alt="homepage" /></span> </a>
+                </div>
+                <!-- ============================================================== -->
+                <!-- End Logo -->
                     <!-- ============================================================== -->
                     <div class="navbar-collapse">
                         <!-- ============================================================== -->
@@ -328,16 +327,16 @@
             <!-- ============================================================== -->
             <!-- Left Sidebar - style you can find in sidebar.scss  -->
             <!-- ============================================================== -->
-            <aside class="left-sidebar">
+            <aside class="left-sidebar" style="background: #0096db">
                 <!-- Sidebar scroll-->
                 <div class="scroll-sidebar">
                     <!-- User profile -->
-                    <div class="user-profile" style="background: url(<?php echo base_url(); ?>assets/images/background/user-info.jpg) no-repeat;">
-                        <!-- User profile image -->
+                    <!--<div class="user-profile" style="background: url(<?php echo base_url(); ?>assets/images/background/user-info.jpg) no-repeat;">
+                        <!-- User profile image --
                         <div class="profile-img"> <img src="<?php echo base_url(); ?>assets/images/users/profile.png" alt="user" /> </div>
-                        <!-- User profile text-->
+                        <!-- User profile text--
 
-                    </div>
+                    </div>-->
                     <!-- End User profile text-->
                     <!-- Sidebar navigation-->
                     <nav class="sidebar-nav">
@@ -402,7 +401,7 @@
                     </div>
 
                     <!-- Row -->
-                    <div class="row" style="margin-top: -70px !important;">
+                    <div class="row" style="margin-top: 30px;">
                         <div class="col-lg-12">
                             <div class="card card-outline-info">
                                 <div class="card-header">
@@ -493,16 +492,21 @@
                     <!-- ============================================================== -->
                     <!-- End Right sidebar -->
                     <!-- ============================================================== -->
+                    
+                      <!-- footer -->
+                <!-- ============================================================== -->
+            <footer class="footer">
+                © 2019 Design & Develope  by ZeltisInfotech.com
+            </footer>
+                
+                <!-- ============================================================== -->
+                <!-- End footer -->
                 </div>
                 <!-- ============================================================== -->
                 <!-- End Container fluid  -->
                 <!-- ============================================================== -->
                 <!-- ============================================================== -->
-                <!-- footer -->
-                <!-- ============================================================== -->
-
-                <!-- ============================================================== -->
-                <!-- End footer -->
+              
                 <!-- ============================================================== -->
             </div>
             <!-- ============================================================== -->

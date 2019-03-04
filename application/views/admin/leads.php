@@ -1,9 +1,8 @@
 
-
 <!-- ============================================================== -->
 <!-- Container fluid  -->
 <!-- ============================================================== -->
-<div class="container-fluid">
+<!--<div class="container-fluid">-->
     <!-- ============================================================== -->
     <!-- Bread crumb and right sidebar toggle -->
     <!-- ============================================================== -->
@@ -60,6 +59,8 @@
                                     <th>Budget</th>
                                     <th>Location</th>
                                     <th>Mobile</th>
+                                    <th>Project</th>
+                                    <th>Manage</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -75,6 +76,8 @@
                                     <td><?=$row['buyer_budget']?></td>
                                     <td><?=$row['location']?></td>
                                     <td><?=$row['mobile']?></td>
+                                    <td><?=$row['mobile']?></td>
+                                    <td><a href="#"><center><i class="fa fa-user" aria-hidden="true"></i></center></a></td>
                                    <td>
                                        <a href='<?php echo base_url()."admin/edit_lead/".$row['id'] ?>'><i class='far fa-edit' aria-hidden='true'></i></a>&nbsp;&nbsp;
                                        <a href='<?php echo base_url()."admin/delete_lead/".$row['id'] ?>' onclick='return confirm("Are you sure to delete this item?")'><i class='fas fa-trash-alt' aria-hidden='true'></i></a>&nbsp;&nbsp;
@@ -224,7 +227,7 @@
     <!-- ============================================================== -->
     <!-- End Right sidebar -->
     <!-- ============================================================== -->
-</div>
+<!--</div>-->
 <!-- ============================================================== -->
 <!-- End Container fluid  -->
 <!-- ============================================================== -->

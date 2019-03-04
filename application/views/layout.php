@@ -18,8 +18,6 @@ if ($this->router->fetch_class() == 'admin') {
 if ($this->router->fetch_class() == 'user') {    
     include('user/'.$page.'.php'); 
 }
-
-
 include('include/footer.php'); 
 
 
