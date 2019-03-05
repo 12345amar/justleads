@@ -1,7 +1,5 @@
 <?php
-
 defined('BASEPATH') OR exit('No direct script access allowed');
-
 class TeleCaller extends CI_Controller {
 
     public function __construct() {
@@ -76,6 +74,13 @@ class TeleCaller extends CI_Controller {
         $leads = $this->db->get('leads');
         $data['record'] = $leads->result_array();
         $data['page'] = 'leads';
+        $this->load->view('layout', $data);
+    }
+    
+    public function filter_leads() {
+        $leads = $this->db->get('leads');
+        $data['record'] = $leads->result_array();
+        $data['page'] = 'filter_leads';
         $this->load->view('layout', $data);
     }
 

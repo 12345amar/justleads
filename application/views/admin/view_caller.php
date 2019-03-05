@@ -28,41 +28,57 @@
                                     <?php if (isset($message)) { ?>
                                     <CENTER><h3 style="color:green;">Lead inserted successfully</h3></CENTER><br>
                                     <?php } ?>
-									<?php echo form_hidden('id',$record[0]['id']); ?>
+				    <?php //echo form_hidden('id',$record[0]['id']); ?>
+                                   
                                    <div class="form-body">
+                                       
+                                        <?php 
+                                         //echo '<pre>';
+                                         foreach ($record as $row){
+                                             //print_r($row);  ?>
                                         <div class="form-group row">
                                             <label class="control-label text-right col-md-3">User Name</label>
                                             <div class="col-md-9">
-                                                <input type="text" name="username" value="<?php echo $record[0]['username']; ?>"  placeholder="User Name" class="form-control" readonly="">
+                                                <input type="text" name="username" value="<?php echo $row['username']; ?>"  placeholder="User Name" class="form-control" readonly="">
                                                 <span class="text-danger" style="color:red;"><?php echo form_error('username'); ?></span> 
 											</div>
                                         </div>
                                         <div class="form-group row">
                                             <label class="control-label text-right col-md-3">Email</label>
                                             <div class="col-md-9">
-                                                <input type="text" name="email" value="<?php echo $record[0]['email']; ?>" placeholder="Email" class="form-control" readonly="">
+                                                <input type="text" name="email" value="<?php echo $row['email']; ?>" placeholder="Email" class="form-control" readonly="">
                                                 <span class="text-danger" style="color:red;"><?php echo form_error('email'); ?></span> 
 											</div>
                                         </div>
 										
-										<div class="form-group row">
+			                <div class="form-group row">
                                             <label class="control-label text-right col-md-3">Mobile</label>
                                             <div class="col-md-9">
-                                                <input type="number" name="mobile" value="<?php echo $record[0]['mobile']; ?>" placeholder="Mobile" class="form-control" readonly="">
+                                                <input type="number" name="mobile" value="<?php echo $row['mobile']; ?>" placeholder="Mobile" class="form-control" readonly="">
                                                 <span class="text-danger" style="color:red;"><?php echo form_error('mobile'); ?></span> 
-											</div>
+					    </div>
+                                        </div>
+                                       
+                                       
+                                        <div class="form-group row">
+                                            <label class="control-label text-right col-md-3">Password</label>
+                                            <div class="col-md-9">
+                                                <input type="text" name="password" value="<?php echo $row['password']; ?>" placeholder="Password" class="form-control" readonly="">
+                                                <span class="text-danger" style="color:red;"><?php echo form_error('password'); ?></span> 
+					    </div>
                                         </div>
 										
 									  
 									
-							    <div class="form-group text-center m-t-20">
-									<div class="col-xs-12">
-										<button class="btn btn-success btn-danger" name="view" type="submit">Back</button>
-										<?php echo $this->session->flashdata("error"); ?>
-									</div>
-								</div>
+					<div class="form-group text-center m-t-20">
+						<div class="col-xs-12">
+							<button class="btn btn-success btn-danger" name="view" type="submit">Back</button>
+						<?php echo $this->session->flashdata("error"); ?>
+						</div>
+					</div>
+                                        <?php } ?>
                                     </div>			
-									
+                                        			
                                 </form>
 								
 								

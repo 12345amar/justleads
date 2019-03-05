@@ -102,6 +102,28 @@ class User_model extends CI_Model {
         }
      }
      
+    // Model Query Section For Follow UP By Clients.
+     
+     public function edit_query($tb,$where,$set) {
+         $this->db->set($set)->where($where)->update($tb);
+     }
+     
+     public function delete_query($tb,$where) {
+         $this->db->delete($tb,$where);
+     }
+     
+     public function insert_model($data) {
+        $insert     = $this->db->insert('lead_query', $data);
+        //$user_id    = $this->db->insert_id();
+        if ($insert) {
+            //$this->db->insert('user_roles', ['user_id' => $user_id, 'role_id' => 3]);
+            return TRUE;
+        } else {
+           
+            return False;
+        }
+     }
+     
      
    //user login model details:
     public function login_valid($userData)

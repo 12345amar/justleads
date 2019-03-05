@@ -3,7 +3,7 @@
 <!-- ============================================================== -->
 <!-- Container fluid  -->
 <!-- ============================================================== -->
-<div class="container-fluid">
+<!--<div class="container-fluid">-->
     <!-- ============================================================== -->
     <!-- Bread crumb and right sidebar toggle -->
     <!-- ============================================================== -->
@@ -21,6 +21,40 @@
     <!-- ============================================================== -->
     <!-- End Bread crumb and right sidebar toggle -->
     <!-- ============================================================== -->
+    
+                            <!-- sample modal content -->
+                                <div id="responsive-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                                <h4 class="modal-title">Follow Up Of Leads</h4>
+                                            </div>
+                                            <div class="modal-body">
+                                                <form>
+                                                    <div class="form-group">
+                                                        <label for="message-text" class="control-label">Follow First:</label>
+                                                        <textarea class="form-control" name="follow_one" id="message-text"></textarea>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="message-text" class="control-label">Follow Second:</label>
+                                                        <textarea class="form-control" name="follow_two" id="message-text"></textarea>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="message-text" class="control-label">Follow Third:</label>
+                                                        <textarea class="form-control" name="follow_three" id="message-text"></textarea>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Close</button>
+                                                <button type="button" class="btn btn-danger waves-effect waves-light">Submit</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            <!-- /.modal -->
+    
     <!-- ============================================================== -->
     <!-- Start Page Content -->
     <!-- ============================================================== -->
@@ -44,11 +78,13 @@
                                     <th>Budget</th>
                                     <th>Location</th>
                                     <th>Mobile</th>
+                                    <th>Project</th>
+                                    <th>Manage</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php //$i=1;
+                            <?php //$i=1;
                                 //foreach ($record as $row) { ?>
                                     <tr>
                                     <td><?php //$i?></td>
@@ -59,6 +95,9 @@
                                     <td><?php //$row['buyer_budget']?></td>
                                     <td><?php //$row['location']?></td>
                                     <td><?php //$row['mobile']?></td>
+                                    <td><?php //$row['mobile']?></td>
+                                    <!--<img src="<?php echo base_url(); ?>assets/images/alert/model.png" alt="default" data-toggle="modal" data-target="#responsive-modal" class="model_img img-responsive" />-->
+                                    <td data-toggle="modal" data-target="#responsive-modal"><a href="#"><center><i class="fa fa-user" aria-hidden="true"></i></center></a></td>
                                    <td>
                                        <a href='<?php echo base_url()."admin/edit_lead/".$row['id'] ?>'><i class='far fa-edit' aria-hidden='true'></i></a>&nbsp;&nbsp;
                                        <a href='<?php echo base_url()."admin/delete_lead/".$row['id'] ?>' onclick='return confirm("Are you sure to delete this item?")'><i class='fas fa-trash-alt' aria-hidden='true'></i></a>&nbsp;&nbsp;
@@ -208,7 +247,7 @@
     <!-- ============================================================== -->
     <!-- End Right sidebar -->
     <!-- ============================================================== -->
-</div>
+<!--</div>-->
 <!-- ============================================================== -->
 <!-- End Container fluid  -->
 <!-- ============================================================== -->
