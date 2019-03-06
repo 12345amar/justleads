@@ -37,6 +37,13 @@
     <script src="<?php echo base_url(); ?>assets/plugins/sparkline/jquery.sparkline.min.js"></script>
     <!--Custom JavaScript -->
     <script src="<?php echo base_url(); ?>assets/js/custom.min.js"></script>
+    
+    <!-- This is data table -->
+    <script src="<?php echo base_url(); ?>assets/plugins/datatables/datatables.min.js"></script>
+    
+    <script src="<?php echo base_url(); ?>assets/plugins/jsgrid/db.js"></script>
+    <script type="text/javascript" src="<?php echo base_url(); ?>assets/plugins/jsgrid/jsgrid.min.js"></script>
+    <script src="<?php echo base_url(); ?>assets/js/jsgrid-init.js"></script>
     <!-- ============================================================== -->
     <!-- This page plugins -->
     <!-- ============================================================== -->
@@ -95,20 +102,49 @@
             });
         });
     });
-    $('#example23').DataTable({
+    
+    $('').DataTable({
         dom: 'Bfrtip',
         buttons: [
             'copy', 'csv', 'excel', 'pdf', 'print'
         ]
     });
+    
+    $(document).ready(function() {
+    $('#example23').DataTable( {
+        columnDefs: [ {
+            orderable: true,
+            className: 'select-checkbox',
+            targets:   0
+        } ],
+        select: {
+            style:    'multi',
+            selector: 'td:first-child'
+        },
+        order: [[ 0, 'asc' ]]
+    } );
+} );
     </script>
+    
+    <script>    
+                $("#uploadLeads").change(function(){   
+                   $("#uploadLeadsForm").submit();
+                });
+    </script>
+    
+    <script>
+    $(".manage_leads").click(function(){
+        
+       $("#lead_id").val($(this).attr('id'));
+        $("#responsive-modal").modal('show');
+    })
+    </script>
+
     <!-- ============================================================== -->
     <!-- Style switcher -->
     <!-- ============================================================== -->
     <script src="<?php echo base_url(); ?>assets/plugins/styleswitcher/jQuery.style.switcher.js"></script>
     
 </body>
-
-
 <!-- Mirrored from wrappixel.com/demos/admin-templates/material-pro/material/pages-login.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 19 Dec 2018 09:06:36 GMT -->
 </html>

@@ -113,10 +113,8 @@ class User_model extends CI_Model {
      }
      
      public function insert_model($data) {
-        $insert     = $this->db->insert('lead_query', $data);
-        //$user_id    = $this->db->insert_id();
+        $insert = $this->db->insert('lead_query', $data);
         if ($insert) {
-            //$this->db->insert('user_roles', ['user_id' => $user_id, 'role_id' => 3]);
             return TRUE;
         } else {
            
@@ -158,9 +156,7 @@ class User_model extends CI_Model {
         if ($this->session->userdata('isLogin') !== TRUE) {
             
             redirect('logout');
-        } 
-        
-         
+        }     
     }
 
     

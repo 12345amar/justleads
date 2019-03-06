@@ -8,9 +8,9 @@ class User extends CI_Controller {
     }
 
     public function index() {    
-        $data['record'] = $this->db->query('select users.* from users 
-                left join user_roles on users.id=user_roles.user_id 
-                where user_roles.role_id=3')->result_array();
+        //$data['record'] = $this->db->query('select users.* from users 
+               // left join user_roles on users.id=user_roles.user_id 
+               // where user_roles.role_id=3')->result_array();
         $data['page'] = 'index';
         $this->load->view('layout', $data);
     }
@@ -81,9 +81,20 @@ class User extends CI_Controller {
         return true;
     }
     
-        public function myleads() {
+    public function myleads() {
+        $leads = $this->db->get('leads');
+        $data['record'] = $leads->result_array();
         $data['page'] = 'myleads';
         $this->load->view('layout', $data);
+    }
+    
+        public function view_lead() {
+        $this->User_model->checkUseLogin();
+        $data['page'] = 'index';
+        $id = $this->uri->segment(3);
+        $leads = $this->db->query("select * from leads where id=" . $id);
+        $data['record'] = $leads->result_array();
+        $this->load->view("view_lead", $data);
     }
     
     public function todayleads() {
@@ -95,6 +106,41 @@ class User extends CI_Controller {
         $data['page'] = 'rejectstatus';
         $this->load->view('layout', $data);
     }
+    
+    /**
+     * 
+     * Layout of Model POP UP Follow UP Leads:
+     * 
+     **/
+        public function insert_model(){         
+        $id = $this->uri->segment(3);    
+        $result = $this->db->query("select * from lead_query where lead_id=lead_id and client_id=client_id")->row();
+        echo '<pre>';
+        print_r($result); die();
+        if($this->input->post()){
+        $this->form_validation->set_rules('client_id', 'Client Id');
+        $this->form_validation->set_rules('lead_id', 'Lead Id');
+        $this->form_validation->set_rules('lead_query', 'Comment');
+        $this->form_validation->set_rules('order', 'Order');
+        $this->form_validation->set_rules('status', 'Status');
+        $data = array(
+                'client_id' => $this->input->post('client_id'),
+                'lead_id' => $this->input->post('lead_id'),
+                'comment' => $this->input->post('lead_query'),
+                'order' => $this->input->post('order'),
+                'status' => $this->input->post('status')      
+            );
+        if ($this->form_validation->run() == TRUE) {
+            $this->User_model->insert_model($data);
+            $this->session->set_flashdata('success', 'Query Updated Successfully.');
+            redirect('user/leads', $data);
+         } else {
+             echo 'Failed To Insert:';
+            ////$data['page'] = 'create_package';
+            //$this->load->view('layout', $data);
+           }
+         }  
+    }   
 }
 
 ?>

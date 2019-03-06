@@ -10,8 +10,6 @@ class Admin extends CI_Controller {
         $this->User_model->checkUseLogin();
         //load the excel library
         $this->load->library('excel');
-        //load library encrypt
-        $this->load->library('encryption');
     }
 
     /**
@@ -397,39 +395,6 @@ class Admin extends CI_Controller {
            }
          }  
     }
-    
-    
-    /**
-     * 
-     * Layout of Model POP UP Follow UP Leads:
-     * 
-     */
-    
-        public function insert_model(){
-      
-        if($this->input->post()){
-        $this->form_validation->set_rules('follow_one', 'Follow One');
-        $this->form_validation->set_rules('follow_two', 'Follow Two');
-        $this->form_validation->set_rules('follow_three', 'Follow Three');
-        
-        $data = array(
-                'follow_one' => $this->input->post('follow_one'),
-                'follow_two' => $this->input->post('follow_two'),
-                'follow_three' => $this->input->post('follow_three')    
-            );
-        if ($this->form_validation->run() == TRUE) {
-            $this->User_model->insert_model($data);
-            $this->session->set_flashdata('success', 'Query Updated Successfully.');
-            redirect('admin/leads', $data);
-         } else {
-             echo 'Failed To Update:';
-            ////$data['page'] = 'create_package';
-            //$this->load->view('layout', $data);
-           }
-         }  
-    }
-    
-    
     
     /**
      * Layout of Edit Package

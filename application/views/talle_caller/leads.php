@@ -20,6 +20,45 @@
     <!-- ============================================================== -->
     <!-- End Bread crumb and right sidebar toggle -->
     <!-- ============================================================== -->
+    
+                               <!-- sample modal content -->
+                                <div id="responsive-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                                <h4 class="modal-title">Follow Up Of Leads</h4>
+                                            </div>
+                                              <form method="post" action="<?php echo base_url() ?>telecaller/insert_model">
+                                            <div class="modal-body">
+                                              
+                                                    <input type="hidden" name="lead_id" id="lead_id">
+                                                    <div class="form-group">
+                                                    <label for="message-text" class="control-label">Type</label>
+                                                    <select class="form-control" name="status">
+                                                        <option selected="" disabled="" value="">Select Lead Status..</option>
+                                                        <option value="0">Pending</option>
+                                                        <option value="1">Processing</option>
+                                                        <option value="3">Accept</option>
+                                                        <option value="4">Decline</option>
+                                                    </select>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="message-text" class="control-label">Lead Query:</label>
+                                                        <textarea class="form-control" name="lead_query" id="lead_query"></textarea>
+                                                    </div>                                                   
+                                                
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Close</button>
+                                                <button type="submit" name="submit" id="btnSave" onclick="" class="btn btn-danger waves-effect waves-light submit_query">Submit</button>
+                                            </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                             <!-- /.modal -->
+    
     <!-- ============================================================== -->
     <!-- Start Page Content -->
     <!-- ============================================================== -->
@@ -77,7 +116,7 @@
                                     <td><?=$row['location']?></td>
                                     <td><?=$row['mobile']?></td>
                                     <td><?=$row['mobile']?></td>
-                                    <td><a href="#"><center><i class="fa fa-user" aria-hidden="true"></i></center></a></td>
+                                    <td id="<?php echo $row['id']; ?>" class="manage_leads"><a href="#"><center><i class="fa fa-user" aria-hidden="true"></i></center></a></td>
                                    <td>
                                        <a href='<?php echo base_url()."admin/edit_lead/".$row['id'] ?>'><i class='far fa-edit' aria-hidden='true'></i></a>&nbsp;&nbsp;
                                        <a href='<?php echo base_url()."admin/delete_lead/".$row['id'] ?>' onclick='return confirm("Are you sure to delete this item?")'><i class='fas fa-trash-alt' aria-hidden='true'></i></a>&nbsp;&nbsp;
