@@ -64,9 +64,25 @@
     <!-- ============================================================== -->
     <div class="row">
         <div class="col-12">
+            
+
             <div class="card">
                 <div class="card-body">
+                 
+                    <?php if ($this->session->flashdata('error')) { ?>
+                        <div class="alert alert-danger alert-dismissible">
+                            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                            <strong>Warning!</strong> <?= $this->session->flashdata("error") ?>
+                        </div>
+                    <?php } ?>
 
+                    <?php if ($this->session->flashdata('success')) { ?>
+                        <div class="alert alert-success alert-dismissible">
+                            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                            <strong></strong> <?= $this->session->flashdata("success") ?>
+                        </div>
+                    <?php } ?>
+                    
                     <h4 class="card-title">Data Export</h4>
                     <h6 class="card-subtitle">Export data to Copy, CSV, Excel, PDF & Print</h6>
                     <div class="d-flex no-block align-self-center">
@@ -90,7 +106,8 @@
                         <table id="example23" class="display nowrap table table-hover table-striped table-bordered" cellspacing="0" width="100%">
                             <thead class="thead-res">
                                 <tr>
-                                    <th></th>
+                                    <th><input type="checkbox" name="select-all" calss="select-checkbox" id="minimal-checkbox-1"></th>
+                                    <th>Sr.No</th>
                                     <th>Date</th>
                                     <th>Name</th>
                                     <th>Email</th>
@@ -99,7 +116,6 @@
                                     <th>Location</th>
                                     <th>Mobile</th>
                                     <th>Project</th>
-                                    <th>Manage</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -107,6 +123,7 @@
                                 <?php $i=1;
                                 foreach ($record as $row) { ?>
                                     <tr>
+                                   <td><input type="checkbox" name="check[]" calss="select-checkbox" id="minimal-checkbox-1" value="<?=$row['id']?>"></td>
                                     <td><?=$i?></td>
                                     <td><?=$row['created']?></td>
                                     <td><?=$row['buyer_name']?></td>
@@ -116,12 +133,12 @@
                                     <td><?=$row['location']?></td>
                                     <td><?=$row['mobile']?></td>
                                     <td><?=$row['mobile']?></td>
-                                    <td id="<?php echo $row['id']; ?>" class="manage_leads"><a href="#"><center><i class="fa fa-user" aria-hidden="true"></i></center></a></td>
                                    <td>
-                                       <a href='<?php echo base_url()."admin/edit_lead/".$row['id'] ?>'><i class='far fa-edit' aria-hidden='true'></i></a>&nbsp;&nbsp;
-                                       <a href='<?php echo base_url()."admin/delete_lead/".$row['id'] ?>' onclick='return confirm("Are you sure to delete this item?")'><i class='fas fa-trash-alt' aria-hidden='true'></i></a>&nbsp;&nbsp;
-                                       <a href='<?php echo base_url()."admin/view_lead/".$row['id'] ?>'><i class='fas fa-eye' aria-hidden='true'></i></a>
+                                       <a href='<?php echo base_url()."telecaller/edit_lead/".$row['id'] ?>'><i class='far fa-edit' aria-hidden='true'></i></a>&nbsp;&nbsp;
+                                       <a href='<?php echo base_url()."telecaller/delete_lead/".$row['id'] ?>' onclick='return confirm("Are you sure to delete this item?")'><i class='fas fa-trash-alt' aria-hidden='true'></i></a>&nbsp;&nbsp;
+                                       <a href='<?php echo base_url()."telecaller/view_lead/".$row['id'] ?>'><i class='fas fa-eye' aria-hidden='true'></i></a>
                                    </td>
+                                   
                                     </tr>
                                 <?php $i++; } ?>
                             </tbody>

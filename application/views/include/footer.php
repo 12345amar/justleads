@@ -110,6 +110,7 @@
         ]
     });
     
+    
     $(document).ready(function() {
     $('#example23').DataTable( {
         columnDefs: [ {
@@ -124,7 +125,28 @@
         order: [[ 0, 'asc' ]]
     } );
 } );
+
     </script>
+    
+    
+    <script>
+                // Listen for click on toggle checkbox
+         $('#minimal-checkbox-1').click(function(event) {
+           if(this.checked) {
+               // Iterate each checkbox
+               $(':checkbox').each(function() {
+                   this.checked = true;
+               });
+           }
+           else {
+             $(':checkbox').each(function() {
+                   this.checked = false;
+               });
+           }
+         });
+    </script>
+    
+    
     
     <script>    
                 $("#uploadLeads").change(function(){   

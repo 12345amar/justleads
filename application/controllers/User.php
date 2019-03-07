@@ -88,14 +88,22 @@ class User extends CI_Controller {
         $this->load->view('layout', $data);
     }
     
-        public function view_lead() {
+    /*public function view_lead() {
         $this->User_model->checkUseLogin();
         $data['page'] = 'index';
         $id = $this->uri->segment(3);
         $leads = $this->db->query("select * from leads where id=" . $id);
         $data['record'] = $leads->result_array();
         $this->load->view("view_lead", $data);
-    }
+    } */
+    
+        public function view_lead() {
+        $lead_id = $this->uri->segment(3);
+        $lead_query = $this->db->query("select * from lead_query where lead_id=" .$lead_id);
+        $data['record'] = $lead_query->result_array();
+        $data['page'] = 'view_lead';
+        $this->load->view('layout', $data);
+        }
     
     public function todayleads() {
         $data['page'] = 'todayleads';
@@ -112,34 +120,44 @@ class User extends CI_Controller {
      * Layout of Model POP UP Follow UP Leads:
      * 
      **/
-        public function insert_model(){         
-        $id = $this->uri->segment(3);    
-        $result = $this->db->query("select * from lead_query where lead_id=lead_id and client_id=client_id")->row();
-        echo '<pre>';
-        print_r($result); die();
-        if($this->input->post()){
-        $this->form_validation->set_rules('client_id', 'Client Id');
-        $this->form_validation->set_rules('lead_id', 'Lead Id');
-        $this->form_validation->set_rules('lead_query', 'Comment');
-        $this->form_validation->set_rules('order', 'Order');
-        $this->form_validation->set_rules('status', 'Status');
-        $data = array(
-                'client_id' => $this->input->post('client_id'),
-                'lead_id' => $this->input->post('lead_id'),
-                'comment' => $this->input->post('lead_query'),
-                'order' => $this->input->post('order'),
-                'status' => $this->input->post('status')      
-            );
-        if ($this->form_validation->run() == TRUE) {
-            $this->User_model->insert_model($data);
-            $this->session->set_flashdata('success', 'Query Updated Successfully.');
-            redirect('user/leads', $data);
-         } else {
-             echo 'Failed To Insert:';
-            ////$data['page'] = 'create_package';
-            //$this->load->view('layout', $data);
-           }
-         }  
+        public function insert_model(){ 
+          
+        if($this->input->post()){   
+           
+            $clientId       = $this->session->userdata('id');
+            $leadId         = $this->input->post('lead_id');        
+            
+            $result = $this->db->query("select * from lead_query where lead_id=$leadId and client_id=$clientId");
+            if ($result->num_rows() > 0) {
+                $leadQueryOrder = $result->row();
+                $order  = (int)$leadQueryOrder->order+1;
+
+            } else {
+                $order  = 1;            
+            }
+
+            $data = array(
+                'client_id' => $clientId,
+                'lead_id'   => $leadId,
+                'comment'   => $this->input->post('lead_query'),
+                'order'     => $order,
+                'status'    => $this->input->post('status')      
+                );
+     
+            $insert = $this->db->insert('lead_query', $data);
+        
+            if ($insert) {
+                
+                $this->session->set_flashdata('success', 'Query submitted successfully.');
+                redirect('user/myleads');
+            } else {
+             
+                $this->session->set_flashdata('error', 'Unable to submit query, try again.');
+                redirect('user/myleads');
+            }
+       } 
+       
+       redirect('user/myleads');
     }   
 }
 

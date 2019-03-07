@@ -168,21 +168,30 @@ class TeleCaller extends CI_Controller {
         //}
     }
 
-    public function viewlead() {
-        $this->User_model->checkUseLogin();
-        $data['page'] = 'index';
+    public function view_lead() {
         $id = $this->uri->segment(3);
         $leads = $this->db->query("select * from leads where id=" . $id);
         $data['record'] = $leads->result_array();
-        $this->load->view("viewlead", $data);
+        $data['page'] = 'view_lead';
+        $this->load->view("layout", $data);
     }
 
-    public function updatelead() {
+    public function update_lead() {
         $data = $this->input->post();
         unset($data['update']);
         $this->load->model('User_model');
-        $this->User_model->editlead('leads', 'id=' . $data['id'], $data);
+        $this->User_model->edit_lead('leads', 'id=' . $data['id'], $data);
+        $this->session->set_flashdata('success', 'Lead updated successfully.');
         redirect('telecaller/leads');
+    } 
+    
+    
+    public function edit_lead() {
+        $id = $this->uri->segment(3);
+        $leads = $this->db->query("select * from leads where id=" . $id);
+        $data['record'] = $leads->result_array();
+        $data['page'] = 'edit_lead';
+        $this->load->view("layout", $data);
     }
 
     public function delete() {
@@ -200,6 +209,18 @@ class TeleCaller extends CI_Controller {
         $data['record'] = $leads->result_array();
         $data['page'] = 'index';
         $this->load->view("viewdetails", $data);
+    }
+    
+    //Getting checkbox value:
+    public function submit(){
+     $checked_count = count($_POST['check[]']);
+     foreach($_POST['check_list'] as $selected) {
+     echo "<p>".$selected ."</p>";
+     }
+    //foreach ($this->input->post('checkbox_name') as $checkbox)
+    //{
+        //print_r($checkbox); 
+    //} 
     }
 
 }

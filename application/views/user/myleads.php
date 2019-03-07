@@ -21,6 +21,7 @@
     <!-- End Bread crumb and right sidebar toggle -->
     <!-- ============================================================== -->
     
+    
                             <!-- sample modal content -->
                                 <div id="responsive-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
                                     <div class="modal-dialog">
@@ -64,6 +65,21 @@
     <!-- ============================================================== -->
     <div class="row">
         <div class="col-12">
+            
+                <?php if ($this->session->flashdata('error')) {  ?>
+                <div class="alert alert-danger alert-dismissible">
+                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                    <strong>Warning!</strong> <?= $this->session->flashdata("error") ?>
+                </div>
+                <?php } ?>
+                
+                <?php if ($this->session->flashdata('success')) {  ?>
+                <div class="alert alert-success alert-dismissible">
+                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                    <strong></strong> <?= $this->session->flashdata("success") ?>
+                </div>
+                <?php } ?>
+            
             <div class="card">
                 <div class="card-body">
                    
@@ -101,12 +117,9 @@
                                     <td><?=$row['location']?></td>
                                     <td><?=$row['mobile']?></td>
                                     <td><?=$row['mobile']?></td>
-                                    <!--<img src="<?php echo base_url(); ?>assets/images/alert/model.png" alt="default" data-toggle="modal" data-target="#responsive-modal" class="model_img img-responsive" />-->
                                     <td id="<?php echo $row['id']; ?>" class="manage_leads"><a href="#"><center><i class="fa fa-user" aria-hidden="true"></i></center></a></td>
                                    <td>
-                                       <a href='<?php echo base_url()."user/edit_lead/".$row['id'] ?>'><i class='far fa-edit' aria-hidden='true'></i></a>&nbsp;&nbsp;
-                                       <a href='<?php echo base_url()."user/delete_lead/".$row['id'] ?>' onclick='return confirm("Are you sure to delete this item?")'><i class='fas fa-trash-alt' aria-hidden='true'></i></a>&nbsp;&nbsp;
-                                       <a href='<?php echo base_url()."user/view_lead/".$row['id'] ?>'><i class='fas fa-eye' aria-hidden='true'></i></a>
+                                       <a href='<?php echo base_url()."user/view_lead/".$row['id'] ?>'><center><i class='fas fa-eye' aria-hidden='true'></i></center></a>
                                    </td>
                                     </tr>
                                 <?php $i++; } ?>

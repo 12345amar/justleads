@@ -27,18 +27,18 @@
                                 <h4 class="m-b-0 text-white">View Lead Details</h4>
                             </div>
                             <div class="card-body">
-                                <form method="post" action="<?php echo base_url()?>admin/leads" class="form-horizontal form-bordered">
+                                <form method="post" action="<?php echo base_url()?>telecaller/leads" class="form-horizontal form-bordered">
                                     
                                     <?php if (isset($message)) { ?>
-                                    <CENTER><h3 style="color:green;">Lead inserted successfully</h3></CENTER><br>
+                                    <CENTER><h3 style="color:green;">Updated Leads</h3></CENTER><br>
                                     <?php } ?>
-									<?php echo form_hidden('id',$record[0]['id']); ?>
+				   <?php echo form_hidden('id',$record[0]['id']); ?>
                                     <div class="form-body">
-									    <div class="form-group row">
-                                            <label class="control-label text-right col-md-3">Date</label>
+					<div class="form-group row">
+                                            <label class="control-label text-right col-md-3">Updated Date</label>
                                             <div class="col-md-9">
-                                                <input type="text" name="buyer_name" value="<?php echo $record[0]['created']; ?>" placeholder="Buyer Name" class="form-control" readonly="">
-                                                <span class="text-danger" style="color:red;"><?php echo form_error('created'); ?></span> 
+                                                <input type="text" name="buyer_name" value="<?php echo $record[0]['updated']; ?>" placeholder="Buyer Name" class="form-control" readonly="">
+                                                <span class="text-danger" style="color:red;"><?php echo form_error('updated'); ?></span> 
 											</div>
                                         </div>
                                         <div class="form-group row">
