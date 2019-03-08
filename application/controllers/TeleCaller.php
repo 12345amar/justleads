@@ -211,16 +211,19 @@ class TeleCaller extends CI_Controller {
         $this->load->view("viewdetails", $data);
     }
     
-    //Getting checkbox value:
-    public function submit(){
-     $checked_count = count($_POST['check[]']);
-     foreach($_POST['check_list'] as $selected) {
-     echo "<p>".$selected ."</p>";
-     }
-    //foreach ($this->input->post('checkbox_name') as $checkbox)
-    //{
-        //print_r($checkbox); 
-    //} 
+    //Getting Ajax Value:
+    public function transfer_admin(){
+   
+        $telecallerId       = $this->session->userdata('id');
+        $lead_id = $this->input->post('lead_id');
+        
+         //$userdata = $this->db->query('select users.* from users 
+                //left join user_roles on users.id=user_roles.user_id 
+                //where user_roles.role_id=1')->row();
+ 
+         echo '<pre>';
+         print_r($lead_id);
+         print_r($telecallerId);
     }
 
 }

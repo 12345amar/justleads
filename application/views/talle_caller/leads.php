@@ -101,6 +101,11 @@
                             <!--<button class="btn btn-success btn-sm pull-right collapsed" type="button" ><a href="<?php echo base_url('admin/add_lead'); ?>"> Add Lead</a> </button>-->
                         </div> 
                     </div>
+                    
+                        <label class="btn btn-block btn-success btn-sm pull-left collapsed" style="width: 15%;">
+                            <!--<input type="" name="addlead" class="select-checkbox" style="opacity:0.0;width: 0%;"> <a href="<?php //echo base_url('telecaller/leads'); ?>"><span class="addlead" style="color:#fff;"> Transfer To Admin</span></a>-->
+                            <button type="button" class="btn btn-success btn-sm pull-right collapsed select-checkbox"><a href="<?php echo base_url(); ?>telecaller/transfer_admin"> <span class="addlead" style="color:#fff;">Transfer To Admin</span></a> </button>
+                        </label>
 
                     <div class="table-responsive m-t-40">
                         <table id="example23" class="display nowrap table table-hover table-striped table-bordered" cellspacing="0" width="100%">

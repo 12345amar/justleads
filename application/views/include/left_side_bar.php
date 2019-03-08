@@ -363,6 +363,7 @@
                         <li><a class="has-arrow waves-effect waves-dark" href="<?php echo base_url('user/myleads'); ?>" aria-expanded="false"><i class="fas fa-info-circle"></i><span class="hide-menu">My Leads</span></a></li>
                         <li><a class="has-arrow waves-effect waves-dark" href="<?php echo base_url('user/rejectstatus'); ?>" aria-expanded="false"><i class="fas fa-pencil-alt"></i><span class="hide-menu">Rejects Status</span></a></li>
                         <li><a class="has-arrow waves-effect waves-dark" href="<?php echo base_url('user/todayleads'); ?>" aria-expanded="false"><i class="fas fa-info-circle"></i><span class="hide-menu">Today Leads</span></a></li>
+                        <li><a class="has-arrow waves-effect waves-dark" href="<?php echo base_url('user/request_to_leads'); ?>" aria-expanded="false"><i class="fas fa-info-circle"></i><span class="hide-menu">Request For Leads</span></a></li>
                         
                     <?php } ?>
 

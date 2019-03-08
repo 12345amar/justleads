@@ -499,5 +499,11 @@ class Admin extends CI_Controller {
         $this->db->update('users', $data);
         return true;
     }
+    
+    public function client_request() {
+        $data['record'] = $this->db->query("select * from request_to_leads order by id desc")->result_array();
+        $data['page'] = 'client_request';
+        $this->load->view('layout', $data); 
+    }
 
 }

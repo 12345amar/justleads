@@ -42,7 +42,7 @@ class User extends CI_Controller {
     }
        
        //Change Password Here
-        public function change_Password() {
+      public function change_Password() {
       $data = array();
         if($this->input->post()){
         $this->form_validation->set_rules('old_password', 'Old Password', 'callback_password_check');
@@ -158,7 +158,42 @@ class User extends CI_Controller {
        } 
        
        redirect('user/myleads');
-    }   
+    }
+       
+    
+    /**
+     * 
+     * Client Request For Leads Admin:
+     * 
+     **/
+    
+    public function request_to_leads(){
+        
+        if($this->input->post()){
+        $clientId       = $this->session->userdata('id');    
+         $data = array(
+                'client_id' => $clientId,
+                'admin_id'   => 1,
+                'number_of_leads' => $this->input->post('number_of_leads'),
+                'query'   => $this->input->post('lead_query'),     
+                );  
+              $insert = $this->db->insert('request_to_leads', $data);
+        
+            if ($insert) {
+                
+                $this->session->set_flashdata('success', 'Query submitted to Admin.');
+                redirect('user/myleads');
+            } else {
+             
+                $this->session->set_flashdata('error', 'Unable to submit query, try again.');
+                redirect('user/myleads');
+            }
+    }
+       $data['page'] = 'request_to_leads';
+        $this->load->view('layout', $data);
+    
+    }
+    
 }
 
 ?>

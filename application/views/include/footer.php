@@ -146,7 +146,17 @@
          });
     </script>
     
-    
+   <script type="text/javascript">
+    $(document).ready(function() {
+        $("button").click(function(){
+            var lead_id = [];
+            $.each($("input[name='check[]']:checked"), function(){            
+                lead_id.push($(this).val());
+            });
+            alert("Lead Value is: " + lead_id.join(", "));
+        });
+    }); 
+  </script>
     
     <script>    
                 $("#uploadLeads").change(function(){   
