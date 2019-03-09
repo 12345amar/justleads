@@ -7,6 +7,7 @@ class TeleCaller extends CI_Controller {
 
         $this->load->model('User_model');
         $this->User_model->checkUseLogin();
+        $this->load->helper('url');
         //load the excel library
         $this->load->library('excel');
     }
@@ -78,8 +79,9 @@ class TeleCaller extends CI_Controller {
     }
     
     public function filter_leads() {
-        $leads = $this->db->get('leads');
-        $data['record'] = $leads->result_array();
+        $data['record'] = $this->db->query('select leads.* from leads 
+                left join admin_telecaller_leads on leads.id=admin_telecaller_leads.lead_id 
+                where admin_telecaller_leads.lead_id=leads.id order by id desc')->result_array();
         $data['page'] = 'filter_leads';
         $this->load->view('layout', $data);
     }
@@ -214,16 +216,34 @@ class TeleCaller extends CI_Controller {
     //Getting Ajax Value:
     public function transfer_admin(){
    
+        if($this->input->post()){
         $telecallerId       = $this->session->userdata('id');
         $lead_id = $this->input->post('lead_id');
         
-         //$userdata = $this->db->query('select users.* from users 
-                //left join user_roles on users.id=user_roles.user_id 
-                //where user_roles.role_id=1')->row();
- 
-         echo '<pre>';
-         print_r($lead_id);
-         print_r($telecallerId);
+        foreach($lead_id as $leads){
+        $data = array(
+                'sender_id' => $telecallerId,
+                'receiver_id'   => 1,
+                'lead_id' => $leads,
+                'assign'   => 'admin',     
+                );
+        
+                //print_r($data);                die();
+            $insert = $this->db->insert('admin_telecaller_leads', $data);
+        }
+        
+         if ($insert) {
+                
+                $this->session->set_flashdata('success', 'Data Send to Admin.');
+                redirect('telecaller/leads');
+            } else {
+             
+                $this->session->set_flashdata('error', 'Unable to send data, try again.');
+                redirect('telecaller/leads');
+            }
+       }
+       $data['page'] = 'leads';
+        $this->load->view('layout', $data);
     }
-
+    
 }

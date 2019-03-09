@@ -69,41 +69,43 @@
                                     <table id="example23" class="display nowrap table table-hover table-striped table-bordered" cellspacing="0" width="100%">
                                         <thead class="thead-res">
                                             <tr>
-                                                <th></th>
-                                                <th>Buyer Name</th>
-                                                <th>Buyer Budget</th>
-                                                <th>Contact Number</th>
-                                                <th>Email Id</th>
+                                                <th><input type="checkbox" name="select-all" calss="select-checkbox" id="minimal-checkbox-1"></th>
+                                                <th>Sr.No</th>
+                                                <th>Date</th>
+                                                <th>Name</th>
+                                                <th>Email</th>
+                                                <th>Lead Source</th>
+                                                <th>Budget</th>
                                                 <th>Location</th>
-						<th>Date</th>
-						<!--<th>Lead Status</th>-->
-					        <th>Action</th>
+                                                <th>Mobile</th>
+                                                <th>Project</th>
+                                                <th>Action</th>
                                             </tr>
                                         </thead>
-                                        <!--<tfoot>
-                                            
-                                        </tfoot>-->
-                                        <tbody>
-										
-						<?php /*
-					        foreach($record as $row) {
-					        //print_r($row);
-                                                echo "<tr>";
-						echo "<td>","</td>";
-						//echo "<td>".'<input type="checkbox" name="checkbox" value="Yes">'."</td>";
-                                                //echo "<td>".$row['id']."</td>";
-                                                echo "<td>".$row['buyer_name']."</td>";
-                                                echo "<td>".$row['buyer_budget']."</td>";
-                                                echo "<td>".$row['mobile']."</td>";
-                                                echo "<td>".$row['email']."</td>";
-						echo "<td>".$row['location']."</td>";
-						echo "<td>".$row['post_lead']."</td>";
-						//echo "<td>".$row['lead_status']."</td>";
-						echo "<td><a href='".base_url()."telecaller/viewlead/".$row['id']."'>&nbsp;&nbsp;<i class='far fa-edit' aria-hidden='true'></i></a>&nbsp;&nbsp;&nbsp;<a href='".base_url()."telecaller/delete/".$row['id']."'><i class='fas fa-trash-alt' aria-hidden='true'></i></a>&nbsp;&nbsp;&nbsp;<a href='".base_url()."telecaller/viewdetails/".$row['id']."'><i class='fas fa-eye' aria-hidden='true'></i></a></td>";
-                                                echo "</tr>";
-						} */
-                                        ?>
+                               
+                                        <tbody>				
+						<?php $i=1;
+					        foreach($record as $row) { ?>
+                                                    <tr>
+                                                        <td><input type="checkbox" name="check[]" calss="select-checkbox" id="minimal-checkbox-1" value="<?=$row['id']?>"></td>
+                                                         <td><?=$i?></td>
+                                                         <td><?=$row['created']?></td>
+                                                         <td><?=$row['buyer_name']?></td>
+                                                         <td><?=$row['email']?></td>
+                                                         <td><?=$row['lead_source']?></td>
+                                                         <td><?=$row['buyer_budget']?></td>
+                                                         <td><?=$row['location']?></td>
+                                                         <td><?=$row['mobile']?></td>
+                                                         <td><?=$row['mobile']?></td>
+                                                        <td>
+                                                            <a href='<?php echo base_url()."telecaller/edit_lead/".$row['id'] ?>'><i class='far fa-edit' aria-hidden='true'></i></a>&nbsp;&nbsp;
+                                                            <a href='<?php echo base_url()."telecaller/delete_lead/".$row['id'] ?>' onclick='return confirm("Are you sure to delete this item?")'><i class='fas fa-trash-alt' aria-hidden='true'></i></a>&nbsp;&nbsp;
+                                                            <a href='<?php echo base_url()."telecaller/view_lead/".$row['id'] ?>'><i class='fas fa-eye' aria-hidden='true'></i></a>
+                                                        </td>
+                                                    </tr>
+						<?php $i++; } ?>
                                         </tbody>
+                                        
                                     </table>
                                 </div>
                             </div>

@@ -104,7 +104,7 @@
                     
                         <label class="btn btn-block btn-success btn-sm pull-left collapsed" style="width: 15%;">
                             <!--<input type="" name="addlead" class="select-checkbox" style="opacity:0.0;width: 0%;"> <a href="<?php //echo base_url('telecaller/leads'); ?>"><span class="addlead" style="color:#fff;"> Transfer To Admin</span></a>-->
-                            <button type="button" class="btn btn-success btn-sm pull-right collapsed select-checkbox"><a href="<?php echo base_url(); ?>telecaller/transfer_admin"> <span class="addlead" style="color:#fff;">Transfer To Admin</span></a> </button>
+                            <button type="button" id="tta" name="tta" class="btn btn-success btn-sm pull-right collapsed select-checkbox"> <span class="addlead" style="color:#fff;">Transfer To Admin</span></button>
                         </label>
 
                     <div class="table-responsive m-t-40">
@@ -285,6 +285,7 @@
             </div>
         </div>
     </div>
+
     <!-- ============================================================== -->
     <!-- End Right sidebar -->
     <!-- ============================================================== -->

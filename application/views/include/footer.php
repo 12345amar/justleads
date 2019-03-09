@@ -146,16 +146,35 @@
          });
     </script>
     
-   <script type="text/javascript">
+<script type="text/javascript">
     $(document).ready(function() {
-        $("button").click(function(){
+        $("#tta").click(function(){ 
+            //alert("tester");
             var lead_id = [];
-            $.each($("input[name='check[]']:checked"), function(){            
-                lead_id.push($(this).val());
-            });
-            alert("Lead Value is: " + lead_id.join(", "));
-        });
-    }); 
+            $.each($("input[name='check[]']:checked"), function(){ 
+             lead_id.push($(this).val());
+            })
+          if (lead_id.length <= 0) {
+             alert('data is blank');
+            }
+            else {
+                  $.ajax({
+                    type: "POST",
+                    url: "<?php echo base_url(); ?>telecaller/transfer_admin",
+                    data: {'lead_id': lead_id},
+                    cache: false,
+                    success: function(result){
+                        response.data;
+                        //alert("Lead Value is: " + data.join(", "));
+                  }
+                        
+                    });
+   
+            }
+               
+
+    });
+    });
   </script>
     
     <script>    

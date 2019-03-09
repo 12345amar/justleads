@@ -44,8 +44,20 @@
                     <?php } ?>			
                                 <h4 class="card-title">Data Export</h4>
                                
+                                
+                                    <select name="client">
+                                        <?php
+                                               $query = $this->db->query('select users.* from users 
+                                                  left join user_roles on users.id=user_roles.user_id 
+                                                  where user_roles.role_id=3 order by id desc')->result_array();
+                                               print_r($query);                                         
+                                         for($i=1; $i<=100; $i++) {  ?>
+                                        <option value="<?php $i; ?>"><?php echo $i;?>Client Name</option>
+                                        <?php } ?>
+                                    </select>
 				                <div class="d-flex no-block align-self-center">
                                     <div class="ml-auto">
+                                        
                                         
                                         <form method="post" action="<?php echo base_url()?>telecaller/importLeadsByExcel" enctype="multipart/form-data" id="uploadLeadsForm">
                                         <!--<label class="btn btn-success btn-sm pull-right collapsed" style="width: 25%;">
@@ -69,41 +81,43 @@
                                     <table id="example23" class="display nowrap table table-hover table-striped table-bordered" cellspacing="0" width="100%">
                                         <thead class="thead-res">
                                             <tr>
-                                                <th></th>
-                                                <th>Buyer Name</th>
-                                                <th>Buyer Budget</th>
-                                                <th>Contact Number</th>
-                                                <th>Email Id</th>
+                                                <th><input type="checkbox" name="select-all" calss="select-checkbox" id="minimal-checkbox-1"></th>
+                                                <th>Sr.No</th>
+                                                <th>Date</th>
+                                                <th>Name</th>
+                                                <th>Email</th>
+                                                <th>Lead Source</th>
+                                                <th>Budget</th>
                                                 <th>Location</th>
-						<th>Date</th>
-						<!--<th>Lead Status</th>-->
-					        <th>Action</th>
+                                                <th>Mobile</th>
+                                                <th>Project</th>
+                                                <th>Action</th>
                                             </tr>
                                         </thead>
-                                        <!--<tfoot>
-                                            
-                                        </tfoot>-->
-                                        <tbody>
-										
-						<?php /*
-					        foreach($record as $row) {
-					        //print_r($row);
-                                                echo "<tr>";
-						echo "<td>","</td>";
-						//echo "<td>".'<input type="checkbox" name="checkbox" value="Yes">'."</td>";
-                                                //echo "<td>".$row['id']."</td>";
-                                                echo "<td>".$row['buyer_name']."</td>";
-                                                echo "<td>".$row['buyer_budget']."</td>";
-                                                echo "<td>".$row['mobile']."</td>";
-                                                echo "<td>".$row['email']."</td>";
-						echo "<td>".$row['location']."</td>";
-						echo "<td>".$row['post_lead']."</td>";
-						//echo "<td>".$row['lead_status']."</td>";
-						echo "<td><a href='".base_url()."telecaller/viewlead/".$row['id']."'>&nbsp;&nbsp;<i class='far fa-edit' aria-hidden='true'></i></a>&nbsp;&nbsp;&nbsp;<a href='".base_url()."telecaller/delete/".$row['id']."'><i class='fas fa-trash-alt' aria-hidden='true'></i></a>&nbsp;&nbsp;&nbsp;<a href='".base_url()."telecaller/viewdetails/".$row['id']."'><i class='fas fa-eye' aria-hidden='true'></i></a></td>";
-                                                echo "</tr>";
-						} */
-                                        ?>
+                               
+                                        <tbody>				
+						<?php $i=1;
+					        foreach($record as $row) { ?>
+                                                    <tr>
+                                                        <td><input type="checkbox" name="check[]" calss="select-checkbox" id="minimal-checkbox-1" value="<?=$row['id']?>"></td>
+                                                         <td><?=$i?></td>
+                                                         <td><?=$row['created']?></td>
+                                                         <td><?=$row['buyer_name']?></td>
+                                                         <td><?=$row['email']?></td>
+                                                         <td><?=$row['lead_source']?></td>
+                                                         <td><?=$row['buyer_budget']?></td>
+                                                         <td><?=$row['location']?></td>
+                                                         <td><?=$row['mobile']?></td>
+                                                         <td><?=$row['mobile']?></td>
+                                                        <td>
+                                                            <a href='<?php echo base_url()."admin/edit_lead/".$row['id'] ?>'><i class='far fa-edit' aria-hidden='true'></i></a>&nbsp;&nbsp;
+                                                            <a href='<?php echo base_url()."admin/delete_lead/".$row['id'] ?>' onclick='return confirm("Are you sure to delete this item?")'><i class='fas fa-trash-alt' aria-hidden='true'></i></a>&nbsp;&nbsp;
+                                                            <a href='<?php echo base_url()."admin/view_lead/".$row['id'] ?>'><i class='fas fa-eye' aria-hidden='true'></i></a>
+                                                        </td>
+                                                    </tr>
+						<?php $i++; } ?>
                                         </tbody>
+                                        
                                     </table>
                                 </div>
                             </div>
@@ -118,130 +132,7 @@
                 <!-- Right sidebar -->
                 <!-- ============================================================== -->
                 <!-- .right-sidebar -->
-                <div class="right-sidebar">
-                    <div class="slimscrollright">
-                        <div class="rpanel-title"> Service Panel
-                            <span>
-                                <i class="ti-close right-side-toggle"></i>
-                            </span>
-                        </div>
-                        <div class="r-panel-body">
-                            <ul id="themecolors" class="m-t-20">
-                                <li>
-                                    <b>With Light sidebar</b>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0)" data-theme="default" class="default-theme">1</a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0)" data-theme="green" class="green-theme">2</a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0)" data-theme="red" class="red-theme">3</a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0)" data-theme="blue" class="blue-theme working">4</a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0)" data-theme="purple" class="purple-theme">5</a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0)" data-theme="megna" class="megna-theme">6</a>
-                                </li>
-                                <li class="d-block m-t-30">
-                                    <b>With Dark sidebar</b>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0)" data-theme="default-dark" class="default-dark-theme">7</a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0)" data-theme="green-dark" class="green-dark-theme">8</a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0)" data-theme="red-dark" class="red-dark-theme">9</a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0)" data-theme="blue-dark" class="blue-dark-theme">10</a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0)" data-theme="purple-dark" class="purple-dark-theme">11</a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0)" data-theme="megna-dark" class="megna-dark-theme ">12</a>
-                                </li>
-                            </ul>
-                            <ul class="m-t-20 chatonline">
-                                <li>
-                                    <b>Chat option</b>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0)">
-                                        <img src="<?php echo base_url(); ?>assets/images/users/1.jpg" alt="user-img" class="img-circle">
-                                        <span>Varun Dhavan
-                                            <small class="text-success">online</small>
-                                        </span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0)">
-                                        <img src="<?php echo base_url(); ?>assets/images/users/2.jpg" alt="user-img" class="img-circle">
-                                        <span>Genelia Deshmukh
-                                            <small class="text-warning">Away</small>
-                                        </span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0)">
-                                        <img src="<?php echo base_url(); ?>assets/images/users/3.jpg" alt="user-img" class="img-circle">
-                                        <span>Ritesh Deshmukh
-                                            <small class="text-danger">Busy</small>
-                                        </span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0)">
-                                        <img src="<?php echo base_url(); ?>assets/images/users/4.jpg" alt="user-img" class="img-circle">
-                                        <span>Arijit Sinh
-                                            <small class="text-muted">Offline</small>
-                                        </span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0)">
-                                        <img src="<?php echo base_url(); ?>assets/images/users/5.jpg" alt="user-img" class="img-circle">
-                                        <span>Govinda Star
-                                            <small class="text-success">online</small>
-                                        </span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0)">
-                                        <img src="<?php echo base_url(); ?>assets/images/users/6.jpg" alt="user-img" class="img-circle">
-                                        <span>John Abraham
-                                            <small class="text-success">online</small>
-                                        </span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0)">
-                                        <img src="<?php echo base_url(); ?>assets/images/users/7.jpg" alt="user-img" class="img-circle">
-                                        <span>Hritik Roshan
-                                            <small class="text-success">online</small>
-                                        </span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0)">
-                                        <img src="<?php echo base_url(); ?>assets/images/users/8.jpg" alt="user-img" class="img-circle">
-                                        <span>Pwandeep rajan
-                                            <small class="text-success">online</small>
-                                        </span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+
                 <!-- ============================================================== -->
                 <!-- End Right sidebar -->
                 <!-- ============================================================== -->

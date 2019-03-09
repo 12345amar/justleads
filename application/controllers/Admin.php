@@ -337,10 +337,14 @@ class Admin extends CI_Controller {
     }
     
     /**
-     * Layout of Admin Filter Leads
+     * Layout of Admin Side Filter Leads
      * 
      */
     public function filter_leads() {
+        
+        $data['record'] = $this->db->query('select leads.* from leads 
+                left join admin_telecaller_leads on leads.id=admin_telecaller_leads.lead_id 
+                where admin_telecaller_leads.lead_id=leads.id order by id desc')->result_array();
         $data['page'] = 'filter_leads';
         $this->load->view('layout', $data);
     }
