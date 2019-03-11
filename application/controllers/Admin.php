@@ -509,5 +509,12 @@ class Admin extends CI_Controller {
         $data['page'] = 'client_request';
         $this->load->view('layout', $data); 
     }
+    
+    
+    public function client_list() {
+        //$data['record'] = $this->db->query("select * from request_to_leads order by id desc")->result_array();
+        $data['page'] = 'client_list';
+        $this->load->view('layout', $data); 
+    }
 
 }

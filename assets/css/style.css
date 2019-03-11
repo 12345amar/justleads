@@ -6,6 +6,10 @@
 .card .box-shadow {
 	box-shadow: 5px 10px 20px grey;
 }
+
+.form-group #tch3 {
+	font-size: 15px !important;
+}
     
     
     

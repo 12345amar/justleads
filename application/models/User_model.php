@@ -90,6 +90,10 @@ class User_model extends CI_Model {
          $this->db->delete($tb,$where);
      }
      
+    public function delete_filter_lead($tb,$where) {
+         $this->db->delete($tb,$where);
+     }
+     
      public function insert_package($data) {
         $insert     = $this->db->insert('package', $data);
         //$user_id    = $this->db->insert_id();

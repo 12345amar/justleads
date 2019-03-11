@@ -77,7 +77,7 @@
                     <?php } ?>
 
                     <?php if ($this->session->flashdata('success')) { ?>
-                        <div class="alert alert-success alert-dismissible">
+                        <div class="alert alert-success alert-dismissible" id="myDiv">
                             <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
                             <strong></strong> <?= $this->session->flashdata("success") ?>
                         </div>
@@ -94,7 +94,7 @@
                                         </label>
                                             
                                         <label class="btn btn-danger btn-sm pull-right collapsed" style="width: 25%;">
-                                            <input type="" name="addlead" class="addlead" style="opacity:0.0;width: 0%;"> <i class="fas fa-plus"></i> <a href="<?php echo base_url('admin/add_lead'); ?>"><span class="addlead"> Add Leads</span></a>
+                                            <input type="" name="addlead" class="addlead" style="opacity:0.0;width: 0%;"> <i class="fas fa-plus"></i> <a href="<?php echo base_url('telecaller/add_lead'); ?>"><span class="addlead"> Add Leads</span></a>
                                                <!--<button type="button" ><a href="<?php //echo base_url('telecaller/addlead'); ?>"> Add Leads</a> </button>-->
                                         </label>
                                      </form>

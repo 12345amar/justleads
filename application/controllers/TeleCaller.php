@@ -72,16 +72,20 @@ class TeleCaller extends CI_Controller {
     }
 
     public function leads() {
-        $leads = $this->db->get('leads');
+        
+        $this->db->where('lead_status', '0');
+        $leads = $this->db->get('leads');       
         $data['record'] = $leads->result_array();
         $data['page'] = 'leads';
         $this->load->view('layout', $data);
     }
     
     public function filter_leads() {
-        $data['record'] = $this->db->query('select leads.* from leads 
+        
+        $userId = $this->session->userdata('id');
+        $data['record'] = $this->db->query("select leads.* from leads 
                 left join admin_telecaller_leads on leads.id=admin_telecaller_leads.lead_id 
-                where admin_telecaller_leads.lead_id=leads.id order by id desc')->result_array();
+                where leads.lead_status='1' and admin_telecaller_leads.sender_id=$userId order by id desc")->result_array();
         $data['page'] = 'filter_leads';
         $this->load->view('layout', $data);
     }
@@ -130,15 +134,12 @@ class TeleCaller extends CI_Controller {
         return true;
     }
 
-    public function addlead() {
-        $data['page'] = 'addlead';
+    public function add_lead() {
+        $data['page'] = 'add_lead';
         $this->load->view('layout', $data);
     }
 
-    public function insert() {
-        //$this->load->view('register');
-        //if($this->input->post()){
-        //Include validation library
+ /*   public function insert() {
         $this->load->library('form_validation');
         $this->form_validation->set_rules('buyer_name', 'Buyer Name', 'required');
         $this->form_validation->set_rules('buyer_budget', 'Buyer Budget', 'required');
@@ -150,7 +151,6 @@ class TeleCaller extends CI_Controller {
 
         if ($this->form_validation->run() == FALSE) {
             $this->load->view('addlead');
-            //echo "process is failed";
         } else {
             $data = array(
                 'buyer_name' => $this->input->post('buyer_name'),
@@ -160,15 +160,82 @@ class TeleCaller extends CI_Controller {
                 'location' => $this->input->post('location'),
                 'post_lead' => $this->input->post('post_lead')
             );
-            //print_r($data); die();
-            //$this->load->model('User_model');	
             $this->User_model->form_insert($data);
             $data['message'] = 'Lead Inserted Successfully';
-            //$this->load->view('leads', $data);
             redirect('telecaller/leads', $data);
         }
-        //}
+       
+    } */
+    
+    
+    /**
+     * Insert Lead By Tele caller
+     * 
+     */
+        public function insert_lead() {
+       
+        if($this->input->post()){
+        $this->form_validation->set_rules('buyer_name', 'Buyer Name', 'required');
+        $this->form_validation->set_rules('email', 'Email', 'required|valid_email');
+        $this->form_validation->set_rules('lead_source', 'Lead Source', 'required');
+        $this->form_validation->set_rules('buyer_budget', 'Buyer Budget', 'required');
+        $this->form_validation->set_rules('location', 'Location', 'required');
+        $this->form_validation->set_rules('project', 'Project', 'required');
+        $this->form_validation->set_rules('mobile', 'Mobile Number', 'required|regex_match[/^[0-9]{10}$/]');
+        $this->form_validation->set_rules('lead_status', 'Lead Status', 'required');
+        $this->form_validation->set_rules('size', 'Size', 'required');
+        $this->form_validation->set_rules('priority', 'Priority', 'required');
+        $this->form_validation->set_rules('message', 'Message', 'required');
+        
+        $data = array(
+                'buyer_name' => $this->input->post('buyer_name'),
+                'email' => $this->input->post('email'),
+                'lead_source' => $this->input->post('lead_source'),
+                'buyer_budget' => $this->input->post('buyer_budget'),
+                'location' => $this->input->post('location'),
+                'project' => $this->input->post('project'),
+                'mobile' => $this->input->post('mobile'),
+                'lead_status' => $this->input->post('lead_status'),
+                'size' => $this->input->post('size'),
+                'priority' => $this->input->post('priority'),
+                'message' => $this->input->post('message'),
+                
+            );
+        if ($this->form_validation->run() == TRUE) {
+            $this->User_model->form_insert_lead($data);
+            $this->session->set_flashdata('success', 'Lead Inserted Successfully.');
+            redirect('telecaller/leads', $data);
+         } else {
+            $data['page'] = 'add_lead';
+            $this->load->view('layout', $data);
+           }
+         }
     }
+    
+    
+    /**
+     * Delete Raw Leads By Tele caller
+     * 
+     */
+    public function delete_lead() {
+        $id = $this->uri->segment(3);
+        $this->User_model->delete_lead('leads', 'id=' . $id);
+        $this->session->set_flashdata('success', 'Lead deleted Successfully.');
+        redirect('telecaller/leads');
+    }
+    
+    /**
+     * Delete Filter Leads By Tele caller
+     * 
+     */
+    public function delete_filter_lead() {
+        $id = $this->uri->segment(3);
+        $this->User_model->delete_filter_lead('leads', 'id=' . $id);
+        $this->session->set_flashdata('success', 'Lead deleted Successfully.');
+        redirect('telecaller/filter_leads');
+    }
+    
+    
 
     public function view_lead() {
         $id = $this->uri->segment(3);
@@ -196,12 +263,12 @@ class TeleCaller extends CI_Controller {
         $this->load->view("layout", $data);
     }
 
-    public function delete() {
+  /*  public function delete() {
         $id = $this->uri->segment(3);
         $this->load->model('User_model');
         $this->User_model->delete('leads', 'id=' . $id);
         redirect('telecaller/leads');
-    }
+    } */
 
     public function viewdetails() {
 
@@ -228,21 +295,24 @@ class TeleCaller extends CI_Controller {
                 'assign'   => 'admin',     
                 );
         
-                //print_r($data);                die();
-            $insert = $this->db->insert('admin_telecaller_leads', $data);
+            $insert  = $this->db->insert('admin_telecaller_leads', $data);
+                        $this->db->where('id', $leads);
+            $update  = $this->db->update('leads', ['lead_status' => '1']);
+            
         }
         
          if ($insert) {
                 
-                $this->session->set_flashdata('success', 'Data Send to Admin.');
-                redirect('telecaller/leads');
+             echo json_encode(['status' => 'success', 'message' => 'Lead transfer to admin successfully.']);
+               // $this->session->set_flashdata('success','Data Send to Admin.');
+                //print json_encode(array("status"=>"success","message"=>"Your message here"));
+               // redirect('telecaller/leads');
             } else {
              
-                $this->session->set_flashdata('error', 'Unable to send data, try again.');
-                redirect('telecaller/leads');
+                echo json_encode(['status' => 'error', 'message' => 'Unable to lead transfer to admin, try again.']);
             }
        }
-       $data['page'] = 'leads';
+        $data['page'] = 'leads';
         $this->load->view('layout', $data);
     }
     
