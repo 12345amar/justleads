@@ -57,8 +57,6 @@
     <script src="<?php echo base_url(); ?>assets/plugins/vectormap/jquery-jvectormap-2.0.2.min.js"></script>
     <script src="<?php echo base_url(); ?>assets/plugins/vectormap/jquery-jvectormap-us-aea-en.js"></script>
     <script src="<?php echo base_url(); ?>assets/js/dashboard2.js"></script>
-    
-    
     <!--Date 11/03/2019 -->
     <!-- This page plugins -->
     <!-- ============================================================== -->
@@ -194,8 +192,10 @@
 
     });
     });
-  </script>
     
+  </script>
+            
+
     <script>    
                 $("#uploadLeads").change(function(){   
                    $("#uploadLeadsForm").submit();
@@ -212,7 +212,7 @@
     
     
     
-        <script>
+ <script>
     $(function() {
         // Switchery
         var elems = Array.prototype.slice.call(document.querySelectorAll('.js-switch'));
@@ -318,12 +318,10 @@
     });
     </script>
     
-    
-
     <!-- ============================================================== -->
     <!-- Style switcher -->
     <!-- ============================================================== -->
-    <script src="<?php echo base_url(); ?>assets/plugins/styleswitcher/jQuery.style.switcher.js"></script>
+    <!--<script src="<?php //echo base_url(); ?>assets/plugins/styleswitcher/jQuery.style.switcher.js"></script>-->
     
 </body>
 <!-- Mirrored from wrappixel.com/demos/admin-templates/material-pro/material/pages-login.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 19 Dec 2018 09:06:36 GMT -->

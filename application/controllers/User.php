@@ -182,11 +182,11 @@ class User extends CI_Controller {
             if ($insert) {
                 
                 $this->session->set_flashdata('success', 'Query submitted to Admin.');
-                redirect('user/myleads');
+                redirect('user/request_to_leads');
             } else {
              
                 $this->session->set_flashdata('error', 'Unable to submit query, try again.');
-                redirect('user/myleads');
+                redirect('user/request_to_leads');
             }
     }
        $data['page'] = 'request_to_leads';

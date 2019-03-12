@@ -70,7 +70,13 @@
 
                     <h4 class="card-title">Data Export</h4>
                     <h6 class="card-subtitle">Export data to Copy, CSV, Excel, PDF & Print</h6>
+                    
                     <div class="d-flex no-block align-self-center">
+                        
+                        <div class="col-lg-2 col-md-4">
+                            <button type="button" class="btn waves-effect waves-light btn-block btn-success" style="color:#fff !important;"><a href="<?php echo base_url('admin/caller_list'); ?>">Client List</a></button>
+                        </div>
+                        
                         <div class="ml-auto">
                             
                                     <form method="post" action="<?php echo base_url()?>admin/importLeadsByExcel" enctype="multipart/form-data" id="uploadLeadsForm">
