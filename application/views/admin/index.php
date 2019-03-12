@@ -144,7 +144,7 @@
                                 <div class="d-flex flex-row">
                                     <div class="round round-lg align-self-center btn-success"><i class="fas fa-user-plus"></i></div>
                                     
-                                    <a href="<?php echo base_url('admin/client_list'); ?>">
+                                    <a href="<?php echo base_url('admin/caller_list'); ?>">
                                     <div class="m-l-10 align-self-center">
                                         <!--<h3 class="m-b-0 font-lgiht">$687</h3>-->
                                         <h5 class="text-muted m-b-0">Client List</h5>
