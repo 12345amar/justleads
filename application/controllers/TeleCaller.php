@@ -28,7 +28,7 @@ class TeleCaller extends CI_Controller {
                     $mobile        = $worksheet->getCellByColumnAndRow(2, $row)->getValue();
                     $email         = $worksheet->getCellByColumnAndRow(3, $row)->getValue();
                     $location      = $worksheet->getCellByColumnAndRow(4, $row)->getValue();
-                    $post_lead     = $worksheet->getCellByColumnAndRow(5, $row)->getValue();
+                    $lead_source     = $worksheet->getCellByColumnAndRow(5, $row)->getValue();
                     $lead_status   = $worksheet->getCellByColumnAndRow(6, $row)->getValue();
 
                     $data[] = array(
@@ -37,7 +37,7 @@ class TeleCaller extends CI_Controller {
                      'mobile'          => $mobile,
                      'email'           => $email,
                      'location'        => $location,
-                     'post_lead'       => $post_lead,
+                     'lead_source'     => $lead_source,
                      'lead_status'     => $lead_status
                     );
                 }

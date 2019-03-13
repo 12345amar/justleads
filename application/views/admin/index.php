@@ -147,7 +147,7 @@
                                     <a href="<?php echo base_url('admin/caller_list'); ?>">
                                     <div class="m-l-10 align-self-center">
                                         <!--<h3 class="m-b-0 font-lgiht">$687</h3>-->
-                                        <h5 class="text-muted m-b-0">Client List</h5>
+                                        <h5 class="text-muted m-b-0">Caller List</h5>
                                     </div>
                                     </a>    
                                         

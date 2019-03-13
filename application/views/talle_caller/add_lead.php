@@ -41,9 +41,7 @@
 
                     <form method="post" action="<?php echo base_url() ?>telecaller/insert_lead" class="form-horizontal form-bordered">
 
-                        <?php if (isset($message)) { ?>
-                            <CENTER><h3 style="color:green;">Lead inserted successfully</h3></CENTER><br>
-                        <?php } ?>
+                       
                         <div class="form-body">
                             <div class="form-group row">
                                 <!--<label class="control-label text-right col-md-3">Buyer Name</label>-->

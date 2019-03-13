@@ -88,7 +88,7 @@
                     <div class="d-flex no-block align-self-center">
                         <div class="ml-auto">
                             
-                                    <form method="post" action="<?php echo base_url()?>admin/importLeadsByExcel" enctype="multipart/form-data" id="uploadLeadsForm">
+                                    <form method="post" action="<?php echo base_url()?>telecaller/importLeadsByExcel" enctype="multipart/form-data" id="uploadLeadsForm">
                                         <label class="btn btn-info btn-sm pull-right collapsed" style="width: 25%;">
                                                <input type="file" name="leads" id="uploadLeads" style="opacity:0.0;width: 5%;"> <i class="fas fa-upload"></i> Upload Excel
                                         </label>
@@ -98,7 +98,7 @@
                                                <!--<button type="button" ><a href="<?php //echo base_url('telecaller/addlead'); ?>"> Add Leads</a> </button>-->
                                         </label>
                                      </form>
-                            <!--<button class="btn btn-success btn-sm pull-right collapsed" type="button" ><a href="<?php echo base_url('admin/add_lead'); ?>"> Add Lead</a> </button>-->
+                            <!--<button class="btn btn-success btn-sm pull-right collapsed" type="button" ><a href="<?php echo base_url('telecaller/add_lead'); ?>"> Add Lead</a> </button>-->
                         </div> 
                     </div>
                     

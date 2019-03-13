@@ -391,10 +391,10 @@ class Admin extends CI_Controller {
             );
         if ($this->form_validation->run() == TRUE) {
             $this->User_model->insert_package($data);
-            $this->session->set_flashdata('success', 'Package Created Successfully.');
-            redirect('admin/package', $data);
+            $this->session->set_flashdata('success', 'Credits Created Successfully.');
+            redirect('admin/credits', $data);
          } else {
-            $data['page'] = 'create_package';
+            $data['page'] = 'add_credits';
             $this->load->view('layout', $data);
            }
          }  

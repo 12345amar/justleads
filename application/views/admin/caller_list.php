@@ -40,6 +40,11 @@
                             <div class="col-md-2"> <button type="button"  id="remove_body_lead" class="btn btn-rounded btn-block btn-danger">Remove Telecaller</button></div>
                             <div class="col-md-2"><button type="button" id="send_lead" class="btn btn-rounded btn-block btn-success">Send Lead</button></div>
                             
+                            <label class="btn btn-rounded btn btn-info btn-sm pull-right collapsed" style="width: 15%; background: #ffb22b; border: 1px solid #ffb22b;">
+                                 <img src="<?php echo base_url(); ?>assets/images/excel.png" style="width: 25px;" >
+                                 <input type="file" name="leads" id="uploadLeads" style="opacity:0.0;width: 5%;"> <i class="fas fa-upload"></i> Upload Excel
+                            </label>
+                           
                         </div>
                     </div>
                     
@@ -52,7 +57,7 @@
         var x = 1;
         $("#add_body_lead").click(function(){ 
 
-            var newElement = '<div class="col-md-4"><h5 class="m-t-30">Telecaller List</h5><select class="select2" style="width: 100%"><option>Select</option><?php foreach ($userlist as $val){ ?><option value="<?php echo $val['username']; ?>"><?php echo $val['username']; ?></option><?php } ?></select></div><div class="col-md-4"><h5 class="m-t-30">To Lead</h5><input type="text" class="form-control" id="Schoolname" name="Schoolname[]" value="" placeholder="From Leads"></div><div class="col-md-4"><h5 class="m-t-30">From Lead</h5><input type="text" class="form-control" id="Schoolname" name="Schoolname[]" value="" placeholder="To Leads">';
+            var newElement = '<div class="col-md-4"><h5 class="m-t-30">Telecaller List</h5><select class="select2" style="width: 100%"><option>Select</option><?php foreach ($userlist as $val){ ?><option value="<?php echo $val['username']; ?>"><?php echo $val['username']; ?></option><?php } ?></select></div><div class="col-md-4"><h5 class="m-t-30">From Lead</h5><input type="text" class="form-control" id="Schoolname" name="Schoolname[]" value="" placeholder="From Leads"></div><div class="col-md-4"><h5 class="m-t-30">To Lead</h5><input type="text" class="form-control" id="Schoolname" name="Schoolname[]" value="" placeholder="To Leads">';
             if(x < maxField){
                 x++;
             $(".body-lead").append($(newElement));
