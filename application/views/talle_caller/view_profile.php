@@ -9,15 +9,15 @@
  
 <!-- Container fluid  -->
 <!-- ============================================================== -->
-    <div class="container-fluid">
+    <!--<div class="container-fluid">-->
     <!-- ============================================================== -->
     <!-- Bread crumb and right sidebar toggle -->
     <!-- ============================================================== -->
     <div class="row page-titles">
         <div class="col-md-5 col-8 align-self-center">
-            <h3 class="text-themecolor m-b-0 m-t-0">User</h3>
+            <h3 class="text-themecolor m-b-0 m-t-0">Telecaller</h3>
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="javascript:void(0)">Profile</a></li>
+                <li class="breadcrumb-item"><a href="javascript:void(0)">View Profile</a></li>
                 <!--<li class="breadcrumb-item active">Form</li>-->
             </ol>
         </div>
@@ -63,29 +63,29 @@
                                             <strong></strong> <?= $this->session->flashdata("success") ?>
                                         </div>
                                     <?php } ?>
-                                    
-                                    <form  action="<?php echo base_url('user/update_profile'); ?>" method="post" class="form-horizontal form-material">
-                                    <?php echo form_hidden('id', $record[0]['id']); ?>
+
+                                    <form  action="<?php echo base_url('telecaller/view_profile'); ?>" method="post" class="form-horizontal form-material">
+                                        <?php echo form_hidden('id', $record[0]['id']); ?>
 
                                         <div class="form-group">
                                             <div class="col-md-12">
-                                                <input type="text" name="username" placeholder="username" value="<?php echo ($record[0]['username']); ?>" class="form-control form-control-line">
+                                                <input type="text" name="username" placeholder="username" value="<?php echo $record[0]['username']; ?>" class="form-control form-control-line" readonly="">
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <div class="col-md-12">
-                                                <input type="email" name="email" placeholder="Email" value="<?php echo ($record[0]['email']); ?>" class="form-control form-control-line">
+                                                <input type="email" name="email" placeholder="Email" value="<?php echo $record[0]['email']; ?>" class="form-control form-control-line" readonly="">
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <div class="col-md-12">
-                                                <input type="number" name="mobile" placeholder="mobile" maxlength="10"  value="<?php echo ($record[0]['mobile']); ?>" class="form-control form-control-line">
+                                                <input type="number" name="mobile" placeholder="mobile"  value="<?php echo $record[0]['mobile']; ?>" class="form-control form-control-line" readonly="">
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <div class="col-sm-12">
-                                                <button name="update" type="submit" class="btn btn-success btn-info">Update Profile</button>
-                                                <a href="<?php echo base_url('user/index'); ?>"><button type="button" class="btn btn-danger">Cancel</button></a>
+                                                <!--<button name="update" type="submit" class="btn btn-success btn-info">Update Profile</button>-->
+                                                <a href="<?php echo base_url('telecaller/index'); ?>"><button type="button" class="btn btn-danger">Back</button></a>
                                             </div>
                                         </div>
                                     </form>
@@ -111,7 +111,7 @@
     <!-- Right sidebar -->
     <!-- ============================================================== -->
     <!-- .right-sidebar -->
-    <!--<div class="right-sidebar">
+    <div class="right-sidebar">
         <div class="slimscrollright">
             <div class="rpanel-title"> Service Panel <span><i class="ti-close right-side-toggle"></i></span> </div>
             <div class="r-panel-body">
@@ -134,37 +134,37 @@
                 <ul class="m-t-20 chatonline">
                     <li><b>Chat option</b></li>
                     <li>
-                        <a href="javascript:void(0)"><img src="<?php //echo base_url(); ?>assets/images/users/1.jpg" alt="user-img" class="img-circle"> <span>Varun Dhavan <small class="text-success">online</small></span></a>
+                        <a href="javascript:void(0)"><img src="<?php echo base_url(); ?>assets/images/users/1.jpg" alt="user-img" class="img-circle"> <span>Varun Dhavan <small class="text-success">online</small></span></a>
                     </li>
                     <li>
-                        <a href="javascript:void(0)"><img src="<?php //echo base_url(); ?>assets/images/users/2.jpg" alt="user-img" class="img-circle"> <span>Genelia Deshmukh <small class="text-warning">Away</small></span></a>
+                        <a href="javascript:void(0)"><img src="<?php echo base_url(); ?>assets/images/users/2.jpg" alt="user-img" class="img-circle"> <span>Genelia Deshmukh <small class="text-warning">Away</small></span></a>
                     </li>
                     <li>
-                        <a href="javascript:void(0)"><img src="<?php //echo base_url(); ?>assets/images/users/3.jpg" alt="user-img" class="img-circle"> <span>Ritesh Deshmukh <small class="text-danger">Busy</small></span></a>
+                        <a href="javascript:void(0)"><img src="<?php echo base_url(); ?>assets/images/users/3.jpg" alt="user-img" class="img-circle"> <span>Ritesh Deshmukh <small class="text-danger">Busy</small></span></a>
                     </li>
                     <li>
-                        <a href="javascript:void(0)"><img src="<?php //echo base_url(); ?>assets/images/users/4.jpg" alt="user-img" class="img-circle"> <span>Arijit Sinh <small class="text-muted">Offline</small></span></a>
+                        <a href="javascript:void(0)"><img src="<?php echo base_url(); ?>assets/images/users/4.jpg" alt="user-img" class="img-circle"> <span>Arijit Sinh <small class="text-muted">Offline</small></span></a>
                     </li>
                     <li>
-                        <a href="javascript:void(0)"><img src="<?php //echo base_url(); ?>assets/images/users/5.jpg" alt="user-img" class="img-circle"> <span>Govinda Star <small class="text-success">online</small></span></a>
+                        <a href="javascript:void(0)"><img src="<?php echo base_url(); ?>assets/images/users/5.jpg" alt="user-img" class="img-circle"> <span>Govinda Star <small class="text-success">online</small></span></a>
                     </li>
                     <li>
-                        <a href="javascript:void(0)"><img src="<?php //echo base_url(); ?>assets/images/users/6.jpg" alt="user-img" class="img-circle"> <span>John Abraham<small class="text-success">online</small></span></a>
+                        <a href="javascript:void(0)"><img src="<?php echo base_url(); ?>assets/images/users/6.jpg" alt="user-img" class="img-circle"> <span>John Abraham<small class="text-success">online</small></span></a>
                     </li>
                     <li>
-                        <a href="javascript:void(0)"><img src="<?php //echo base_url(); ?>assets/images/users/7.jpg" alt="user-img" class="img-circle"> <span>Hritik Roshan<small class="text-success">online</small></span></a>
+                        <a href="javascript:void(0)"><img src="<?php echo base_url(); ?>assets/images/users/7.jpg" alt="user-img" class="img-circle"> <span>Hritik Roshan<small class="text-success">online</small></span></a>
                     </li>
                     <li>
-                        <a href="javascript:void(0)"><img src="<?php //echo base_url(); ?>assets/images/users/8.jpg" alt="user-img" class="img-circle"> <span>Pwandeep rajan <small class="text-success">online</small></span></a>
+                        <a href="javascript:void(0)"><img src="<?php echo base_url(); ?>assets/images/users/8.jpg" alt="user-img" class="img-circle"> <span>Pwandeep rajan <small class="text-success">online</small></span></a>
                     </li>
                 </ul>
             </div>
         </div>
-    </div>-->
+    </div>
     <!-- ============================================================== -->
     <!-- End Right sidebar -->
     <!-- ============================================================== -->
-</div>
+<!--</div>-->
 <!-- ============================================================== -->
 <!-- End Container fluid  -->
 <!-- ============================================================== -->

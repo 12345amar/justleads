@@ -70,6 +70,10 @@ class TeleCaller extends CI_Controller {
         $data['page'] = 'index';
         $this->load->view('layout', $data);
     }
+    
+    
+    
+    
 
     public function leads() {
         
@@ -90,10 +94,37 @@ class TeleCaller extends CI_Controller {
         $this->load->view('layout', $data);
     }
 
+// Profile section in Telecaller Controller
+    
     public function profile() {
-        $data['page'] = 'profile';
-        $this->load->view('layout', $data);
+         $userdata['record'] = $this->db->query('select users.* from users 
+                left join user_roles on users.id=user_roles.user_id 
+                where user_roles.role_id=2')->result_array();
+        $userdata['page'] = 'profile';
+        $this->load->view('layout', $userdata);
     }
+    
+     public function update_profile() {
+        $id = $this->uri->segment(3); 
+        $userdata = $this->input->post();
+        unset($userdata['update']);
+        $this->User_model->profile('users', 'id=' . $userdata['id'], $userdata);
+        $this->session->set_flashdata('success', 'Admin details updated  successfully.');
+        redirect('telecaller/profile');
+    }
+    
+    public function view_profile() {
+        
+        $data['record'] = $this->db->query('select users.* from users 
+                left join user_roles on users.id=user_roles.user_id 
+                where user_roles.role_id=2')->result_array();
+        $data['page'] = 'view_profile';
+        $this->load->view('layout', $data);
+        
+    }
+    
+    
+    
 
     public function changepassword() {
         $this->load->view('changepassword');

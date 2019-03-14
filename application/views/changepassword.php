@@ -27,7 +27,7 @@
     <![endif]-->
     </head>
 
-    <body class="fix-header fix-sidebar card-no-border">
+    <body class="fix-header fix-sidebar card-no-border logo-center">
         <!-- ============================================================== -->
         <!-- Preloader - style you can find in spinners.css -->
         <!-- ============================================================== -->
@@ -72,11 +72,11 @@
                             <!-- ============================================================== -->
                             <!-- Search -->
                             <!-- ============================================================== -->
-                            <li class="nav-item hidden-sm-down search-box">
+                            <!--<li class="nav-item hidden-sm-down search-box">
                                 <a class="nav-link hidden-sm-down text-muted waves-effect waves-dark" href="javascript:void(0)"><i class="ti-search"></i></a>
                                 <form class="app-search">
                                     <input type="text" class="form-control" placeholder="Search & enter"> <a class="srh-btn"><i class="ti-close"></i></a> </form>
-                            </li>
+                            </li>-->
                             <!-- ============================================================== -->
                             <!-- Messages -->
                             <!-- ============================================================== -->
@@ -349,7 +349,7 @@
 
                     <?php if ($this->router->fetch_class() == 'admin') { ?>
                         <!--<li class="nav-small-cap"><a href="#">Admin Dashboard</a></li>-->
-                        <li><a class="has-arrow waves-effect waves-dark" href="<?php echo base_url('admin'); ?>"><i class="mdi mdi-gauge"></i><span class="hide-menu">Dashboard</span></a></li>
+                        <li><a class="has-arrow waves-effect waves-dark" href="<?php echo base_url('admin'); ?>"><i class="ti-dashboard"></i><span class="hide-menu">Dashboard</span></a></li>
                         <li><a class="has-arrow waves-effect waves-dark" href="<?php echo base_url('admin/caller'); ?>" aria-expanded="false"><i class="ti-headphone-alt"></i> <span class="hide-menu">Telecallers</span></a></li>
                         <li><a class="has-arrow waves-effect waves-dark" href="<?php echo base_url('admin/user'); ?>" aria-expanded="false"><i class="fas fa-users"></i><span class="hide-menu">Clients</span></a></li>
                         <li><a class="has-arrow waves-effect waves-dark" href="<?php echo base_url('admin/leads'); ?>" aria-expanded="false"><i class="fas fa-info-circle"></i><span class="hide-menu">Leads</span></a></li>
@@ -357,12 +357,13 @@
                     <?php } ?>
 
                     <?php if ($this->router->fetch_class() == 'user') { ?>
-                        <li class="nav-small-cap">User Dashboard</li>
-                        <li><a class="has-arrow waves-effect waves-dark" href="#"><span class="hide-menu">Dashboard</span></a></li>
-                        <li><a class="has-arrow waves-effect waves-dark" href="<?php echo base_url('user/leads'); ?>" aria-expanded="false"><i class="fas fa-credit-card"></i><span class="hide-menu">My Balance</span></a></li>
-                        <li><a class="has-arrow waves-effect waves-dark" href="<?php echo base_url('user/leads'); ?>" aria-expanded="false"><i class="fas fa-info-circle"></i><span class="hide-menu">My Leads</span></a></li>
-                        <li><a class="has-arrow waves-effect waves-dark" href="<?php echo base_url('user/leads'); ?>" aria-expanded="false"><i class="fas fa-pencil-alt"></i><span class="hide-menu">Rejects Status</span></a></li>
-                        <li><a class="has-arrow waves-effect waves-dark" href="<?php echo base_url('user/leads'); ?>" aria-expanded="false"><i class="fas fa-info-circle"></i><span class="hide-menu">Today Leads</span></a></li>
+                        <!--<li class="nav-small-cap">User Dashboard</li>-->
+                        <li><a class="has-arrow waves-effect waves-dark" href="<?php echo base_url('user'); ?>"><i class="ti-dashboard"></i><span class="hide-menu">Dashboard</span></a></li>
+                        <li><a class="has-arrow waves-effect waves-dark" href="<?php echo base_url('user/mybalance'); ?>" aria-expanded="false"><i class="fas fa-credit-card"></i><span class="hide-menu">My Balance</span></a></li>
+                        <li><a class="has-arrow waves-effect waves-dark" href="<?php echo base_url('user/myleads'); ?>" aria-expanded="false"><i class="fas fa-info-circle"></i><span class="hide-menu">My Leads</span></a></li>
+                        <li><a class="has-arrow waves-effect waves-dark" href="<?php echo base_url('user/rejectstatus'); ?>" aria-expanded="false"><i class="fas fa-pencil-alt"></i><span class="hide-menu">Rejects Status</span></a></li>
+                        <li><a class="has-arrow waves-effect waves-dark" href="<?php echo base_url('user/todayleads'); ?>" aria-expanded="false"><i class="fas fa-info-circle"></i><span class="hide-menu">Today Leads</span></a></li>
+                        <li><a class="has-arrow waves-effect waves-dark" href="<?php echo base_url('user/request_to_leads'); ?>" aria-expanded="false"><i class="fas fa-info-circle"></i><span class="hide-menu">Request For Leads</span></a></li>
                         
                     <?php } ?>
 
@@ -468,7 +469,7 @@
                                                         <div class="offset-sm-3 col-md-9">
                                                             <button type="submit" name="submit" class="btn btn-success btn-info"> <i class="fa fa-send"></i> Change</button>
                                                             <?php echo $this->session->flashdata("error"); ?>
-                                                            <a href="<?php echo base_url('admin/index'); ?>"><button type="button" class="btn btn-danger">Cancel</button></a>
+                                                            <!--<a href="<?php //echo base_url('admin/index'); ?>"><button type="button" class="btn btn-danger">Cancel</button></a>-->
                                                         </div>
                                                     </div>
                                                 </div>

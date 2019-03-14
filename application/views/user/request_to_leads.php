@@ -68,7 +68,7 @@
 
                                         <div class="form-group">
                                             <div class="col-md-12">
-                                                <input type="number" name="number_of_leads" placeholder="Number Of Leads" class="form-control form-control-line">
+                                                <input type="number" name="number_of_leads" placeholder="Number Of Leads" required class="form-control form-control-line">
                                             </div>
                                         </div>
                                         <div class="form-group">

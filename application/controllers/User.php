@@ -35,6 +35,16 @@ class User extends CI_Controller {
         redirect('user/profile');
     }
     
+    public function view_profile() {
+        
+        $data['record'] = $this->db->query('select users.* from users 
+                left join user_roles on users.id=user_roles.user_id 
+                where user_roles.role_id=3')->result_array();
+        $data['page'] = 'view_profile';
+        $this->load->view('layout', $data);
+        
+    }
+    
     
     //Change Password of User Section
     public function changepassword() {
