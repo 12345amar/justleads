@@ -55,7 +55,7 @@
                                 <div class="d-flex flex-row">
                                     <div class="round round-lg align-self-center round-info"><i class="ti-headphone-alt"></i></div>
                                     
-                                    <a href="<?php echo base_url('telecaller/caller'); ?>">
+                                    <a href="<?php //echo base_url('telecaller/caller'); ?>">
                                     <div class="m-l-10 align-self-center">
                                         <!--<h3 class="m-b-0 font-light">$3249</h3>-->
                                         <h5 class="text-muted m-b-0">Telecaller</h5>
@@ -73,7 +73,7 @@
                                 <div class="d-flex flex-row">
                                     <div class="round round-lg align-self-center round-warning"><i class="fas fa-users"></i></div>
                                     
-                                    <a href="<?php echo base_url('telecaller/user'); ?>">
+                                    <a href="<?php //echo base_url('telecaller/user'); ?>">
                                     <div class="m-l-10 align-self-center">
                                         <!--<h3 class="m-b-0 font-lgiht">$2376</h3>-->
                                         <h5 class="text-muted m-b-0">Clients</h5>
@@ -91,7 +91,7 @@
                                 <div class="d-flex flex-row">
                                     <div class="round round-lg align-self-center round-primary"><i class="fab fa-docker"></i></div>
                                     
-                                    <a href="<?php echo base_url('telecaller/credits'); ?>">
+                                    <a href="<?php //echo base_url('telecaller/credits'); ?>">
                                     <div class="m-l-10 align-self-center">
                                         <!--<h3 class="m-b-0 font-lgiht">$1795</h3>-->
                                         <h5 class="text-muted m-b-0">Credits</h5>

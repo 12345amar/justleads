@@ -59,7 +59,6 @@ class TeleCaller extends CI_Controller {
             $this->session->set_flashdata('error', 'File is not valid, try again.');
             redirect('telecaller/leads');
         }
-   
     }
 
     /**
@@ -109,7 +108,7 @@ class TeleCaller extends CI_Controller {
         $userdata = $this->input->post();
         unset($userdata['update']);
         $this->User_model->profile('users', 'id=' . $userdata['id'], $userdata);
-        $this->session->set_flashdata('success', 'Admin details updated  successfully.');
+        $this->session->set_flashdata('success', 'Telecaller details updated  successfully.');
         redirect('telecaller/profile');
     }
     
@@ -131,19 +130,25 @@ class TeleCaller extends CI_Controller {
     }
 
     public function change_Password() {
+        $data = array();
+        if($this->input->post()){
         $this->User_model->checkUseLogin();
         $this->form_validation->set_rules('old_password', 'Old Password', 'callback_password_check');
         $this->form_validation->set_rules('new_password', 'Old Password', 'required');
         $this->form_validation->set_rules('pass_conf', 'Confirm Password', 'required|matches[new_password]');
-        $this->form_validation->set_error_delimiters('<div class="error">', '</div>');
         if ($this->form_validation->run() == false) {
-            $this->load->view('telecaller/changepassword');
+            $this->load->view('changepassword', $data);
+            $this->session->set_flashdata('error', 'Password not change plz try again!');
+           
+            
         } else {
             $id = $this->session->userdata('id');
             $newpass = $this->input->post('new_password');
             $this->User_model->update($id, array('password' => md5($newpass)));
+             $this->session->set_flashdata('success', 'Change Password Successfully.');
             redirect('login');
         }
+      }
     }
 
     public function password_check($old_password) {

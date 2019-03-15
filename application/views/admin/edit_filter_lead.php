@@ -38,7 +38,7 @@
                         </div>
                     <?php } ?>
 
-                    <form method="post" action="<?php echo base_url() ?>admin/update_lead" class="form-horizontal form-bordered">
+                    <form method="post" action="<?php echo base_url() ?>admin/update_filter_lead" class="form-horizontal form-bordered">
 
                         <?php if (isset($message)) { ?>
                             <CENTER><h3 style="color:green;">Lead inserted successfully</h3></CENTER><br>
@@ -161,27 +161,11 @@
                             </div>
 
 
-                            <!--</div>
-                            <div class="form-actions">
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <div class="row">
-                                            <div class="offset-sm-3 col-md-9">
-                                                <button type="submit" class="btn btn-success" name="submit"> <i class="fa fa-check"></i> Submit</button>
-                            <!--<button class="btn btn-info btn-lg btn-block text-uppercase waves-effect waves-light" name="submit" type="submit">Submit</button>-->
-                            <!--<button type="button" class="btn btn-inverse">Cancel</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>-->
-
-
                             <div class="form-group text-center m-t-20">
                                 <div class="col-xs-12">
                                     <button class="btn btn-success btn-info" name="update" type="submit">Update</button>
                                     <?php echo $this->session->flashdata("error"); ?>
-									<a href="<?php echo base_url('admin/leads'); ?>"><button type="button" class="btn btn-danger">Cancel</button></a>
+									<a href="<?php echo base_url('admin/filter_leads'); ?>"><button type="button" class="btn btn-danger">Cancel</button></a>
                                 </div>
                             </div>
 

@@ -10,7 +10,7 @@
                         <h3 class="text-themecolor m-b-0 m-t-0">Admin</h3>
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="javascript:void(0)"></a>User</li>
-                            <li class="breadcrumb-item active">Edit Caller</li>
+                            <li class="breadcrumb-item active">Edit User</li>
                         </ol>
                     </div>
                     </div>
@@ -20,7 +20,7 @@
                     <div class="col-lg-12">
                         <div class="card card-outline-info">
                             <div class="card-header">
-                                <h4 class="m-b-0 text-white">Edit Caller </h4>
+                                <h4 class="m-b-0 text-white">Edit User </h4>
                             </div>
                             <div class="card-body">
                                 

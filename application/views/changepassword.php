@@ -342,9 +342,10 @@
                     <nav class="sidebar-nav">
                 <ul id="sidebarnav">
                     <?php if ($this->router->fetch_class() == 'telecaller') { ?>
-                        <li class="nav-small-cap"><a href="#">Telecaller Dashboard</a></li>
-                        <li><a class="has-arrow waves-effect waves-dark" href="#"><span class="hide-menu">Dashboard </span></a></li>
-                        <li><a class="has-arrow waves-effect waves-dark" href="<?php echo base_url('telecaller/leads'); ?>" aria-expanded="false"><i class="mdi mdi-laptop-windows"></i><span class="hide-menu">Leads</span></a></li>
+                        <!--<li class="nav-small-cap"><a href="#">Telecaller Dashboard</a></li>-->
+                        <li><a class="has-arrow waves-effect waves-dark" href="<?php echo base_url('telecaller'); ?>"><i class="ti-dashboard"></i><span class="hide-menu">Dashboard </span></a></li>
+                        <li><a class="has-arrow waves-effect waves-dark" href="<?php echo base_url('telecaller/leads'); ?>" aria-expanded="false"><i class="fas fa-info-circle"></i><span class="hide-menu">Raw Leads</span></a></li>
+                        <li><a class="has-arrow waves-effect waves-dark" href="<?php echo base_url('telecaller/filter_leads'); ?>" aria-expanded="false"><i class="fas fa-info-circle"></i><span class="hide-menu">Filter Leads</span></a></li>
                     <?php } ?>
 
                     <?php if ($this->router->fetch_class() == 'admin') { ?>

@@ -68,13 +68,26 @@
             <div class="card">
                 <div class="card-body">
 
+                    <?php if ($this->session->flashdata('error')) { ?>
+                        <div class="alert alert-danger alert-dismissible">
+                            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                            <strong>Warning!</strong> <?= $this->session->flashdata("error") ?>
+                        </div>
+                    <?php } ?>
+
+                    <?php if ($this->session->flashdata('success')) { ?>
+                        <div class="alert alert-success alert-dismissible">
+                            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                            <strong></strong> <?= $this->session->flashdata("success") ?>
+                        </div>
+                    <?php } ?>
                     <h4 class="card-title">Data Export</h4>
                     <h6 class="card-subtitle">Export data to Copy, CSV, Excel, PDF & Print</h6>
                     
                     <div class="d-flex no-block align-self-center">
                         
                         <div class="col-lg-2 col-md-4">
-                            <button type="button" class="btn waves-effect waves-light btn-block btn-success" style="color:#fff !important;"><a href="<?php echo base_url('admin/caller_list'); ?>">Client List</a></button>
+                            <button type="button" class="btn waves-effect waves-light btn-block btn-success caller-list"><a href="<?php echo base_url('admin/caller_list'); ?>">Caller List</a></button>
                         </div>
                         
                         <div class="ml-auto">
@@ -106,7 +119,7 @@
                                     <th>Location</th>
                                     <th>Mobile</th>
                                     <th>Project</th>
-                                    <th>Manage</th>
+                                    <!--<th>Manage</th>-->
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -124,7 +137,7 @@
                                     <td><?=$row['mobile']?></td>
                                     <td><?=$row['mobile']?></td>
                                     <!--<img src="<?php echo base_url(); ?>assets/images/alert/model.png" alt="default" data-toggle="modal" data-target="#responsive-modal" class="model_img img-responsive" />-->
-                                    <td id="<?php echo $row['id']; ?>" class="manage_leads"><a href="#"><center><i class="fa fa-user" aria-hidden="true"></i></center></a></td>
+                                    <!--<td id="<?php //echo $row['id']; ?>" class="manage_leads"><a href="#"><center><i class="fa fa-user" aria-hidden="true"></i></center></a></td>-->
                                    <td>
                                        <a href='<?php echo base_url()."admin/edit_lead/".$row['id'] ?>'><i class='far fa-edit' aria-hidden='true'></i></a>&nbsp;&nbsp;
                                        <a href='<?php echo base_url()."admin/delete_lead/".$row['id'] ?>' onclick='return confirm("Are you sure to delete this item?")'><i class='fas fa-trash-alt' aria-hidden='true'></i></a>&nbsp;&nbsp;

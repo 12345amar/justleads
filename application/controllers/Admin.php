@@ -22,6 +22,7 @@ class Admin extends CI_Controller {
         
         if ($_FILES['leads']['tmp_name']) {
             
+            //$fp = fopen($_FILES['userfile']['tmp_name'],'r') or die("can't open file");
             $path   = $_FILES['leads']['tmp_name'];
             $object = PHPExcel_IOFactory::load($path);
             foreach ($object->getWorksheetIterator() as $worksheet) {
@@ -46,11 +47,82 @@ class Admin extends CI_Controller {
                      'lead_source'     => $lead_source,
                      'lead_status'     => $lead_status
                     );
+                    $where = array(
+                        'buyer_name' => $buyer_name,
+                        'buyer_budget' => $buyer_budget,
+                        'mobile'  => $mobile,
+                        'email' => $email,
+                        'location'  => $location,
+                        'lead_source'  => $lead_source,
+                        'lead_status' => $lead_status
+                            );
+                     $q = $this->db->select("*")
+                            ->where($where)
+                            ->from('leads');
+                     
+                    $data = $this->db->get();
+                    //echo '<pre>';
+                    //print_r($data);                    die();
+                    
+                    if($data->num_rows > 0){
+                    //update process data
+
+                    $data = array(
+                        'buyer_name' => $buyer_name,
+                        'buyer_budget' => $buyer_budget,
+                        'mobile' => $mobile,
+                        'email' => $email,
+                        'location' => $location,
+                        'lead_source' => $lead_source,
+                        'lead_status' => $lead_status
+                    );
+                    
+                $this->db->set
+                    (
+                        'buyer_name', $buyer_name,
+                        'buyer_budget', $buyer_budget,
+                        'mobile', $mobile,
+                        'email', $email,
+                        'location', $location,
+                        'lead_source', $lead_source,
+                        'lead_status', $lead_status
+                    );
+                
+                $this->db-where
+                    (
+                        'buyer_name', $buyer_name,
+                        'buyer_budget', $buyer_budget,
+                        'mobile', $mobile,
+                        'email', $email,
+                        'location', $location,
+                        'lead_source', $lead_source,
+                        'lead_status', $lead_status
+                    );
+                $this->db->update('leads');
+
+
                 }
+                else{
+                    for($i = 0, $j = count(array($row)); $i < $j; $i++){
+                        $data = array(
+                        'buyer_name' => $buyer_name,
+                        'buyer_budget' => $buyer_budget,
+                        'mobile' => $mobile,
+                        'email' => $email,
+                        'location' => $location,
+                        'lead_source' => $lead_source,
+                        'lead_status' => $lead_status
+
+                        );
+
+                        $data['record']=$this->db->insert('leads', $data);
+                        //$insert = $this->db->insert('leads', $data);
+                }
+                $i++;
             }
    
-            $insert = $this->db->insert_batch('leads', $data);
-            if ($insert) {
+            
+           /* if ($insert) {
                 
                 $this->session->set_flashdata('success', 'File uploaded successfully.');
                 redirect('admin/leads');
@@ -58,14 +130,23 @@ class Admin extends CI_Controller {
              
                 $this->session->set_flashdata('error', 'Unable to upload file, try again.');
                 redirect('admin/leads');
-            }
+            } */
             
-        } else {
+        } //else {
+           
+            //$this->session->set_flashdata('error', 'File is not valid, try again.');
+            //redirect('admin/leads');
+        //}
+    }
+    fclose($path) or die("can't close file");
+        
+        }
+        else {
            
             $this->session->set_flashdata('error', 'File is not valid, try again.');
             redirect('admin/leads');
         }
-    }
+        }
     
     
     /**
@@ -349,6 +430,41 @@ class Admin extends CI_Controller {
         $this->load->view('layout', $data);
     }
     
+        public function edit_filter_lead() {
+        $id = $this->uri->segment(3);
+        $leads = $this->db->query("select * from leads where id=" . $id);
+        $data['record'] = $leads->result_array();
+        $data['page'] = 'edit_filter_lead';
+        $this->load->view("layout", $data);
+    }
+
+    public function update_filter_lead() {
+        $data = $this->input->post();
+        unset($data['update']);
+        $this->User_model->edit_lead('leads', 'id=' . $data['id'], $data);
+        $this->session->set_flashdata('success', 'Update Leads successfully.');
+        redirect('admin/filter_leads');
+    }
+
+    public function delete_filter_lead() {
+        $id = $this->uri->segment(3);
+        $this->User_model->delete_lead('leads', 'id=' . $id);
+        $this->session->set_flashdata('Lead deleted Successfully.');
+        redirect('admin/filter_leads');
+    }
+    
+    
+        public function view_filter_lead() {
+        $id = $this->uri->segment(3);
+        $leads = $this->db->query("select * from leads where id=" . $id);
+        $data['record'] = $leads->result_array();
+        $data['page'] = 'view_filter_lead';
+        $this->load->view("layout", $data);
+    }
+    
+    
+    
+    
     /**
      * Layout of Package
      * 
@@ -421,8 +537,8 @@ class Admin extends CI_Controller {
         $data = $this->input->post();
         unset($data['update']);
         $this->User_model->edit_lead('package', 'id=' . $data['id'], $data);
-        $this->session->set_flashdata('success', 'Update Package successfully.');
-        redirect('admin/package');
+        $this->session->set_flashdata('success', 'Update Credits Successfully.');
+        redirect('admin/credits');
     }
     
     /**
@@ -433,8 +549,8 @@ class Admin extends CI_Controller {
         public function delete_package() {
         $id = $this->uri->segment(3);
         $this->User_model->delete_lead('package', 'id=' . $id);
-        $this->session->set_flashdata('success', 'Package deleted Successfully.');
-        redirect('admin/package');
+        $this->session->set_flashdata('success', 'Credits deleted Successfully.');
+        redirect('admin/credits');
     }
     
     /**

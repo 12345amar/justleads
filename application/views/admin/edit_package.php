@@ -25,7 +25,7 @@
     <![endif]-->
     </head>
 
-<div class="container-fluid">
+<!--<div class="container-fluid">-->
     
     <!-- Bread crumb and right sidebar toggle -->
     <!-- ============================================================== -->
@@ -48,7 +48,7 @@
         <div class="col-lg-12">
             <div class="card card-outline-info">
                 <div class="card-header">
-                    <h4 class="m-b-0 text-white">Create Package </h4>
+                    <h4 class="m-b-0 text-white">Edit Credits </h4>
                 </div>
                 <div class="card-body">
 
@@ -111,7 +111,7 @@
                                 <div class="col-xs-12">
                                     <button class="btn btn-success btn-info" name="update" type="submit">Submit</button>
                                     <?php echo $this->session->flashdata("error"); ?>
-                                    <a href="<?php echo base_url('admin/package'); ?>"><button type="button" class="btn btn-danger">Cancel</button></a>
+                                    <a href="<?php echo base_url('admin/credits'); ?>"><button type="button" class="btn btn-danger">Cancel</button></a>
                                 </div>
                             </div>
 
@@ -125,11 +125,7 @@
     </div>
 </div>
     
-</div>  
-<footer class="footer">
-    © 2018 Material Pro Admin by wrappixel.com
-</footer>
-
+<!--</div> --> 
 <script src="<?php echo base_url(); ?>assets/plugins/jquery/jquery.min.js"></script>
 <!-- Bootstrap tether Core JavaScript -->
 <script src="<?php echo base_url(); ?>assets/plugins/popper/popper.min.js"></script>

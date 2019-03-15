@@ -18,7 +18,7 @@
             <h3 class="text-themecolor m-b-0 m-t-0">Admin</h3>
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="javascript:void(0)">Profile</a></li>
-                <li class="breadcrumb-item active">Form</li>
+                <!--<li class="breadcrumb-item active">Form</li>-->
             </ol>
         </div>
         
@@ -58,7 +58,7 @@
                                     <?php if ($this->session->flashdata('success')) { ?>
                                         <div class="alert alert-success alert-dismissible">
                                             <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                                            <strong>Success!</strong> <?= $this->session->flashdata("success") ?>
+                                            <strong></strong> <?= $this->session->flashdata("success") ?>
                                         </div>
                                     <?php } ?>
 

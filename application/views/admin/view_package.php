@@ -25,7 +25,7 @@
     <![endif]-->
     </head>
 
-<div class="container-fluid">
+<!--<div class="container-fluid">-->
     
     <!-- Bread crumb and right sidebar toggle -->
     <!-- ============================================================== -->
@@ -109,9 +109,7 @@
 
                             <div class="form-group text-center m-t-20">
                                 <div class="col-xs-12">
-                                    <button class="btn btn-success btn-info" name="update" type="submit">Submit</button>
-                                    <?php echo $this->session->flashdata("error"); ?>
-                                    <a href="<?php echo base_url('admin/package'); ?>"><button type="button" class="btn btn-danger">Cancel</button></a>
+                                    <a href="<?php echo base_url('admin/credits'); ?>"><button type="button" class="btn btn-danger">Back</button></a>
                                 </div>
                             </div>
 
@@ -125,10 +123,7 @@
     </div>
 </div>
     
-</div>  
-<footer class="footer">
-    © 2018 Material Pro Admin by wrappixel.com
-</footer>
+<!--</div>-->  
 
 <script src="<?php echo base_url(); ?>assets/plugins/jquery/jquery.min.js"></script>
 <!-- Bootstrap tether Core JavaScript -->

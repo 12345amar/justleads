@@ -110,9 +110,9 @@
                                                          <td><?=$row['mobile']?></td>
                                                          <td><?=$row['mobile']?></td>
                                                         <td>
-                                                            <a href='<?php echo base_url()."admin/edit_lead/".$row['id'] ?>'><i class='far fa-edit' aria-hidden='true'></i></a>&nbsp;&nbsp;
-                                                            <a href='<?php echo base_url()."admin/delete_lead/".$row['id'] ?>' onclick='return confirm("Are you sure to delete this item?")'><i class='fas fa-trash-alt' aria-hidden='true'></i></a>&nbsp;&nbsp;
-                                                            <a href='<?php echo base_url()."admin/view_lead/".$row['id'] ?>'><i class='fas fa-eye' aria-hidden='true'></i></a>
+                                                            <a href='<?php echo base_url()."admin/edit_filter_lead/".$row['id'] ?>'><i class='far fa-edit' aria-hidden='true'></i></a>&nbsp;&nbsp;
+                                                            <a href='<?php echo base_url()."admin/delete_filter_lead/".$row['id'] ?>' onclick='return confirm("Are you sure to delete this item?")'><i class='fas fa-trash-alt' aria-hidden='true'></i></a>&nbsp;&nbsp;
+                                                            <a href='<?php echo base_url()."admin/view_filter_lead/".$row['id'] ?>'><i class='fas fa-eye' aria-hidden='true'></i></a>
                                                         </td>
                                                     </tr>
 						<?php $i++; } ?>
