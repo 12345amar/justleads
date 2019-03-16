@@ -18,11 +18,10 @@ class Admin extends CI_Controller {
      * function: importLeadsByExcel
      * 
      **/
-        public function importLeadsByExcel() {
+    public function importLeadsByExcel() {
         
         if ($_FILES['leads']['tmp_name']) {
             
-            //$fp = fopen($_FILES['userfile']['tmp_name'],'r') or die("can't open file");
             $path   = $_FILES['leads']['tmp_name'];
             $object = PHPExcel_IOFactory::load($path);
             foreach ($object->getWorksheetIterator() as $worksheet) {
@@ -35,7 +34,7 @@ class Admin extends CI_Controller {
                     $mobile        = $worksheet->getCellByColumnAndRow(2, $row)->getValue();
                     $email         = $worksheet->getCellByColumnAndRow(3, $row)->getValue();
                     $location      = $worksheet->getCellByColumnAndRow(4, $row)->getValue();
-                    $lead_source   = $worksheet->getCellByColumnAndRow(5, $row)->getValue();
+                    $lead_source     = $worksheet->getCellByColumnAndRow(5, $row)->getValue();
                     $lead_status   = $worksheet->getCellByColumnAndRow(6, $row)->getValue();
 
                     $data[] = array(
@@ -47,106 +46,63 @@ class Admin extends CI_Controller {
                      'lead_source'     => $lead_source,
                      'lead_status'     => $lead_status
                     );
-                    $where = array(
-                        'buyer_name' => $buyer_name,
-                        'buyer_budget' => $buyer_budget,
-                        'mobile'  => $mobile,
-                        'email' => $email,
-                        'location'  => $location,
-                        'lead_source'  => $lead_source,
-                        'lead_status' => $lead_status
-                            );
-                     $q = $this->db->select("*")
-                            ->where($where)
-                            ->from('leads');
-                     
-                    $data = $this->db->get();
-                    //echo '<pre>';
-                    //print_r($data);                    die();
-                    
-                    if($data->num_rows > 0){
-                    //update process data
-
-                    $data = array(
-                        'buyer_name' => $buyer_name,
-                        'buyer_budget' => $buyer_budget,
-                        'mobile' => $mobile,
-                        'email' => $email,
-                        'location' => $location,
-                        'lead_source' => $lead_source,
-                        'lead_status' => $lead_status
-                    );
-                    
-                $this->db->set
-                    (
-                        'buyer_name', $buyer_name,
-                        'buyer_budget', $buyer_budget,
-                        'mobile', $mobile,
-                        'email', $email,
-                        'location', $location,
-                        'lead_source', $lead_source,
-                        'lead_status', $lead_status
-                    );
-                
-                $this->db-where
-                    (
-                        'buyer_name', $buyer_name,
-                        'buyer_budget', $buyer_budget,
-                        'mobile', $mobile,
-                        'email', $email,
-                        'location', $location,
-                        'lead_source', $lead_source,
-                        'lead_status', $lead_status
-                    );
-                $this->db->update('leads');
-
-
                 }
-                else{
-                    for($i = 0, $j = count(array($row)); $i < $j; $i++){
-                        $data = array(
-                        'buyer_name' => $buyer_name,
-                        'buyer_budget' => $buyer_budget,
-                        'mobile' => $mobile,
-                        'email' => $email,
-                        'location' => $location,
-                        'lead_source' => $lead_source,
-                        'lead_status' => $lead_status
-
-                        );
-
-                        $data['record']=$this->db->insert('leads', $data);
-                        //$insert = $this->db->insert('leads', $data);
-                }
-                $i++;
             }
    
-            
-           /* if ($insert) {
-                
+            //$insert = $this->db->insert_batch('leads', $data);
+           function insert_ignore_batch($table = '', $set = NULL, $escape = NULL) {
+            if ($set !== NULL)
+            {
+                $this->set_insert_batch($set, '', $escape);
+            }
+
+            if (count($this->qb_set) === 0)
+            {
+                // No valid data array. Folds in cases where keys and values did not match up
+                return ($this->db_debug) ? $this->display_error('db_must_use_set') : FALSE;
+            }
+
+            if ($table === '')
+            {
+                if ( ! isset($this->qb_from[0]))
+                {
+                    return ($this->db_debug) ? $this->display_error('db_must_set_table') : FALSE;
+                }
+
+                $table = $this->qb_from[0];
+            }
+
+            // Batch this body
+            $affected_rows = 0;
+            for ($i = 0, $total = count($this->qb_set); $i < $total; $i += 100)
+            {
+                $this->query($this->insert_ignore_batch($this->protect_identifiers($table, TRUE, $escape, FALSE), $this->qb_keys, array_slice($this->qb_set, $i, 100)));
+                $affected_rows += $this->affected_rows();
+            }
+
+            $this->_reset_write();
+            return $affected_rows;
+        }
+
+        function _insert_ignore_batch($table, $keys, $values) {
+            return 'INSERT INTO '.$table.' ('.implode(', ', $keys).') VALUES '.implode(', ', $values);
+        }
+            $this->db->insert_batch('leads', $data);
+            if ($insert) {
                 $this->session->set_flashdata('success', 'File uploaded successfully.');
                 redirect('admin/leads');
             } else {
              
                 $this->session->set_flashdata('error', 'Unable to upload file, try again.');
                 redirect('admin/leads');
-            } */
+            }
             
-        } //else {
-           
-            //$this->session->set_flashdata('error', 'File is not valid, try again.');
-            //redirect('admin/leads');
-        //}
-    }
-    fclose($path) or die("can't close file");
-        
-        }
-        else {
+        } else {
            
             $this->session->set_flashdata('error', 'File is not valid, try again.');
             redirect('admin/leads');
         }
-        }
+    }
     
     
     /**

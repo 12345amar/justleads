@@ -28,7 +28,8 @@
                 </div>
                 <?php } ?>
                 
-                <?php echo form_open_multipart('registration/index', ['id' => 'registration_form', 'method' => 'post', 'class' => "form-horizontal form-material"]); ?>
+                <?php /*echo form_open_multipart('registration/index', ['id' => 'registration_form', 'method' => 'post', 'class' => "form-horizontal form-material"]); */ ?> 
+                <form method="post" class="form-horizontal form-material" id="loginform" action="<?php echo base_url('registration/index'); ?>">
                     <h3 class="box-title m-b-20">Sign Up</h3>
                     <div class="form-group">
                         <div class="col-xs-12">
@@ -72,7 +73,7 @@
                     </div>-->
                     <div class="form-group text-center m-t-20">
                         <div class="col-xs-12">
-                            <button class="btn btn-info btn-lg btn-block text-uppercase waves-effect waves-light" type="submit">Sign Up</button>
+                            <button class="btn btn-info btn-lg btn-block text-uppercase waves-effect waves-light" name="submit" type="submit">Sign Up</button>
                         </div>
                     </div>
                     <div class="form-group m-b-0">

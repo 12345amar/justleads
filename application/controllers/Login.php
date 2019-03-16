@@ -45,7 +45,9 @@ class Login extends CI_Controller {
                     $this->session->set_flashdata('error', 'Username or Password does not match, try again.');                    
                     redirect('login');
                 }
+                $this->session->set_flashdata('error', 'Username or Password is blank.');
             }
+             
          $this->load->view('login');
   
     } 
